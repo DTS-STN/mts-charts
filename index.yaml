@@ -1,0 +1,68 @@
+apiVersion: v1
+entries:
+  graylog:
+  - apiVersion: v1
+    appVersion: 2.4.4
+    created: 2018-10-18T10:27:23.691132217-04:00
+    description: A Graylog2 Helm chart for Kubernetes
+    digest: 4d38024d5765287bff474441d216a807d005d87c9933ad0e85f0ff02df8534e4
+    home: https://github.com/imubit/graylog-helm-chart
+    maintainers:
+    - email: info@imubit.com
+      name: Meir Tseitlin
+    name: graylog
+    sources:
+    - https://github.com/imubit/graylog-helm-chart
+    urls:
+    - graylog-helm-chart/graylog-0.1.0.tgz
+    version: 0.1.0
+  mts-confluence:
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: 2018-10-18T10:27:23.691884568-04:00
+    description: A Helm chart for Kubernetes
+    digest: 191851d40f79a77332f963891012480086044138159e68be28540bfd1e324c7e
+    name: mts-confluence
+    urls:
+    - mts-confluence/mts-confluence-0.1.0.tgz
+    version: 0.1.0
+  mts-flarum:
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: 2018-10-18T10:27:23.688491208-04:00
+    description: A Helm chart for Kubernetes
+    digest: 9354f990ebd5b0e6589c91f4cac233526da296cc56142b618d3aa79ec8ce7330
+    name: mts-flarum
+    urls:
+    - mts-flarum-0.1.0.tgz
+    version: 0.1.0
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: 2018-10-18T10:27:23.693790448-04:00
+    description: A Helm chart for Kubernetes
+    digest: db7c4244e13349a7887d1754786598f87888812d14635e9c9cab2d9664a16c3a
+    name: mts-flarum
+    urls:
+    - mts-flarum/mts-flarum-0.1.0.tgz
+    version: 0.1.0
+  mts-jira:
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: 2018-10-18T10:27:23.694292173-04:00
+    description: A Helm chart for Kubernetes
+    digest: dc43fa4c2b8181f6ed2853a7370b8abcbebd3097cc62902bc946908f02442b54
+    name: mts-jira
+    urls:
+    - mts-jira/mts-jira-0.1.0.tgz
+    version: 0.1.0
+  mts-rocket:
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: 2018-10-18T10:27:23.694595056-04:00
+    description: A Helm chart for Kubernetes
+    digest: 80d212bf5fcdc72fc27f63de5a80f5089edee91e022a324e0abaf1d51e4cc3c4
+    name: mts-rocket
+    urls:
+    - mts-rocket/mts-rocket-0.1.0.tgz
+    version: 0.1.0
+generated: 2018-10-18T10:27:23.686130598-04:00

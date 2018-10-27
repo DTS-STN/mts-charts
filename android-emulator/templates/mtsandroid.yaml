@@ -1,0 +1,31 @@
+{{- $mtsandroidServiceName := include "mtsandroid.fullname" . -}}
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mtsandroidemulator
+  creationTimestamp: null
+  labels:
+    service: mtsandroidemulator
+spec:
+  securityContext:
+    fsGroup: 1000
+  restartPolicy: Always
+  containers:
+  - name: mtsandroid
+    image: mtscontainers.azurecr.io/androidserver
+    ports:
+    - containerPort: 4723
+    - containerPort: 22
+    securityContext:
+       privileged: true
+    volumeMounts:
+    - name: mtsdisk
+      mountPath: /var/buildpipeline/
+      subPath: buildpipeline/
+      readOnly: false
+  volumes:
+  - name: mtsdisk
+    azureFile:
+       secretName: %DISKSECRETNAME%
+       shareName: %DISKSHARENAME%
+       readOnly: false

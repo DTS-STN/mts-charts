@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flarum-deployment
+  labels:
+    app: flarum
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flarum
+  template:
+    metadata:
+      labels:
+        app: flarum
+    spec:
+      containers:
+      - name: mtsflarum
+        image: mtscontainers.azurecr.io/mtsflarum
+        ports:
+        - containerPort: 8888
+        env:
+        - name: FORUM_URL
+          value: "http://flarum.mobiletechnology.solutions"
+        - name: DB_PASS
+          value: {{ .Values.flarum.passwordSecret }}

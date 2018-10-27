@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    service: flarum
+  name: flarum
+spec:
+  ports:
+  - name: "80"
+    port: 80
+    targetPort: 8888
+  type: LoadBalancer
+  selector:
+    app: flarum
+status:
+  loadBalancer: {}
