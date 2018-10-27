@@ -21,6 +21,6 @@ spec:
         - containerPort: 8888
         env:
         - name: FORUM_URL
-          value: "http://flarum.mobiletechnology.solutions"
+          value: {{ .Values.flarum.url }}
         - name: DB_PASS
           value: {{ .Values.flarum.passwordSecret }}
