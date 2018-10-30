@@ -1,25 +1,9 @@
 apiVersion: v1
 entries:
-  graylog:
-  - apiVersion: v1
-    appVersion: 2.4.4
-    created: 2018-10-18T10:27:23.691132217-04:00
-    description: A Graylog2 Helm chart for Kubernetes
-    digest: 4d38024d5765287bff474441d216a807d005d87c9933ad0e85f0ff02df8534e4
-    home: https://github.com/imubit/graylog-helm-chart
-    maintainers:
-    - email: info@imubit.com
-      name: Meir Tseitlin
-    name: graylog
-    sources:
-    - https://github.com/imubit/graylog-helm-chart
-    urls:
-    - graylog-helm-chart/graylog-0.1.0.tgz
-    version: 0.1.0
   mts-confluence:
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-10-18T10:27:23.691884568-04:00
+    created: 2018-10-30T19:58:52.440895-04:00
     description: A Helm chart for Kubernetes
     digest: 191851d40f79a77332f963891012480086044138159e68be28540bfd1e324c7e
     name: mts-confluence
@@ -29,18 +13,9 @@ entries:
   mts-flarum:
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-10-18T10:27:23.688491208-04:00
+    created: 2018-10-30T19:58:52.443484-04:00
     description: A Helm chart for Kubernetes
-    digest: 9354f990ebd5b0e6589c91f4cac233526da296cc56142b618d3aa79ec8ce7330
-    name: mts-flarum
-    urls:
-    - mts-flarum-0.1.0.tgz
-    version: 0.1.0
-  - apiVersion: v1
-    appVersion: "1.0"
-    created: 2018-10-18T10:27:23.693790448-04:00
-    description: A Helm chart for Kubernetes
-    digest: db7c4244e13349a7887d1754786598f87888812d14635e9c9cab2d9664a16c3a
+    digest: be9ddad7ce74168b787731707e0980bfffc416d637a7fe9946547be33373a028
     name: mts-flarum
     urls:
     - mts-flarum/mts-flarum-0.1.0.tgz
@@ -48,7 +23,7 @@ entries:
   mts-jira:
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-10-18T10:27:23.694292173-04:00
+    created: 2018-10-30T19:58:52.443994-04:00
     description: A Helm chart for Kubernetes
     digest: dc43fa4c2b8181f6ed2853a7370b8abcbebd3097cc62902bc946908f02442b54
     name: mts-jira
@@ -58,11 +33,42 @@ entries:
   mts-rocket:
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-10-18T10:27:23.694595056-04:00
+    created: 2018-10-30T19:58:52.444463-04:00
     description: A Helm chart for Kubernetes
     digest: 80d212bf5fcdc72fc27f63de5a80f5089edee91e022a324e0abaf1d51e4cc3c4
     name: mts-rocket
     urls:
     - mts-rocket/mts-rocket-0.1.0.tgz
     version: 0.1.0
-generated: 2018-10-18T10:27:23.686130598-04:00
+  mts-traefik:
+  - apiVersion: v1
+    appVersion: 1.7.3
+    created: 2018-10-30T19:58:52.445486-04:00
+    description: A Traefik based Kubernetes ingress controller with Let's Encrypt
+      support
+    digest: 0dd18623eba6396a95244b4bb43f1e135030a858b0e4a1a82214c1c767fc456c
+    engine: gotpl
+    home: https://traefik.io/
+    icon: http://traefik.io/traefik.logo.png
+    keywords:
+    - traefik
+    - ingress
+    - acme
+    - letsencrypt
+    maintainers:
+    - email: kent.rancourt@microsoft.com
+      name: krancour
+    - email: emile@vauge.com
+      name: emilevauge
+    - email: daniel.tomcej@gmail.com
+      name: dtomcej
+    - email: ludovic@containo.us
+      name: ldez
+    name: mts-traefik
+    sources:
+    - https://github.com/containous/traefik
+    - https://github.com/krancour/charts/tree/master/traefik
+    urls:
+    - mts-traefik/mts-traefik-1.52.5.tgz
+    version: 1.52.5
+generated: 2018-10-30T19:58:52.438714-04:00
