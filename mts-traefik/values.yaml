@@ -24,7 +24,7 @@ debug:
 
 aks:
   fqdn:
-  location: "canadaeast"
+  region: "canadaeast"
 
 deploymentStrategy: {}
   # rollingUpdate:
