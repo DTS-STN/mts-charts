@@ -78,15 +78,6 @@ spec:
           successThreshold: 1
           timeoutSeconds: 2
         env:
-        - name: KUBERNETES_PORT_443_TCP_ADDR
-          value: "{{ .Values.aks.fqdn }}.hcp.{{ .Values.aks.region }}.azmk8s.io"
-        - name: KUBERNETES_PORT
-          value: "tcp://{{ .Values.aks.fqdn }}.hcp.{{ .Values.aks.region }}.azmk8s.io:443"
-        - name: KUBERNETES_PORT_443_TCP
-          value: "tcp://{{ .Values.aks.fqdn }}.hcp.{{ .Values.aks.region }}.azmk8s.io:443"
-        - name: KUBERNETES_SERVICE_HOST
-          value: "{{ .Values.aks.fqdn }}.hcp.{{ .Values.aks.region }}.azmk8s.io"
-
         {{- if and .Values.acme.enabled (eq .Values.acme.challengeType "dns-01") .Values.acme.dnsProvider.name }}
         {{- range $k, $_ := (index .Values.acme.dnsProvider .Values.acme.dnsProvider.name) }}
           - name: {{ $k }}
@@ -96,6 +87,14 @@ spec:
                 key: {{ $k }}
         {{- end }}
         {{- end }}
+          - name: KUBERNETES_PORT_443_TCP_ADDR
+            value: "{{ .Values.aks.fqdn }}.hcp.{{ .Values.aks.region }}.azmk8s.io"
+          - name: KUBERNETES_PORT
+            value: "tcp://{{ .Values.aks.fqdn }}.hcp.{{ .Values.aks.region }}.azmk8s.io:443"
+          - name: KUBERNETES_PORT_443_TCP
+            value: "tcp://{{ .Values.aks.fqdn }}.hcp.{{ .Values.aks.region }}.azmk8s.io:443"
+          - name: KUBERNETES_SERVICE_HOST
+            value: "{{ .Values.aks.fqdn }}.hcp.{{ .Values.aks.region }}.azmk8s.io"
         volumeMounts:
         - mountPath: /config
           name: config
