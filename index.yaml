@@ -3,7 +3,7 @@ entries:
   mts-confluence:
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-10-30T19:58:52.440895-04:00
+    created: 2018-10-31T08:53:11.421038192-04:00
     description: A Helm chart for Kubernetes
     digest: 191851d40f79a77332f963891012480086044138159e68be28540bfd1e324c7e
     name: mts-confluence
@@ -13,9 +13,9 @@ entries:
   mts-flarum:
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-10-30T19:58:52.443484-04:00
+    created: 2018-10-31T08:53:11.423617838-04:00
     description: A Helm chart for Kubernetes
-    digest: be9ddad7ce74168b787731707e0980bfffc416d637a7fe9946547be33373a028
+    digest: 63f3c8237ed83a866a4d51d8366fed4112d9892635f36ed4223a4864c46e2657
     name: mts-flarum
     urls:
     - mts-flarum/mts-flarum-0.1.0.tgz
@@ -23,7 +23,7 @@ entries:
   mts-jira:
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-10-30T19:58:52.443994-04:00
+    created: 2018-10-31T08:53:11.423938882-04:00
     description: A Helm chart for Kubernetes
     digest: dc43fa4c2b8181f6ed2853a7370b8abcbebd3097cc62902bc946908f02442b54
     name: mts-jira
@@ -33,7 +33,7 @@ entries:
   mts-rocket:
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-10-30T19:58:52.444463-04:00
+    created: 2018-10-31T08:53:11.424298967-04:00
     description: A Helm chart for Kubernetes
     digest: 80d212bf5fcdc72fc27f63de5a80f5089edee91e022a324e0abaf1d51e4cc3c4
     name: mts-rocket
@@ -43,10 +43,10 @@ entries:
   mts-traefik:
   - apiVersion: v1
     appVersion: 1.7.3
-    created: 2018-10-30T19:58:52.445486-04:00
+    created: 2018-10-31T08:53:11.426581751-04:00
     description: A Traefik based Kubernetes ingress controller with Let's Encrypt
       support
-    digest: 0dd18623eba6396a95244b4bb43f1e135030a858b0e4a1a82214c1c767fc456c
+    digest: e1d07debb4d2c255c1dd0c2f349888645ac4ddf43b027a42d2417ecb7b939e7d
     engine: gotpl
     home: https://traefik.io/
     icon: http://traefik.io/traefik.logo.png
@@ -71,4 +71,4 @@ entries:
     urls:
     - mts-traefik/mts-traefik-1.52.5.tgz
     version: 1.52.5
-generated: 2018-10-30T19:58:52.438714-04:00
+generated: 2018-10-31T08:53:11.420440825-04:00
