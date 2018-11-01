@@ -18,9 +18,9 @@ spec:
   - ReadWriteOnce
   resources:
     requests:
-      storage: 8Gi
+      storage: {{ .Values persistance.size }}
   storageClassName: default
-  volumeName: pvc-f7b0ff34-c33b-11e8-ad9e-0a58ac1f05ca
+  volumeName:  {{ .Values.persistsance.existingClaim }}
 status:
   accessModes:
   - ReadWriteOnce

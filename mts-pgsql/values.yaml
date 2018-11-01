@@ -82,6 +82,7 @@ persistence:
   size: 8Gi
   subPath: "postgresql-db"
   mountPath: /var/lib/postgresql/data/pgdata
+  existingClaim:
 
   # annotations: {}
 
