@@ -1,9 +1,25 @@
 apiVersion: v1
 entries:
+  atlassian-jira-software:
+  - apiVersion: v1
+    appVersion: 7.10.1
+    created: 2018-11-01T09:15:51.230273-04:00
+    description: Project Management Tool for Agile Teams.
+    digest: c4078d808daf78f632b4fbcac7838e6279cf5a5b3aa974463d5c4d137387c77a
+    home: https://www.atlassian.com/software/jira
+    keywords:
+    - atlassian
+    - jira
+    name: atlassian-jira-software
+    sources:
+    - https://github.com/cptactionhank/docker-atlassian-jira-software
+    urls:
+    - atlassian-jira-software/atlassian-jira-software-0.1.0.tgz
+    version: 0.1.0
   mts-confluence:
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-10-31T08:53:11.421038192-04:00
+    created: 2018-11-01T09:15:51.231402-04:00
     description: A Helm chart for Kubernetes
     digest: 191851d40f79a77332f963891012480086044138159e68be28540bfd1e324c7e
     name: mts-confluence
@@ -13,7 +29,7 @@ entries:
   mts-flarum:
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-10-31T08:53:11.423617838-04:00
+    created: 2018-11-01T09:15:51.234596-04:00
     description: A Helm chart for Kubernetes
     digest: 63f3c8237ed83a866a4d51d8366fed4112d9892635f36ed4223a4864c46e2657
     name: mts-flarum
@@ -23,7 +39,7 @@ entries:
   mts-jira:
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-10-31T08:53:11.423938882-04:00
+    created: 2018-11-01T09:15:51.235168-04:00
     description: A Helm chart for Kubernetes
     digest: dc43fa4c2b8181f6ed2853a7370b8abcbebd3097cc62902bc946908f02442b54
     name: mts-jira
@@ -33,7 +49,7 @@ entries:
   mts-rocket:
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-10-31T08:53:11.424298967-04:00
+    created: 2018-11-01T09:15:51.235735-04:00
     description: A Helm chart for Kubernetes
     digest: 80d212bf5fcdc72fc27f63de5a80f5089edee91e022a324e0abaf1d51e4cc3c4
     name: mts-rocket
@@ -43,10 +59,10 @@ entries:
   mts-traefik:
   - apiVersion: v1
     appVersion: 1.7.3
-    created: 2018-10-31T08:53:11.426581751-04:00
+    created: 2018-11-01T09:15:51.238251-04:00
     description: A Traefik based Kubernetes ingress controller with Let's Encrypt
       support
-    digest: e1d07debb4d2c255c1dd0c2f349888645ac4ddf43b027a42d2417ecb7b939e7d
+    digest: e9afcea5b3a723479a4ec466b7a69c8b460088a36a0e9d02276ddfb4a1c9af1f
     engine: gotpl
     home: https://traefik.io/
     icon: http://traefik.io/traefik.logo.png
@@ -71,4 +87,4 @@ entries:
     urls:
     - mts-traefik/mts-traefik-1.52.5.tgz
     version: 1.52.5
-generated: 2018-10-31T08:53:11.420440825-04:00
+generated: 2018-11-01T09:15:51.229606-04:00
