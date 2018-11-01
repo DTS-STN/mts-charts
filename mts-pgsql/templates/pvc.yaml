@@ -18,9 +18,9 @@ spec:
   - ReadWriteOnce
   resources:
     requests:
-      storage: {{ .Values persistance.size }}
+      storage: {{ .Values persistence.size }}
   storageClassName: default
-  volumeName:  {{ .Values.persistsance.existingClaim }}
+  volumeName:  {{ .Values.persistence.existingClaim }}
 status:
   accessModes:
   - ReadWriteOnce
