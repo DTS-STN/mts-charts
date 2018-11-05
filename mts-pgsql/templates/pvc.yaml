@@ -18,9 +18,13 @@ spec:
   - ReadWriteOnce
   resources:
     requests:
-      storage: 8Gi
+      storage: {{ .Values.persistence.size }}
   storageClassName: default
+<<<<<<< HEAD
   volumeName: jira-restored
+=======
+  volumeName:  {{ .Values.persistence.existingClaim }}
+>>>>>>> ee6d3c52f29ea02e70fdc236b81708af71356404
 status:
   accessModes:
   - ReadWriteOnce

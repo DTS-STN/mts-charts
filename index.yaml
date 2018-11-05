@@ -1,9 +1,25 @@
 apiVersion: v1
 entries:
+  atlassian-confluence:
+  - apiVersion: v1
+    appVersion: 6.9.0
+    created: 2018-11-05T12:25:47.123877607-05:00
+    description: Enterprise Wiki Collaboration Platform.
+    digest: 8bf4bccb2f9bda2dbc9e852b7f439157b75baedcdd13275ca50641d0697e8039
+    home: https://www.atlassian.com/software/confluence
+    keywords:
+    - atlassian
+    - confluence
+    name: atlassian-confluence
+    sources:
+    - https://bitbucket.org/atlassian/docker-atlassian-confluence-server
+    urls:
+    - atlassian-confluence/atlassian-confluence-0.1.0.tgz
+    version: 0.1.0
   atlassian-jira-software:
   - apiVersion: v1
     appVersion: 7.10.1
-    created: 2018-11-05T11:12:52.812544707-05:00
+    created: 2018-11-05T12:25:47.124289598-05:00
     description: Project Management Tool for Agile Teams.
     digest: c4078d808daf78f632b4fbcac7838e6279cf5a5b3aa974463d5c4d137387c77a
     home: https://www.atlassian.com/software/jira
@@ -19,17 +35,26 @@ entries:
   mts-confluence:
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-11-05T11:12:52.813139381-05:00
+    created: 2018-11-05T12:25:47.125432023-05:00
     description: A Helm chart for Kubernetes
-    digest: ea25b1d8c15dce255db58db415fef791264582d056721185ce9b5e00f3c4d45d
+    digest: 772f5e28c6bd112ef1e525ce176b83def71b6d23941f900947697f403c6ee824
     name: mts-confluence
     urls:
     - mts-confluence/mts-confluence-0.2.0.tgz
     version: 0.2.0
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: 2018-11-05T12:25:47.124698172-05:00
+    description: A Helm chart for Kubernetes
+    digest: 8d5d14a6dfd3bf876e7ecb2bf703959c398347408da19ac8b68b9565eb617778
+    name: mts-confluence
+    urls:
+    - mts-confluence/mts-confluence-0.1.0.tgz
+    version: 0.1.0
   mts-flarum:
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-11-05T11:12:52.816733485-05:00
+    created: 2018-11-05T12:25:47.127739443-05:00
     description: A Helm chart for Kubernetes
     digest: 63f3c8237ed83a866a4d51d8366fed4112d9892635f36ed4223a4864c46e2657
     name: mts-flarum
@@ -39,16 +64,16 @@ entries:
   mts-jira:
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-11-05T11:12:52.817423479-05:00
+    created: 2018-11-05T12:25:47.128299805-05:00
     description: A Helm chart for Kubernetes
-    digest: dc43fa4c2b8181f6ed2853a7370b8abcbebd3097cc62902bc946908f02442b54
+    digest: d1dcd76b52f27462ce5559be336e7cf1ce2f9762ed464eb548b1ccc6a0e7d5a7
     name: mts-jira
     urls:
-    - mts-jira/mts-jira-0.1.0.tgz
-    version: 0.1.0
+    - mts-jira/mts-jira-0.2.0.tgz
+    version: 0.2.0
   mts-pgsql:
   - appVersion: 9.6.2
-    created: 2018-11-05T11:12:52.819207082-05:00
+    created: 2018-11-05T12:25:47.129232093-05:00
     description: Object-relational database management system (ORDBMS) with an emphasis
       on extensibility and on standards-compliance.
     digest: 3c907e3d9904795f37a90219a1f7c598578f90d3dfe3b800e8c153d098c0d9c7
@@ -70,7 +95,7 @@ entries:
   mts-rocket:
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-11-05T11:12:52.819920362-05:00
+    created: 2018-11-05T12:25:47.129510342-05:00
     description: A Helm chart for Kubernetes
     digest: 80d212bf5fcdc72fc27f63de5a80f5089edee91e022a324e0abaf1d51e4cc3c4
     name: mts-rocket
@@ -80,7 +105,7 @@ entries:
   mts-traefik:
   - apiVersion: v1
     appVersion: 1.7.3
-    created: 2018-11-05T11:12:52.823351828-05:00
+    created: 2018-11-05T12:25:47.131888026-05:00
     description: A Traefik based Kubernetes ingress controller with Let's Encrypt
       support
     digest: e9afcea5b3a723479a4ec466b7a69c8b460088a36a0e9d02276ddfb4a1c9af1f
@@ -108,4 +133,4 @@ entries:
     urls:
     - mts-traefik/mts-traefik-1.52.5.tgz
     version: 1.52.5
-generated: 2018-11-05T11:12:52.807898328-05:00
+generated: 2018-11-05T12:25:47.123176067-05:00

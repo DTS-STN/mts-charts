@@ -4,6 +4,9 @@
 
 replicaCount: 1
 
+confluence:
+   url: jira.mobiletechnology.solutions
+
 image:
   repository: nginx
   tag: stable

@@ -10,7 +10,7 @@ spec:
   - name: "80"
     port: 80
     targetPort: 8080
-  type: LoadBalancer
+  type: NodePort
   selector:
     service: mtsjira
 status:
