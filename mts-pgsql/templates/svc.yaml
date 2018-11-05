@@ -13,23 +13,19 @@ metadata:
     prometheus.io/port: "9187"
 {{- end }}
 spec:
-  type: {{ .Values.service.type }}
   ports:
-  {{- if .Values.metrics.enabled }}
-  - name: metrics
-    port: 9187
-    targetPort: metrics
-  {{- end }}
-  - name: postgresql
-    port: {{ .Values.service.port }}
-    targetPort: postgresql
-  {{- if (and (eq .Values.service.type "NodePort") (not (empty .Values.service.nodePort))) }}
-    nodePort: {{ .Values.service.nodePort }}
-  {{- end }}
-{{- if .Values.service.externalIPs }}
-  externalIPs:
-{{ toYaml .Values.service.externalIPs | indent 4 }}
-{{- end }}
+  - name: "5432"
+    port: 5432
+    targetPort: 5432
+  type: LoadBalancer
+  selector:
   selector:
     app: {{ template "postgresql.name" . }}
     release: {{ .Release.Name }}
+status:
+  loadBalancer: {}
+
+
+
+
+
