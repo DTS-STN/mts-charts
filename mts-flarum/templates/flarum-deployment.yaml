@@ -16,11 +16,27 @@ spec:
     spec:
       containers:
       - name: mtsflarum
-        image: mtscontainers.azurecr.io/mtsflarum
+        image: mtscontainers.azurecr.io/mtsflarum:0.3
         ports:
         - containerPort: 8888
         env:
         - name: FORUM_URL
           value: {{ .Values.flarum.url }}
         - name: DB_PASS
-          value: {{ .Values.flarum.passwordSecret }}
+          value: {{ .Values.flarum.mariadbpass }}
+        - name: DB_HOST
+          value: {{ .Values.flarum.mariadbhost }}
+        - name: DB_NAME
+          value: {{ .Values.flarum.mariadbname }}
+        - name: DB_PREF
+          value: {{ .Values.flarum.mariadbpref }}
+        - name: DB_PORT
+          value: {{ .Values.flarum.mariadbport }}
+        - name: FLARUM_ADMIN_USER
+          value: {{ .Values.flarum.flarumadminuser }}
+        - name: FLARUM_ADMIN_PASS
+          value: {{ .Values.flarum.flarumadminpass }}
+        - name: FLARUM_ADMIN_MAIL
+          value: {{ .Values.flarum.flarumadminemail }}
+        - name: FLARUM_TITLE
+          value: {{ .Values.flarum.flarumtitle }}
