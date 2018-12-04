@@ -1,0 +1,16 @@
+name: mts-apache
+version: 0.1.0
+appVersion: 2.4.37
+description: Chart for Apache HTTP Server -based off of Bitnami chart
+keywords:
+- apache
+- http
+- https
+- www
+- web
+- reverse proxy
+home: https://httpd.apache.org
+maintainers:
+- name: MTS
+  email: gocmts@gmail.com
+engine: gotpl
