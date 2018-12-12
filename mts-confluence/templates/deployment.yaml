@@ -8,8 +8,26 @@ metadata:
 spec:
   restartPolicy: Always
   containers:
-  - name: mtsjira
-    image: mtscontainers.azurecr.io/mtsconfluence
+  - name: mtsconfluence
+    image: mtscontainers.azurecr.io/mtsconfluence:0.3.1
+    imagePullPolicy: Always
     ports:
     - containerPort: 8090
+    env:
+    - name: LICENSE
+      value: {{ .Values.confluence.license }}
+    - name: SERVERID
+      value: {{ .Values.confluence.serverid }}
+    - name: POSTGRESURL
+      value: {{ .Values.confluence.postgresurl }}
+    - name: POSTGRESPASSWORD
+      value: {{ .Values.confluence.postgrespassword }}
+    - name: POSTGRESUSER
+      value: {{ .Values.confluence.postgresuser }}
+    - name: CONFLUENCEURL
+      value: {{ .Values.confluence.confluenceurl }}
+    - name: HTTPS
+      value: "{{ .Values.confluence.https }}"
+    - name: UPGRADE
+      value: "{{ .Values.confluence.upgrade }}"
 
