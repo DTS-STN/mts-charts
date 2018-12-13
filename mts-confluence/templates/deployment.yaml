@@ -30,4 +30,13 @@ spec:
       value: "{{ .Values.confluence.https }}"
     - name: UPGRADE
       value: "{{ .Values.confluence.upgrade }}"
-
+    volumeMounts:
+     - name: backupvolume
+       mountPath: /var/atlassian/application-data/confluence/backups
+       subPath: {{ .Values.confluence.backupfolderpath }}
+  securityContext:
+    fsGroup: 1000
+  volumes:
+  - name: backupvolume
+    persistentVolumeClaim:
+      claimName: pvc-mtsbackup-confluence
