@@ -9,7 +9,33 @@ spec:
   restartPolicy: Always
   containers:
   - name: mtsjira
-    image: mtscontainers.azurecr.io/mtsjira
+    image: {{ .Values.jira.image }}
     ports:
     - containerPort: 8080
-
+    env:
+      - name: LICENSE
+        value: {{ .Values.jira.license }}
+      - name: SERVERID
+        value: {{ .Values.jira.serverid }}
+      - name: POSTGRESURL
+        value: {{ .Values.jira.postgresurl }}
+      - name: POSTGRESPASSWORD
+        value: {{ .Values.jira.postgrespassword }}
+      - name: POSTGRESUSER
+        value: {{ .Values.jira.postgresuser }}
+      - name: JIRAURL
+        value: {{ .Values.jira.jiraurl }}
+      - name: HTTPS
+        value: "{{ .Values.jira.https }}"
+      - name: UPGRADE
+        value: "{{ .Values.jira.upgrade }}"
+    volumeMounts:
+     - name: backupvolume
+       mountPath: /var/atlassian/application-data/jira/backups
+       subPath: {{ .Values.jira.backupfolderpath }}
+    securityContext:
+      fsGroup: 1000
+  volumes:
+  - name: backupvolume
+    persistentVolumeClaim:
+      claimName: pvc-mtsbackup-jira

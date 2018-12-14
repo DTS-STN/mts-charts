@@ -4,8 +4,13 @@
 
 replicaCount: 1
 
-confluence:
+jira:
    url: jira.mobiletechnology.solutions
+   azurestorageaccountname: accountname
+   azurestorageaccountkey: accountkey
+   backupfolderpath: /prod/jira
+   backupsharename: backupfiles
+   image: mtscontainers.azurecr.io/mtsjira
 
 image:
   repository: nginx
