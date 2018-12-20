@@ -1,0 +1,61 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.vanilla.name }}
+  labels:
+    app: {{ .Values.vanilla.name }}
+spec:
+  ports:
+    - port: 80
+      protocol: TCP
+      targetPort: 80
+  selector:
+    app: {{ .Values.vanilla.name }}
+  sessionAffinity: None
+  type: ClusterIP
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: {{ .Values.vanilla.name }}
+spec:
+  replicas: {{ .Values.vanilla.replicas }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.vanilla.name }}
+    spec:
+      containers:
+      - name: {{ .Values.vanilla.name }}
+        image: {{ .Values.vanilla.image }}
+        ports:
+        - containerPort: 80
+        env:
+        - name: VANILLA_DB_USERNAME
+          value: {{ .Values.mariadb.dbusername }}
+        - name: VANILLA_DB_PASSWORD
+          value: {{ .Values.mariadb.dbpassword }}
+        - name: VANILLA_DB_HOST
+          value: {{ .Values.mariadb.name }}
+        - name: VANILLA_DB_NAME
+          value: {{ .Values.mariadb.dbname }}
+        - name: VANILLA_DEVELOPER_EMAILS
+          value: {{ .Values.vanilla.email.developeremail }}
+        - name: VANILLA_HOSTNAME
+          value: {{ .Values.vanilla.hostname }}
+        - name: vanilla_SMTP_ADDRESS
+          value: {{ .Values.vanilla.email.smtpserver }}
+        - name: VANILLA_SMTP_PORT
+          value: "{{ .Values.vanilla.email.smtpport }}"
+        - name: VANILLA_SMTP_USER_NAME
+          value: {{ .Values.vanilla.email.smtpuser }}
+        - name: VANILLA_SMTP_PASSWORD
+          value: {{ .Values.vanilla.email.smtppassword }}
+        resources:
+          requests:
+            cpu: 500m
+            memory: 1Gi
+          limits:
+            cpu: 1
+            memory: 2Gi
+        imagePullPolicy: Always

@@ -8,45 +8,15 @@ jira:
    url: jira.mobiletechnology.solutions
    azurestorageaccountname: accountname
    azurestorageaccountkey: accountkey
-   backupfolderpath: /prod/jira
+   backupfolderpath: prod/jira
+   attachmentsbackupfolderpath: prod/jira/home
    backupsharename: backupfiles
    image: mtscontainers.azurecr.io/mtsjira
+   resources: 
+     mincpu: 2
+     minmemory: 4Gi
+     jvmminmemory: 2048m
+     jvmmaxmemory: 4096m
 
-image:
-  repository: nginx
-  tag: stable
-  pullPolicy: IfNotPresent
 
-service:
-  type: ClusterIP
-  port: 80
 
-ingress:
-  enabled: true
-  annotations: {}
-    # kubernetes.io/ingress.class: nginx
-    # kubernetes.io/tls-acme: "true"
-  path: /
-  hosts: []
-  tls: []
-  #  - secretName: chart-example-tls
-  #    hosts:
-  #      - chart-example.local
-
-resources: {}
-  # We usually recommend not to specify default resources and to leave this as a conscious
-  # choice for the user. This also increases chances charts run on environments with little
-  # resources, such as Minikube. If you do want to specify resources, uncomment the following
-  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
-  # limits:
-  #  cpu: 100m
-  #  memory: 128Mi
-  # requests:
-  #  cpu: 100m
-  #  memory: 128Mi
-
-nodeSelector: {}
-
-tolerations: []
-
-affinity: {}

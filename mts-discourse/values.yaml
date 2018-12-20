@@ -1,0 +1,33 @@
+discourse:
+    name: mts-discourse
+    replicas: 1
+    image: mtscontainers.azurecr.io/mtsdiscourse
+    hostname: discourse-benrd.mobiletechnology.solutions
+    email: 
+        developeremail: gocmts@gmail.com
+        smtpuser: gocmts
+        smtppassword: changeme
+        smtpserver: smtp.gmail.com
+        smtpport: 465
+    persistence:
+        size: 5Gi
+        storageClass: default
+postgres:
+    name: discourse-postgres
+    replicas: 1
+    image: postgres 
+    dbusername: discourse
+    dbpassword: changeme
+    dbname: discoursedb
+    persistence:
+        size: 10Gi
+        storageClass: default
+redis:
+    name: discourse-redis
+    redis: discourse-redis
+    replicas: 1
+    image: redis 
+    
+
+    
+        

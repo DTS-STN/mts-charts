@@ -1,0 +1,85 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.discourse.name }}
+  labels:
+    app: {{ .Values.discourse.name }}
+spec:
+  ports:
+    - port: 80
+      protocol: TCP
+      targetPort: 80
+  selector:
+    app: {{ .Values.discourse.name }}
+  sessionAffinity: None
+  type: ClusterIP
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: {{ .Values.discourse.name }}-pv
+  labels:
+    app: {{ .Values.discourse.name }}
+spec:
+  storageClassName: {{ .Values.discourse.persistence.storageClass | quote }}
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: {{ .Values.discourse.persistence.size | quote }}
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: {{ .Values.discourse.name }}
+spec:
+  replicas: {{ .Values.discourse.replicas }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.discourse.name }}
+    spec:
+      containers:
+      - name: {{ .Values.discourse.name }}
+        image: {{ .Values.discourse.image }}
+        command: ["/sbin/boot"]
+        ports:
+        - containerPort: 80
+        env:
+        - name: DISCOURSE_DB_USERNAME
+          value: {{ .Values.postgres.dbusername }}
+        - name: DISCOURSE_DB_PASSWORD
+          value: {{ .Values.postgres.dbpassword }}
+        - name: DISCOURSE_DB_HOST
+          value: {{ .Values.postgres.name }}
+        - name: DISCOURSE_DB_NAME
+          value: {{ .Values.postgres.dbname }}
+        - name: DISCOURSE_REDIS_HOST
+          value: {{ .Values.redis.name }}
+        - name: DISCOURSE_DEVELOPER_EMAILS
+          value: {{ .Values.discourse.email.developeremail }}
+        - name: DISCOURSE_HOSTNAME
+          value: {{ .Values.discourse.hostname }}
+        - name: DISCOURSE_SMTP_ADDRESS
+          value: {{ .Values.discourse.email.smtpserver }}
+        - name: DISCOURSE_SMTP_PORT
+          value: "{{ .Values.discourse.email.smtpport }}"
+        - name: DISCOURSE_SMTP_USER_NAME
+          value: {{ .Values.discourse.email.smtpuser }}
+        - name: DISCOURSE_SMTP_PASSWORD
+          value: {{ .Values.discourse.email.smtppassword }}
+        resources:
+          requests:
+            cpu: 500m
+            memory: 1Gi
+          limits:
+            cpu: 1
+            memory: 2Gi
+        imagePullPolicy: Always
+        volumeMounts:
+        - name: discourse-storage
+          mountPath: /shared
+      volumes:
+      - name: discourse-storage
+        persistentVolumeClaim:
+          claimName: {{ .Values.discourse.name }}-pv

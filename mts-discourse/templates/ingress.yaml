@@ -1,0 +1,14 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: discourse-ingress
+  annotations:
+    kubernetes.io/ingress.class: traefik
+spec:
+  rules:
+  - host: {{ .Values.discourse.hostname }}
+    http:
+      paths:
+      - backend:
+          serviceName: {{ .Values.discourse.name }}
+          servicePort: 80

@@ -1,0 +1,23 @@
+vanilla:
+    name: mts-vanilla
+    replicas: 1
+    image: mtscontainers.azurecr.io/mtsvanilla:0.1.1
+    hostname: vanilla-benrd.mobiletechnology.solutions
+    email: 
+        developeremail: gocmts@gmail.com
+        smtpuser: gocmts
+        smtppassword: changeme
+        smtpserver: smtp.gmail.com
+        smtpport: 465
+mariadb:
+    name: mts-vanilla-mariadb
+    replicas: 1
+    image: mariadb 
+    dbusername: vanilla
+    dbpassword: changeme
+    dbname: vanilladb
+    rootpassword: changeme
+    persistence:
+        size: 10Gi
+        storageClass: default
+

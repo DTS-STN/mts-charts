@@ -30,12 +30,20 @@ spec:
         value: "{{ .Values.jira.https }}"
       - name: UPGRADE
         value: "{{ .Values.jira.upgrade }}"
+      - name: JVM_MINIMUM_MEMORY
+        value: {{ .Values.jira.resources.jvmminmemory | quote }}
+      - name: JVM_MAXIMUM_MEMORY
+        value: {{ .Values.jira.resources.jvmmaxmemory | quote }}
     volumeMounts:
      - name: backupvolume
-       mountPath: /var/atlassian/application-data/jira/export
+       mountPath: /var/atlassian/application-data/jira
        subPath: {{ .Values.jira.backupfolderpath }}
     securityContext:
       fsGroup: 1000
+    resources:
+      requests:
+        cpu: {{ .Values.jira.resources.mincpu | quote }}
+        memory: {{ .Values.jira.resources.minmemory | quote }}
   volumes:
   - name: backupvolume
     persistentVolumeClaim:
