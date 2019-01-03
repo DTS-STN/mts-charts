@@ -1,0 +1,47 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: {{ .Values.mtsdisk.diskname }}
+spec:
+{{ if .Values.mtsdisk.storageClass }}
+  storageClassName: {{ .Values.mtsdisk.storageClass | quote }}
+{{ else }}
+  storageClassName: "default"
+{{ end }} 
+  capacity:
+{{ if .Values.mtsdisk.size }}
+    storage: {{ .Values.mtsdisk.size }} 
+{{ else }}
+    storage: 50Gi
+{{ end }}   
+  accessModes:
+    - ReadWriteOnce
+  azureDisk:
+    kind: Managed
+    diskName: {{ .Values.mtsdisk.diskname }}
+    diskURI: {{ .Values.mtsdisk.uri }}
+  persistentVolumeReclaimPolicy: Retain
+  claimRef:
+    name: {{ .Values.mtsdisk.diskname }}-pvc
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ .Values.mtsdisk.diskname }}-pvc
+  annotations:
+    volume.beta.kubernetes.io/storage-class: default
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+{{ if .Values.mtsdisk.size }}
+      storage: {{ .Values.mtsdisk.size }} 
+{{ else }}
+      storage: 50Gi
+{{ end }} 
+{{ if .Values.mtsdisk.storageClass }}
+  storageClassName: {{ .Values.mtsdisk.storageClass | quote }}
+{{ else }}
+  storageClassName: "default"
+{{ end }} 
