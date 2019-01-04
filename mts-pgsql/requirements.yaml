@@ -1,0 +1,6 @@
+dependencies: 
+  - name: mts-disk
+    repository: http://helm.mobiletechnology.solutions
+    version: 0.1.0
+    condition: .Values.persistence.existingClaim
+

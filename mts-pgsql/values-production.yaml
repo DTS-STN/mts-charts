@@ -57,16 +57,16 @@ securityContext:
   runAsUser: 1001
 
 replication:
-  enabled: false
+  enabled: true
   user: repl_user
   password: repl_password
-  slaveReplicas: 1
+  slaveReplicas: 2
   ## Set synchronous commit mode: on, off, remote_apply, remote_write and local
   ## ref: https://www.postgresql.org/docs/9.6/runtime-config-wal.html#GUC-WAL-LEVEL
-  synchronousCommit: "off"
+  synchronousCommit: "on"
   ## From the number of `slaveReplicas` defined above, set the number of those that will have synchronous replication
   ## NOTE: It cannot be > slaveReplicas
-  numSynchronousReplicas: 0
+  numSynchronousReplicas: 1
   ## Replication Cluster application name. Useful for defining multiple replication policies
   applicationName: my_application
 
@@ -79,16 +79,16 @@ postgresqlUsername: postgres
 ##
 # postgresqlPassword:
 
+## Create a database
+## ref: https://github.com/bitnami/bitnami-docker-postgresql/blob/master/README.md#creating-a-database-on-first-run
+##
+# postgresqlDatabase:
+
 ## PostgreSQL password using existing secret
 ## existingSecret: secret
 
 ## Mount PostgreSQL secret as a file instead of passing environment variable
 # usePasswordFile: false
-
-## Create a database
-## ref: https://github.com/bitnami/bitnami-docker-postgresql/blob/master/README.md#creating-a-database-on-first-run
-##
-# postgresqlDatabase:
 
 ## PostgreSQL configuration
 ## Specify runtime configuration parameters as a dict, using camelCase, e.g.
@@ -122,21 +122,15 @@ postgresqlUsername: postgres
 #   my_init_script.sh:|
 #      #!/bin/sh
 #      echo "Do something."
-#
+
 ## ConfigMap with scripts to be run at first boot
 ## NOTE: This will override initdbScripts
 # initdbScriptsConfigMap:
-
-## Optional duration in seconds the pod needs to terminate gracefully.
-## ref: https://kubernetes.io/docs/concepts/workloads/pods/pod/#termination-of-pods
-##
-# terminationGracePeriodSeconds: 30
 
 ## PostgreSQL service configuration
 service:
   ## PosgresSQL service type
   type: ClusterIP
-  # clusterIP: None
   port: 5432
 
   ## Specify the nodePort value for the LoadBalancer and NodePort service types.
@@ -240,7 +234,7 @@ readinessProbe:
 ## Configure metrics exporter
 ##
 metrics:
-  enabled: false
+  enabled: true
   # resources: {}
   service:
     type: ClusterIP

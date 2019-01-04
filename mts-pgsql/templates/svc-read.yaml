@@ -1,7 +1,8 @@
+{{- if .Values.replication.enabled }}
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ template "postgresql.fullname" . }}
+  name: {{ template "postgresql.fullname" . }}-read
   labels:
     app: {{ template "postgresql.name" . }}
     chart: {{ template "postgresql.chart" . }}
@@ -16,12 +17,9 @@ spec:
   {{- if and .Values.service.loadBalancerIP (eq .Values.service.type "LoadBalancer") }}
   loadBalancerIP: {{ .Values.service.loadBalancerIP }}
   {{- end }}
-  {{- if and (eq .Values.service.type "ClusterIP") .Values.service.clusterIP }}
-  clusterIP: {{ .Values.service.clusterIP }}
-  {{- end }}
   ports:
   - name: postgresql
-    port: {{ .Values.service.port }}
+    port:  {{ .Values.service.port }}
     targetPort: postgresql
     {{- if .Values.service.nodePort }}
     nodePort: {{ .Values.service.nodePort }}
@@ -29,4 +27,5 @@ spec:
   selector:
     app: {{ template "postgresql.name" . }}
     release: {{ .Release.Name | quote }}
-    role: master
+    role: slave
+{{- end }}

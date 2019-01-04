@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: {{ .Values.mtsdisk.diskname }}
+  name: {{ .Values.mtsdisk.name }}
 spec:
 {{ if .Values.mtsdisk.storageClass }}
   storageClassName: {{ .Values.mtsdisk.storageClass | quote }}
@@ -22,12 +22,13 @@ spec:
     diskURI: {{ .Values.mtsdisk.uri }}
   persistentVolumeReclaimPolicy: Retain
   claimRef:
-    name: {{ .Values.mtsdisk.diskname }}-pvc
+    namespace: {{ .Release.Namespace }}
+    name: {{ .Values.mtsdisk.pvcname }}
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: {{ .Values.mtsdisk.diskname }}-pvc
+  name: {{ .Values.mtsdisk.pvcname }}
   annotations:
     volume.beta.kubernetes.io/storage-class: default
 spec:

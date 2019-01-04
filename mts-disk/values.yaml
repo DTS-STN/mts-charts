@@ -1,5 +1,7 @@
 mtsdisk:
+    name:
     diskname: 
+    pvcname: 
     storageclass:
     size:
     uri:
