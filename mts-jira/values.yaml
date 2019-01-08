@@ -8,9 +8,12 @@ jira:
    url: jira.mobiletechnology.solutions
    azurestorageaccountname: accountname
    azurestorageaccountkey: accountkey
+   attachmentsbackupfolderpath: prod/jira/data
+   attachmentsbackupfoldermountpath: /var/atlassian/application-data/jira/data
+   attachmentsharename: jira-attachments
    backupfolderpath: prod/jira
-   attachmentsbackupfolderpath: prod/jira/home
    backupsharename: backupfiles
+   backupfoldermountpath: /var/atlassian/application-data/jira/export
    image: mtscontainers.azurecr.io/mtsjira
    resources: 
      mincpu: 2

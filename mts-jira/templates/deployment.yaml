@@ -36,8 +36,11 @@ spec:
         value: {{ .Values.jira.resources.jvmmaxmemory | quote }}
     volumeMounts:
      - name: backupvolume
-       mountPath: /var/atlassian/application-data/jira
+       mountPath: {{ .Values.jira.backupfoldermountpath }}
        subPath: {{ .Values.jira.backupfolderpath }}
+     - name: attachmentvolume
+       mountPath: {{ .Values.jira.attachmentsbackupfoldermountpath }}
+       subPath: {{ .Values.jira.attachmentsbackupfolderpath }}
     securityContext:
       fsGroup: 1000
     resources:
@@ -48,3 +51,6 @@ spec:
   - name: backupvolume
     persistentVolumeClaim:
       claimName: pvc-mtsbackup-jira
+  - name: attachmentvolume
+    persistentVolumeClaim:
+      claimName: pvc-jira-attachments
