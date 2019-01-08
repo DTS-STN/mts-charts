@@ -8,8 +8,12 @@ confluence:
    url: confluence.mobiletechnology.solutions
    azurestorageaccountname: accountname
    azurestorageaccountkey: accountkey
-   backupfolderpath: /prod/confluence
+   attachmentsharename: confluence-attachments
+   attachmentsbackupfolderpath: prod/confluence/attachments
+   attachmentsbackupfoldermountpath: /var/atlassian/application-data/confluence/attachments
+   backupfolderpath: prod/confluence
    backupsharename: backupfiles
+   backupfoldermountpath: /var/atlassian/application-data/confluence/backups
 
 image:
   repository: nginx
