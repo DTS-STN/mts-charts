@@ -1,4 +1,5 @@
 mtsdisk:
+    enabled: false
     name:
     diskname: 
     pvcname: 
