@@ -1,6 +1,6 @@
 dependencies:
 - name: mts-disk
   repository: http://helm.mobiletechnology.solutions
-  version: 0.1.1
-digest: sha256:bce62987dab51e462e8baaf4bded498bd634e87f51266ceabdff7ddf8a36e6f7
-generated: 2019-01-09T10:29:39.830337596-05:00
+  version: 0.2.0
+digest: sha256:b642b47daf4e261a2853bd78bc953c871a8e6c64ca391ae14d43a6fe8d6213c1
+generated: 2019-01-09T14:13:55.082938779-05:00

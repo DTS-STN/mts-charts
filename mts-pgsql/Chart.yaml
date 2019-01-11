@@ -1,5 +1,5 @@
 name: mts-pgsql
-version: 0.1.1
+version: 0.1.2
 appVersion: 10.6.0
 description: MTS Version of Postgres chart, based off of 3.8.0. This includes the mts-disk chart in requirements.
 keywords:

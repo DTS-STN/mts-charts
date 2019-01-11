@@ -14,6 +14,8 @@ confluence:
    backupfolderpath: prod/confluence
    backupsharename: backupfiles
    backupfoldermountpath: /var/atlassian/application-data/confluence/backups
+   createPersistentVolume: "true"
+   environment: dev
 
 image:
   repository: nginx

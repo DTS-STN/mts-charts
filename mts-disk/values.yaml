@@ -6,4 +6,8 @@ mtsdisk:
     storageclass:
     size:
     uri:
-    
+    type: azuredisk
+    azurestorageaccountname: 
+    azurestorageaccountkey: 
+    azurefilesharename: 
+

@@ -14,7 +14,9 @@ jira:
    backupfolderpath: prod/jira
    backupsharename: backupfiles
    backupfoldermountpath: /var/atlassian/application-data/jira/export
+   createPersistentVolume: "true"
    image: mtscontainers.azurecr.io/mtsjira
+   environment: dev
    resources: 
      mincpu: 2
      minmemory: 4Gi

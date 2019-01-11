@@ -16,10 +16,22 @@ spec:
 {{ end }}   
   accessModes:
     - ReadWriteOnce
+{{ if eq .Values.mtsdisk.type "azuredisk" }}
   azureDisk:
     kind: Managed
     diskName: {{ .Values.mtsdisk.diskname }}
     diskURI: {{ .Values.mtsdisk.uri }}
+{{ else if eq .Values.mtsdisk.type "azurefile" }}
+  azureFile:
+    secretName: {{ .Values.mtsdisk.name }}-secret
+    shareName: {{ .Values.mtsdisk.azurefilesharename }}
+    readOnly: false
+  mountOptions:
+    - dir_mode=0777
+    - file_mode=0777
+    - uid=1001
+    - gid=1001
+{{ end }}
   persistentVolumeReclaimPolicy: Retain
   claimRef:
     namespace: {{ .Release.Namespace }}
@@ -45,4 +57,15 @@ spec:
   storageClassName: {{ .Values.mtsdisk.storageClass | quote }}
 {{ else }}
   storageClassName: "default"
+{{ end }} 
+---
+{{ if eq .Values.mtsdisk.type "azurefile" }}
+apiVersion: v1
+kind: Secret
+metadata:
+  name: {{ .Values.mtsdisk.name }}-secret
+type: Opaque
+data:
+  azurestorageaccountname: {{ .Values.mtsdisk.azurestorageaccountname }}
+  azurestorageaccountkey: {{ .Values.mtsdisk.azurestorageaccountkey }}
 {{ end }} 
