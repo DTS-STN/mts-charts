@@ -7,6 +7,3 @@ appVersion: 2.4.4
 home: https://github.com/imubit/graylog-helm-chart
 sources:
   - https://github.com/imubit/graylog-helm-chart
-maintainers:
-  - name: Meir Tseitlin
-    email: info@imubit.com
