@@ -1,8 +1,30 @@
 apiVersion: v1
 entries:
+  istio:
+  - apiVersion: v1
+    appVersion: 1.0.5
+    created: 2019-01-11T13:45:05.455754489-05:00
+    description: Helm chart for all istio components
+    digest: efc2a7ecfbe3010239aac16a56a4bff2ba821c0bdfc0512d979adee457fa7930
+    engine: gotpl
+    icon: https://istio.io/favicons/android-192x192.png
+    keywords:
+    - istio
+    - security
+    - sidecarInjectorWebhook
+    - mixer
+    - pilot
+    - galley
+    name: istio
+    sources:
+    - http://github.com/istio/istio
+    tillerVersion: '>=2.7.2-0'
+    urls:
+    - istio/istio-1.0.5.tgz
+    version: 1.0.5
   mts-apache:
   - appVersion: 2.4.37
-    created: 2019-01-10T14:26:25.018371762-05:00
+    created: 2019-01-11T13:45:05.456828685-05:00
     description: Chart for Apache HTTP Server -based off of Bitnami chart
     digest: 6418ece5cbc7bab0a5a45ef2399d6e26267ca657400b617e5c50a52542ba7049
     engine: gotpl
@@ -24,53 +46,17 @@ entries:
   mts-confluence:
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2019-01-10T14:26:25.054715414-05:00
+    created: 2019-01-11T13:45:05.457534144-05:00
     description: MTS Confluence Image
-    digest: 3c5ec02b2724bed3a43a890ca20db5f063fc9a4f257f72e18a42a9bd485ca3a7
+    digest: b40de81a2021a9b66327a13ed0a2ba9361c3f1eb6aa0ddc410dd8ea90f92ed2d
     name: mts-confluence
     urls:
     - mts-confluence/mts-confluence-0.4.2.tgz
     version: 0.4.2
-  - apiVersion: v1
-    appVersion: "1.0"
-    created: 2019-01-10T14:26:25.033120985-05:00
-    description: MTS Confluence Image
-    digest: b00e616e0a4521c867a5351199214b4dab04a7cc965e4d862d982a0acfebebc1
-    name: mts-confluence
-    urls:
-    - mts-confluence/mts-confluence-0.4.1.tgz
-    version: 0.4.1
-  - apiVersion: v1
-    appVersion: "1.0"
-    created: 2019-01-10T14:26:25.026021127-05:00
-    description: MTS Confluence Image
-    digest: 934f85b0e1e4de54c98f04af316f8af3202ee10d807d27d3410753c18eeadaf7
-    name: mts-confluence
-    urls:
-    - mts-confluence/mts-confluence-0.4.0.tgz
-    version: 0.4.0
-  - apiVersion: v1
-    appVersion: "1.0"
-    created: 2019-01-10T14:26:25.021521453-05:00
-    description: MTS Confluence Image
-    digest: 3efeb47c848a4bfd57078b9623b70d9de3b9c0b82f098cb46c38228610ec632d
-    name: mts-confluence
-    urls:
-    - mts-confluence/mts-confluence-0.3.0.tgz
-    version: 0.3.0
-  - apiVersion: v1
-    appVersion: "1.0"
-    created: 2019-01-10T14:26:25.019013486-05:00
-    description: A Helm chart for Kubernetes
-    digest: 772f5e28c6bd112ef1e525ce176b83def71b6d23941f900947697f403c6ee824
-    name: mts-confluence
-    urls:
-    - mts-confluence/mts-confluence-0.2.0.tgz
-    version: 0.2.0
   mts-discourse:
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2019-01-10T14:26:25.055956663-05:00
+    created: 2019-01-11T13:45:05.459309224-05:00
     description: MTS Discourse Helm Chart
     digest: a44b73a9cb3bcf085dc4fd74b41028b85cfd855b299fcb7388c20d7f61590813
     name: mts-discourse
@@ -80,7 +66,7 @@ entries:
   mts-disk:
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2019-01-10T14:26:25.056687215-05:00
+    created: 2019-01-11T13:45:05.460166469-05:00
     description: Maps existing Azure Disk to Persistent Volume and Persistent Volume
       Claim
     digest: 37179f4e1a0f3c2fd019980a064f9cdc172f67013b67853291854789b6af0da8
@@ -90,7 +76,7 @@ entries:
     version: 0.2.0
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2019-01-10T14:26:25.056380679-05:00
+    created: 2019-01-11T13:45:05.459810043-05:00
     description: Maps existing Azure Disk to Persistent Volume and Persistent Volume
       Claim
     digest: 084c3551cb5959f280227800af5fc36a9606db67440c962365575fb7a8a7ae49
@@ -100,7 +86,7 @@ entries:
     version: 0.1.1
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2019-01-10T14:26:25.05614398-05:00
+    created: 2019-01-11T13:45:05.459553456-05:00
     description: Maps existing Azure Disk to Persistent Volume and Persistent Volume
       Claim
     digest: c535037e2e4cd749c3b11a435465c1e66979b689959ab2f2ddbfa28eea0081c9
@@ -111,7 +97,7 @@ entries:
   mts-flarum:
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2019-01-10T14:26:25.084624742-05:00
+    created: 2019-01-11T13:45:05.487506323-05:00
     description: A Helm chart for Kubernetes
     digest: 3a5d9521665fae62058e94b739949555940cabe2e082d80f67e6ca212662094e
     name: mts-flarum
@@ -120,7 +106,7 @@ entries:
     version: 0.4.0
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2019-01-10T14:26:25.070401726-05:00
+    created: 2019-01-11T13:45:05.475759275-05:00
     description: A Helm chart for Kubernetes
     digest: 722b63916ded526e33249de2b9ea7e1d0a77b98cc0ea7682ce74d9c8cb0156dd
     name: mts-flarum
@@ -129,7 +115,7 @@ entries:
     version: 0.3.0
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2019-01-10T14:26:25.06186619-05:00
+    created: 2019-01-11T13:45:05.465368283-05:00
     description: A Helm chart for Kubernetes
     digest: 2f93623efdb034393203a09be87d3679811e7215716872c644749825dd6fba00
     name: mts-flarum
@@ -138,7 +124,7 @@ entries:
     version: 0.2.0
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2019-01-10T14:26:25.058763327-05:00
+    created: 2019-01-11T13:45:05.462302503-05:00
     description: A Helm chart for Kubernetes
     digest: 01c10ebe67ce7971ab7585a633a57c9c5eead3b4727fd05d3cc91afdd4e8d215
     name: mts-flarum
@@ -148,52 +134,16 @@ entries:
   mts-jira:
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2019-01-10T14:26:25.093558391-05:00
+    created: 2019-01-11T13:45:05.487806568-05:00
     description: A Helm chart for Kubernetes
-    digest: d682ba45bd6fe933c7a2b55c6f9f372445864fb461edcd62eea5f500dd83eba0
+    digest: aefca10f7309ef4d7d25850aa146046ec4947808efcff7d05688df8b46f761d0
     name: mts-jira
     urls:
     - mts-jira/mts-jira-0.3.3.tgz
     version: 0.3.3
-  - apiVersion: v1
-    appVersion: "1.0"
-    created: 2019-01-10T14:26:25.08945597-05:00
-    description: A Helm chart for Kubernetes
-    digest: 9759e9cd83c31a69c7ef646af60fac9f8bc2bf455db6e9f1a8fd45dddbc5b29d
-    name: mts-jira
-    urls:
-    - mts-jira/mts-jira-0.3.2.tgz
-    version: 0.3.2
-  - apiVersion: v1
-    appVersion: "1.0"
-    created: 2019-01-10T14:26:25.087487996-05:00
-    description: A Helm chart for Kubernetes
-    digest: 00ec32dbea5f0eea1e5d34007f420589627751b2750c570cb0568464057c8021
-    name: mts-jira
-    urls:
-    - mts-jira/mts-jira-0.3.1.tgz
-    version: 0.3.1
-  - apiVersion: v1
-    appVersion: "1.0"
-    created: 2019-01-10T14:26:25.085671846-05:00
-    description: A Helm chart for Kubernetes
-    digest: dd15178eb89c3ab2479e7967c0a17c7105e49711b87ba517c085e604ba7bb9c3
-    name: mts-jira
-    urls:
-    - mts-jira/mts-jira-0.3.0.tgz
-    version: 0.3.0
-  - apiVersion: v1
-    appVersion: "1.0"
-    created: 2019-01-10T14:26:25.085109949-05:00
-    description: A Helm chart for Kubernetes
-    digest: d1dcd76b52f27462ce5559be336e7cf1ce2f9762ed464eb548b1ccc6a0e7d5a7
-    name: mts-jira
-    urls:
-    - mts-jira/mts-jira-0.2.0.tgz
-    version: 0.2.0
   mts-pgsql:
   - appVersion: 10.6.0
-    created: 2019-01-10T14:26:25.101206135-05:00
+    created: 2019-01-11T13:45:05.492848731-05:00
     description: MTS Version of Postgres chart, based off of 3.8.0. This includes
       the mts-disk chart in requirements.
     digest: 19d22b7e6ac8f7e1fe2f12783c811414c904e4e585cd023bcf7b4eeda09f68dd
@@ -212,7 +162,7 @@ entries:
     - mts-pgsql/mts-pgsql-0.1.2.tgz
     version: 0.1.2
   - appVersion: 10.6.0
-    created: 2019-01-10T14:26:25.097813646-05:00
+    created: 2019-01-11T13:45:05.490654503-05:00
     description: MTS Version of Postgres chart, based off of 3.8.0. This includes
       the mts-disk chart in requirements.
     digest: 6e660ba16edd90c08404034ea4c6115024096c3753ee734ca630a75bf8be01cf
@@ -231,7 +181,7 @@ entries:
     - mts-pgsql/mts-pgsql-0.1.1.tgz
     version: 0.1.1
   - appVersion: 10.6.0
-    created: 2019-01-10T14:26:25.095223763-05:00
+    created: 2019-01-11T13:45:05.488965479-05:00
     description: MTS Version of Postgres chart, based off of 3.8.0. This includes
       the mts-disk chart in requirements.
     digest: 3ca0c092930dc69b1339f476cace523845a43023f4415a932f6190ed99b91fbe
@@ -252,7 +202,7 @@ entries:
   mts-rocket:
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2019-01-10T14:26:25.101628907-05:00
+    created: 2019-01-11T13:45:05.493127078-05:00
     description: A Helm chart for Kubernetes
     digest: 80d212bf5fcdc72fc27f63de5a80f5089edee91e022a324e0abaf1d51e4cc3c4
     name: mts-rocket
@@ -262,7 +212,7 @@ entries:
   mts-traefik:
   - apiVersion: v1
     appVersion: 1.7.3
-    created: 2019-01-10T14:26:25.104602032-05:00
+    created: 2019-01-11T13:45:05.495970716-05:00
     description: A Traefik based Kubernetes ingress controller with Let's Encrypt
       support
     digest: e9afcea5b3a723479a4ec466b7a69c8b460088a36a0e9d02276ddfb4a1c9af1f
@@ -293,11 +243,11 @@ entries:
   mts-vanilla:
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2019-01-10T14:26:25.105314354-05:00
+    created: 2019-01-11T13:45:05.496845923-05:00
     description: A Helm chart for Kubernetes
     digest: 3705743c5a983677e8b94dd69b3bd6433fdef6fc58ac397b962866c3dedb8622
     name: mts-vanilla
     urls:
     - mts-vanilla/mts-vanilla-0.1.0.tgz
     version: 0.1.0
-generated: 2019-01-10T14:26:25.017644473-05:00
+generated: 2019-01-11T13:45:05.45061271-05:00

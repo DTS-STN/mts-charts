@@ -11,6 +11,7 @@ metadata:
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: {{ .Release.Name | quote }}
     heritage: {{ .Release.Service | quote }}
+    version: {{ .Values.mts.environment }}
 spec:
   replicas: {{ default 1 .Values.replicas }}
   selector:

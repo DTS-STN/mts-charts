@@ -1,0 +1,103 @@
+{{- $elasticsearchServiceName := include "elasticsearch.fullname" . -}}
+{{- $mongodbServiceName := include "mongodb.fullname" . -}}
+{{- $servicePath := include "graylog.slave.fullname" . -}}
+{{- $externalDomain := include "graylog.ingress.externalDomain" . -}}
+{{- $externalProtocol := include "graylog.ingress.externalProtocol" . -}}
+apiVersion: apps/v1beta1
+kind: StatefulSet
+metadata:
+  name: {{ template "graylog.master.fullname" . }}
+  labels:
+    app: {{ template "graylog.name" . }}
+    chart: {{ template "graylog.chart" . }}
+    component: graylog-master
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  serviceName: {{ template "graylog.master.fullname" . }}
+  replicas: {{ .Values.graylog.master.replicaCount }}
+  template:
+    metadata:
+      labels:
+        graylog: "true"
+        app: {{ template "graylog.name" . }}
+        component: graylog-master
+        release: {{ .Release.Name }}
+    spec:
+      terminationGracePeriodSeconds: 70
+      affinity:
+          podAntiAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                - key: component
+                  operator: In
+                  values:
+                  - graylog-slave
+              topologyKey: kubernetes.io/hostname
+      containers:
+        - name: graylog-master
+          {{ if .Values.graylog.image }}
+          image: {{ .Values.graylog.image }}
+          {{ else }}
+          image: "graylog2/server:{{ .Values.graylog.image.tag }}"
+          {{ end }}
+          env:
+          - name: GRAYLOG_PASSWORD_SECRET
+            value: {{required "A valid .Values.graylog.passwordSecret entry required!" .Values.graylog.passwordSecret }}
+          - name: GRAYLOG_ROOT_PASSWORD_SHA2
+            value: {{ .Values.graylog.passwordSecret | sha256sum }}
+          - name: GRAYLOG_MONGODB_URI
+            value: "mongodb://{{ $mongodbServiceName }}-0.{{ $mongodbServiceName }}:27017,{{ $mongodbServiceName }}-1.{{ $mongodbServiceName }}:27017,{{ $mongodbServiceName }}-2.{{ $mongodbServiceName }}:27017/graylog?replicaSet=rs0"
+          - name: GRAYLOG_IS_MASTER
+            value: "true"
+          - name: GRAYLOG_ELASTICSEARCH_DISCOVERY_ZEN_PING_UNICAST_HOSTS
+            value: "{{ $elasticsearchServiceName }}-0.{{ $elasticsearchServiceName }}:9300, {{ $elasticsearchServiceName }}-1.{{ $elasticsearchServiceName }}:9300, {{ $elasticsearchServiceName }}-2.{{ $elasticsearchServiceName }}:9300"
+          - name: GRAYLOG_ELASTICSEARCH_HOSTS
+            value: "http://{{ $elasticsearchServiceName }}-0.{{ $elasticsearchServiceName }}:9200, http://{{ $elasticsearchServiceName }}-1.{{ $elasticsearchServiceName }}:9200, http://{{ $elasticsearchServiceName }}-2.{{ $elasticsearchServiceName }}:9200"
+          - name: GRAYLOG_WEB_LISTEN_URI
+            value: "http://0.0.0.0:{{ .Values.graylog.web.service.internalPort }}/"
+          - name: GRAYLOG_WEB_ENDPOINT_URI
+            value: "{{ $externalProtocol }}://{{ .Release.Name }}.{{ $externalDomain }}{{ if not .Values.ingress.enabled }}:31300{{ end }}/api"
+          - name: GRAYLOG_REST_LISTEN_URI
+            value: "http://0.0.0.0:{{ .Values.graylog.web.service.internalPort }}/api/"
+          - name: GRAYLOG_REST_TRANSPORT_URI
+            value: "http://{{ $servicePath }}:{{ .Values.graylog.web.service.internalPort }}/api/"
+          - name: GRAYLOG_SERVER_JAVA_OPTS
+            value: "-Xms1g -Xmx1g -XX:NewRatio=1 -XX:MaxMetaspaceSize=256m -server -XX:+ResizeTLAB -XX:+UseConcMarkSweepGC -XX:+CMSConcurrentMTEnabled -XX:+CMSClassUnloadingEnabled -XX:+UseParNewGC -XX:-OmitStackTraceInFastThrow"
+          ports:
+          - containerPort: {{ .Values.graylog.web.service.internalPort }}
+            name: http
+          - containerPort: 12201
+            name: udp-input
+          - containerPort: 1514
+            name: tcp-input
+          volumeMounts:
+          - name: graylog-persistent-storage
+            mountPath: /usr/share/graylog/data/journal
+            subPath: graylog
+          resources:
+{{ toYaml .Values.graylog.master.containers.resources | indent 12 }}
+          readinessProbe:
+            httpGet:
+              path: /api/system/lbstatus
+              port: {{ .Values.graylog.web.service.internalPort }}
+            initialDelaySeconds: 30
+            periodSeconds: 3
+            timeoutSeconds: 3
+            successThreshold: 1
+            failureThreshold: 4
+    {{- with .Values.graylog.master.affinity }}
+      affinity:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+  volumeClaimTemplates:
+  - metadata:
+      name: graylog-persistent-storage
+      annotations:
+        volume.beta.kubernetes.io/storage-class: "default"
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 10Gi

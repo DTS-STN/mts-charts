@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "graylog.fullname" . }}
+  labels:
+    name: graylog
+    app: {{ template "graylog.name" . }}
+    chart: {{ template "graylog.chart" . }}
+    component: graylog-service
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  selector:
+    graylog: "true"
+  ports:
+  - name: http
+    protocol: TCP
+    port: {{ .Values.graylog.web.service.externalPort }}
+    targetPort: {{ .Values.graylog.web.service.internalPort }}
+    nodePort: 31300
+  - name: tcp-input
+    protocol: TCP
+    port: 1514
+    nodePort: 31302
+  type: LoadBalancer

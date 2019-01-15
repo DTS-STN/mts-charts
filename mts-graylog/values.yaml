@@ -1,0 +1,99 @@
+
+
+ingress:
+  name: ingress
+  enabled: true
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  path: /
+  protocol: http
+  domain:
+#  proxyDomain:
+  proxyProtocol: https
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
+
+
+mongodbReplicaset:
+  name: mongodb-replicaset
+
+
+elasticsearch:
+  name: elasticsearch
+
+  containers:
+    resources:
+      requests:
+        cpu: .10
+        memory: 2560Mi
+      limits:
+        cpu: .75
+        memory: 3072Mi
+
+  volumeClaimTemplates:
+    resources:
+      requests:
+        storage: 100Gi
+
+
+graylog:
+  passwordSecret:
+
+  web:
+    service:
+      externalPort: 80
+      internalPort: 9000
+
+  image:
+    tag: 2.4.4-1
+
+  master:
+    name: master
+    replicaCount: 1
+
+    affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: component
+                operator: In
+                values:
+                - graylog-slave
+            topologyKey: kubernetes.io/hostname
+
+    containers:
+      resources:
+        requests:
+          cpu: .25
+          memory: 1536Mi
+        limits:
+          cpu: 1.5
+          memory: 2048Mi
+
+  slave:
+    name: slave
+    replicaCount: 1
+
+    affinity:
+      podAntiAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+        - labelSelector:
+            matchExpressions:
+            - key: component
+              operator: In
+              values:
+              - graylog-master
+          topologyKey: kubernetes.io/hostname
+
+    containers:
+      resources:
+        requests:
+          cpu: .25
+          memory: 1536Mi
+        limits:
+          cpu: 1.5
+          memory: 2048Mi
