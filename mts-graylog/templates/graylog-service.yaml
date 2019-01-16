@@ -22,4 +22,4 @@ spec:
     protocol: TCP
     port: 1514
     nodePort: 31302
-  type: LoadBalancer
+  type: NodePort

@@ -58,7 +58,7 @@ spec:
           - name: GRAYLOG_WEB_LISTEN_URI
             value: "http://0.0.0.0:{{ .Values.graylog.web.service.internalPort }}/"
           - name: GRAYLOG_WEB_ENDPOINT_URI
-            value: "{{ $externalProtocol }}://{{ .Release.Name }}.{{ $externalDomain }}{{ if not .Values.ingress.enabled }}:31300{{ end }}/api"
+            value: "{{ $externalProtocol }}://{{ .Values.graylog.hostname }}.{{ $externalDomain }}{{ if not .Values.ingress.enabled }}:31300{{ end }}/api"
           - name: GRAYLOG_REST_LISTEN_URI
             value: "http://0.0.0.0:{{ .Values.graylog.web.service.internalPort }}/api/"
           - name: GRAYLOG_REST_TRANSPORT_URI

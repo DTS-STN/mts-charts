@@ -41,6 +41,7 @@ elasticsearch:
 
 graylog:
   passwordSecret:
+  hostname: 
 
   web:
     service:
