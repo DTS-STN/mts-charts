@@ -69,3 +69,12 @@ service:
   externalTrafficPolicy: Cluster
 ingress:
   enabled: true
+apache:
+    mountHTDocs: false
+    htdocsSecretName:
+    htdocShareName:
+    htdocsSubPath:
+    azureStorageAccountName:
+    azureStorageAccountKey:
+
+    

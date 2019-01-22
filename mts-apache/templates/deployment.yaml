@@ -66,6 +66,11 @@ spec:
         volumeMounts:
         - name: apache-data
           mountPath: /bitnami/apache
+{{- if .Values.apache.mountHTDocs }}
+        - name: apache-htdocs
+          mountPath: /opt/bitnami/apache/htdocs
+          subPath: {{ .Values.apache.htdocsSubPath }}
+{{ end }}
 {{- if .Values.metrics.enabled }}
       - name: metrics
         image: {{ template "metrics.image" . }}
@@ -92,3 +97,44 @@ spec:
       volumes:
       - name: apache-data
         emptyDir: {}
+{{- if .Values.apache.mountHTDocs }}
+      - name: apache-htdocs
+        persistentVolumeClaim:
+           claimName: pvc-htdocs-{{ template "fullname" . }}
+{{ end }}
+---
+{{- if .Values.apache.mountHTDocs }}
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: pvc-htdocs-{{ template "fullname" . }}
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 5Gi
+  storageClassName: "default"
+  volumeName: pv-htdocs-{{ template "fullname" . }}
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-htdocs-{{ template "fullname" . }}
+spec:
+  storageClassName: "default"
+  capacity:
+    storage: 5Gi
+  accessModes:
+    - ReadWriteMany
+  azureFile:
+    secretName: {{ .Values.apache.htdocsSecretName }}
+    shareName: {{ .Values.apache.htdocsShareName }}
+    readOnly: false
+  mountOptions:
+    - dir_mode=0777
+    - file_mode=0777
+    - uid=1000
+    - gid=1000
+{{ end }}
+
