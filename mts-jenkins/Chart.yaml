@@ -1,0 +1,11 @@
+name: mts-jenkins
+home: https://jenkins.io/
+version: 0.0.1
+appVersion: lts
+description: Fork of Stable 0.28.1. Open source continuous integration server. It supports multiple SCM tools
+  including CVS, Subversion and Git. It can execute Apache Ant and Apache Maven-based
+  projects as well as arbitrary scripts.
+sources:
+- https://github.com/jenkinsci/jenkins
+- https://github.com/jenkinsci/docker-jnlp-slave
+- https://github.com/nuvo/kube-tasks

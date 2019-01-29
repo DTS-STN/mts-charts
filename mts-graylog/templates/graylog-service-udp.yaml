@@ -16,7 +16,6 @@ spec:
   - name: udp-input
     protocol: UDP
     port: 12201
-    nodePort: 31301
   type: LoadBalancer
 
 

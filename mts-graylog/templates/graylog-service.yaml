@@ -17,9 +17,7 @@ spec:
     protocol: TCP
     port: {{ .Values.graylog.web.service.externalPort }}
     targetPort: {{ .Values.graylog.web.service.internalPort }}
-    nodePort: 31300
   - name: tcp-input
     protocol: TCP
     port: 1514
-    nodePort: 31302
   type: LoadBalancer
