@@ -34,16 +34,19 @@ spec:
               topologyKey: kubernetes.io/hostname
       containers:
         - name: elasticsearch
-          image: elasticsearch:2
-          command:
-          - elasticsearch
-          - "-Ddiscovery.zen.ping.unicast.hosts={{ $elasticsearchServiceName }}-0.{{ $elasticsearchServiceName }},{{ $elasticsearchServiceName }}-1.{{ $elasticsearchServiceName }},{{ $elasticsearchServiceName }}-2.{{ $elasticsearchServiceName }}"
-          - "-Ddiscovery.zen.minimum_master_nodes=2"
-          - "-Ddiscovery.zen.ping.unicast.hosts.resolve_timeout=30s"
-          - "-Ddiscovery.zen.ping_timeout=30s"
-          - "-Des.insecure.allow.root=true"
-          - "-Dcluster.name=graylog"
+          image: {{ .Values.elasticsearch.image }}
           env:
+          - name: discovery.zen.ping.unicast.hosts
+            value: {{ $elasticsearchServiceName }}-0.{{ $elasticsearchServiceName }},{{ $elasticsearchServiceName }}-1.{{ $elasticsearchServiceName }},{{ $elasticsearchServiceName }}-2.{{ $elasticsearchServiceName }}
+          - name: discovery.zen.minimum_master_nodes
+            value: '2'
+          - name: discovery.zen.ping.unicast.hosts.resolve_timeout
+            value: 30s
+          - name: discovery.zen.ping_timeout
+            value: 30s
+          - name: cluster.name
+            value: graylog
+            value: "-Xms2g -Xmx2g"
           - name: ES_JAVA_OPTS
             value: "-Xms2g -Xmx2g"
           ports:

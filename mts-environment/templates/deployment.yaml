@@ -1,0 +1,54 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: {{ template "fullname" . }}
+  labels:
+    app: {{ template "fullname" . }}
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
+    heritage: "{{ .Release.Service }}"
+spec:
+  selector:
+    matchLabels:
+      app: {{ template "fullname" . }}
+      release: "{{ .Release.Name }}"
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: {{ template "fullname" . }}
+        chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+        release: "{{ .Release.Name }}"
+        heritage: "{{ .Release.Service }}"
+    spec:
+      hostAliases:
+      - ip: "127.0.0.1"
+        hostnames:
+        - "status.localhost"
+      containers:
+      - name: {{ template "fullname" . }}
+        image: mtscontainers.azurecr.io/mts-environment:0.1
+        imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
+        env:
+            - name: ENVIRONMENT
+              value: {{ .Values.environment }}
+        ports:
+        - name: http
+          containerPort: 80
+        - name: https
+          containerPort: 443
+        livenessProbe:
+          httpGet:
+            path: /env.php
+            port: 80    
+          initialDelaySeconds: 30
+          timeoutSeconds: 5
+          failureThreshold: 6
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 5
+          timeoutSeconds: 3
+          periodSeconds: 5
+

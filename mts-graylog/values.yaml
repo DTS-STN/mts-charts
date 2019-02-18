@@ -23,6 +23,7 @@ mongodbReplicaset:
 
 elasticsearch:
   name: elasticsearch
+  image: elasticsearch:5.6
 
   containers:
     resources:
