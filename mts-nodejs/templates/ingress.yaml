@@ -1,0 +1,25 @@
+{{- if .Values.ingress.host }}
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+{{- if .Values.ingress.annotations }}
+  annotations:
+{{ toYaml .Values.ingress.annotations | indent 4 }}
+{{- end }}
+  name: {{ template "node.fullname" . }}
+spec:
+  rules:
+  - host: {{ .Values.ingress.host | quote }}
+    http:
+      paths:
+      - backend:
+          serviceName: {{ template "node.fullname" . }}
+          servicePort: {{ .Values.service.port }}
+{{- if .Values.ingress.Path }}
+        path: {{ .Values.ingress.path }}
+{{- end -}}
+{{- if .Values.ingress.TLS }}
+  tls:
+{{ toYaml .Values.ingress.TLS | indent 4 }}
+{{- end -}}
+{{- end }}

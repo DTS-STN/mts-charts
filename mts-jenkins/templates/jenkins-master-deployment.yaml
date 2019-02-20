@@ -217,7 +217,13 @@ spec:
               mountPath: /usr/share/jenkins/ref/secrets/
               name: secrets-dir
               readOnly: false
+            -
+              mountPath: var/run/docker.sock
+              name: dockersock
       volumes:
+      - name: dockersock
+        hostPath:
+          path: /var/run/docker.sock
 {{- if .Values.Persistence.volumes }}
 {{ toYaml .Values.Persistence.volumes | indent 6 }}
 {{- end }}
