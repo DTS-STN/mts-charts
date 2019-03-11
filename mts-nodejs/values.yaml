@@ -35,7 +35,7 @@ git:
   launchfile: launchit
   tag: latest
   pullPolicy: IfNotPresent
-
+  branchName: TokenizingCreds
 ## Git repository http/https
 ##
 repository:  https://github.com/bitnami/sample-mean.git
@@ -111,7 +111,8 @@ mongodb:
   mongodbUsername: user
   mongodbDatabase: test_db
   mongodbPassword: secret_password
-
+  connectionString: 'mongodb+srv://EasyParade:CLbtttYXk34dh8oM@aeiou-cluster-ra9rp.azure.mongodb.net/users?retryWrites=true'
+  collection: users
 ## Provision an external database (Only if mongodb.install is false)
 ## You can:
 ##    1) Pass an already existing Secret with your database credentials

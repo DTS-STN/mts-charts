@@ -42,6 +42,14 @@ spec:
           value: {{ .Values.git.password }}
         - name: LAUNCHFILE 
           value: {{ .Values.git.launchfile }}
+        - name: CONNECTION_STRING
+          value: {{ .Values.mongodb.connectionString }}
+        - name: COLLECTION
+          value: {{ .Values.mongodb.collection }}
+        - name: BRANCHNAME
+          value: {{ .Values.git.branchName }}
+        - name: PORT
+          value: {{ .Values.applicationPort | quote }}
         {{- if .Values.mongodb.install }}
         - name: DATABASE_HOST
           value: {{ template "node.mongodb.fullname" . }}
