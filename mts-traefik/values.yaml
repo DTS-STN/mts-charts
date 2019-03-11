@@ -9,6 +9,9 @@ whiteListSourceRange: []
 externalTrafficPolicy: Cluster
 replicas: 1
 
+mts:
+   environment: 
+
 podDisruptionBudget: {}
   # maxUnavailable: 1
   # minAvailable: 2

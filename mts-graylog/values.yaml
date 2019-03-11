@@ -8,7 +8,7 @@ ingress:
     # kubernetes.io/tls-acme: "true"
   path: /
   protocol: http
-  domain:
+  domain: changeme
 #  proxyDomain:
   proxyProtocol: https
   tls: []
@@ -41,7 +41,7 @@ elasticsearch:
 
 
 graylog:
-  passwordSecret:
+  passwordSecret: CHANGEMECHANGEME
   hostname: 
 
   web:
