@@ -40,7 +40,7 @@ elasticsearch:
 
 
 graylog:
-  passwordSecret:
+  passwordSecret: changeme
   hostname: 
 
   web:
