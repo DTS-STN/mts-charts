@@ -1,56 +1,73 @@
-apiVersion: v1
-kind: Pod
+apiVersion: extensions/v1beta1
+kind: Deployment
 metadata:
-  name: mtsjira
+  name: mtsconfluence
   creationTimestamp: null
   labels:
-    service: mtsjira
+    app: {{ template "fullname" . }}
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
+    heritage: "{{ .Release.Service }}"
 spec:
-  restartPolicy: Always
-  containers:
-  - name: mtsjira
-    image: {{ .Values.jira.image }}
-    imagePullPolicy: Always
-    ports:
-    - containerPort: 8090
-    env:
-      - name: LICENSE
-        value: {{ .Values.jira.license }}
-      - name: SERVERID
-        value: {{ .Values.jira.serverid }}
-      - name: POSTGRESURL
-        value: {{ .Values.jira.postgresurl }}
-      - name: POSTGRESPASSWORD
-        value: {{ .Values.jira.postgrespassword }}
-      - name: POSTGRESUSER
-        value: {{ .Values.jira.postgresuser }}
-      - name: JIRAURL
-        value: {{ .Values.jira.jiraurl }}
-      - name: HTTPS
-        value: "{{ .Values.jira.https }}"
-      - name: UPGRADE
-        value: "{{ .Values.jira.upgrade }}"
-      - name: JVM_MINIMUM_MEMORY
-        value: {{ .Values.jira.resources.jvmminmemory | quote }}
-      - name: JVM_MAXIMUM_MEMORY
-        value: {{ .Values.jira.resources.jvmmaxmemory | quote }}
-    volumeMounts:
-     - name: backupvolume
-       mountPath: {{ .Values.jira.backupfoldermountpath }}
-       subPath: {{ .Values.jira.backupfolderpath }}
-     - name: attachmentvolume
-       mountPath: {{ .Values.jira.attachmentsbackupfoldermountpath }}
-       subPath: {{ .Values.jira.attachmentsbackupfolderpath }}
-    securityContext:
-      fsGroup: 1000
-    resources:
-      requests:
-        cpu: {{ .Values.jira.resources.mincpu | quote }}
-        memory: {{ .Values.jira.resources.minmemory | quote }}
-  volumes:
-  - name: backupvolume
-    persistentVolumeClaim:
-      claimName: pvc-mtsbackup-jira
-  - name: attachmentvolume
-    persistentVolumeClaim:
-      claimName: pvc-jira-attachments
+  selector:
+    matchLabels:
+      app: {{ template "fullname" . }}
+      release: "{{ .Release.Name }}"
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: {{ template "fullname" . }}
+        chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+        release: "{{ .Release.Name }}"
+        heritage: "{{ .Release.Service }}"
+        service: mtsjira
+    spec:
+      restartPolicy: Always
+      containers:
+      - name: mtsjira
+        image: {{ .Values.jira.image }}
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8090
+        env:
+          - name: LICENSE
+            value: {{ .Values.jira.license }}
+          - name: SERVERID
+            value: {{ .Values.jira.serverid }}
+          - name: POSTGRESURL
+            value: {{ .Values.jira.postgresurl }}
+          - name: POSTGRESPASSWORD
+            value: {{ .Values.jira.postgrespassword }}
+          - name: POSTGRESUSER
+            value: {{ .Values.jira.postgresuser }}
+          - name: JIRAURL
+            value: {{ .Values.jira.jiraurl }}
+          - name: HTTPS
+            value: "{{ .Values.jira.https }}"
+          - name: UPGRADE
+            value: "{{ .Values.jira.upgrade }}"
+          - name: JVM_MINIMUM_MEMORY
+            value: {{ .Values.jira.resources.jvmminmemory | quote }}
+          - name: JVM_MAXIMUM_MEMORY
+            value: {{ .Values.jira.resources.jvmmaxmemory | quote }}
+        volumeMounts:
+         - name: backupvolume
+           mountPath: {{ .Values.jira.backupfoldermountpath }}
+           subPath: {{ .Values.jira.backupfolderpath }}
+         - name: attachmentvolume
+           mountPath: {{ .Values.jira.attachmentsbackupfoldermountpath }}
+           subPath: {{ .Values.jira.attachmentsbackupfolderpath }}
+        securityContext:
+          fsGroup: 1000
+        resources:
+          requests:
+            cpu: {{ .Values.jira.resources.mincpu | quote }}
+            memory: {{ .Values.jira.resources.minmemory | quote }}
+      volumes:
+      - name: backupvolume
+        persistentVolumeClaim:
+          claimName: pvc-mtsbackup-jira
+      - name: attachmentvolume
+        persistentVolumeClaim:
+          claimName: pvc-jira-attachments
