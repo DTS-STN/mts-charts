@@ -1,7 +1,7 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: mtsconfluence
+  name: mtsjira
   creationTimestamp: null
   labels:
     app: {{ template "fullname" . }}
