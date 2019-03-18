@@ -9,14 +9,19 @@ metadata:
     release: "{{ .Release.Name }}"
     heritage: "{{ .Release.Service }}"
 spec:
-  labels:
-    service: mtsconfluence
   selector:
     matchLabels:
       app: {{ template "fullname" . }}
       release: "{{ .Release.Name }}"
   replicas: 1
   template:
+    metadata:
+      labels:
+        app: {{ template "fullname" . }}
+        chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+        release: "{{ .Release.Name }}"
+        heritage: "{{ .Release.Service }}"
+        service: mtsconfluence
     spec:
       restartPolicy: Always
       containers:
