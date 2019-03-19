@@ -1,4 +1,7 @@
 #!/bin/bash
+
+set -e
+
 export workspace=$1
 mkdir -p $workspace/helm-charts
 
