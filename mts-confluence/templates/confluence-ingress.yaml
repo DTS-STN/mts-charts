@@ -12,3 +12,9 @@ spec:
      - backend:
          serviceName: mtsconfluence
          servicePort: 80
+ - host: confluence-test.esdc.online
+   http:
+     paths:
+     - backend:
+         serviceName: mtsconfluence
+         servicePort: 80
