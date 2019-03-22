@@ -26,7 +26,7 @@ spec:
       restartPolicy: Always
       containers:
       - name: mtsconfluence
-        image: mtscontainers.azurecr.io/mtsconfluence:0.3.1
+        image: {{ .Values.confluence.image }} 
         imagePullPolicy: Always
         ports:
         - containerPort: 8090

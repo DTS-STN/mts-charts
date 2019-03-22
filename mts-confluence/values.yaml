@@ -5,6 +5,7 @@
 replicaCount: 1
 
 confluence:
+   image: mtscontainers.azurecr.io/mtsconfluence:0.3.1
    url: confluence.mobiletechnology.solutions
    azurestorageaccountname: accountname
    azurestorageaccountkey: accountkey
