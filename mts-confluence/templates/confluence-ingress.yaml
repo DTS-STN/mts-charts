@@ -12,6 +12,11 @@ spec:
      - backend:
          serviceName: mtsconfluence
          servicePort: 80
-  {{- if .Values.ingress.hosts }}
-  {{ toYaml .Values.ingress.hosts }}
+  {{- if .Values.ingress.environmentIngress }}
+ - host: confluence.esdc.online-{{ .Values.ingress.environmentIngress }}
+   http:
+     paths:
+     - backend:
+         serviceName: mtsconfluence
+         servicePort: 80
   {{- end }}
