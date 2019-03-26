@@ -12,6 +12,6 @@ spec:
      - backend:
          serviceName: mtsconfluence
          servicePort: 80
-{{- if .Values.ingress.hosts }}
-{{ toYaml .Values.ingress.hosts | indent 2 }}
-{{- end }}
+  {{- if .Values.ingress.hosts }}
+  {{ toYaml .Values.ingress.hosts }}
+  {{- end }}
