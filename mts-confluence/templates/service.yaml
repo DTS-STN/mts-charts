@@ -16,7 +16,7 @@ spec:
 status:
   loadBalancer: {}
 ---
-{{ if .Values.service.oppositeService }}
+{{ if (eq .Values.service.oppositeService "true") }}
 apiVersion: v1
 kind: Service
 metadata:

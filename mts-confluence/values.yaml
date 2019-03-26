@@ -18,6 +18,9 @@ confluence:
    createPersistentVolume: "true"
    environment: dev
 
+environment:
+    oppositeEnvironment: "prod-blue"
+
 image:
   repository: nginx
   tag: stable
@@ -26,6 +29,7 @@ image:
 service:
   type: ClusterIP
   port: 80
+  oppositeService: "false"
 
 ingress:
   enabled: "true"
