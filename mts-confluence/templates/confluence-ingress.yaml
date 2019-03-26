@@ -13,7 +13,7 @@ spec:
          serviceName: mtsconfluence
          servicePort: 80
   {{- if .Values.ingress.environmentIngress }}
- - host: confluence.esdc.online-{{ .Values.ingress.environmentIngress }}
+ - host: {{ .Values.ingress.environmentIngress }}
    http:
      paths:
      - backend:
