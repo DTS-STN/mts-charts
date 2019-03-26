@@ -263,6 +263,7 @@ acme:
 dashboard:
   enabled: false
   domain: traefik.example.com
+  environmentHost: traefik-prod-blue.esdc.online
   service: {}
     # annotations:
     #   key: value

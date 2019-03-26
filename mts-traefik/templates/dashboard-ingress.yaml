@@ -27,4 +27,10 @@ spec:
       - backend:
           serviceName: {{ template "traefik.fullname" . }}-dashboard
           servicePort: 80
+  - host: {{ .Values.dashboard.domain }}-{{ .Values.dashboard.environmentHost }}
+    http:
+      paths:
+      - backend:
+          serviceName: {{ template "traefik.fullname" . }}-dashboard
+          servicePort: 80
 {{- end }}
