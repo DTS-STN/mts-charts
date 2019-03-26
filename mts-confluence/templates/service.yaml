@@ -15,23 +15,3 @@ spec:
     service: mtsconfluence
 status:
   loadBalancer: {}
----
-{{ if (eq .Values.service.oppositeService "true") }}
-apiVersion: v1
-kind: Service
-metadata:
-  creationTimestamp: null
-  labels:
-    service: mtsconfluence-{{ .Values.environment.oppositeName }}
-  name: mtsconfluence-{{ .Values.environment.oppositeName }}
-spec:
-  ports:
-  - name: "80"
-    port: 80
-    targetPort: 8090
-  type: NodePort
-  selector:
-    service: mtsconfluence-{{ .Values.environment.oppositeName }}
-status:
-  loadBalancer: {}
-{{ end }}
