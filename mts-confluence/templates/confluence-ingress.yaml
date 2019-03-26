@@ -13,5 +13,5 @@ spec:
          serviceName: mtsconfluence
          servicePort: 80
 {{- if .Values.ingress.hosts }}
-{{ toYaml .Values.ingress.hosts | indent 12 }}
+{{ toYaml .Values.ingress.hosts | indent 2 }}
 {{- end }}
