@@ -1,27 +1,29 @@
-{{- if .Values.Master.HostName }}
-apiVersion: {{ .Values.Master.Ingress.ApiVersion }}
+{{- if .Values.ingress.enabled -}}
+{{- $fullName := include "jenkins.fullname" . -}}
+{{- $servicePort := .Values.Master.ServicePort -}}
+{{- $ingressPath := .Values.Master.Ingress.Path -}}
+apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-{{- if .Values.Master.Ingress.Annotations }}
+  name: {{ $fullName }}
+  labels:
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
   annotations:
-{{ toYaml .Values.Master.Ingress.Annotations | indent 4 }}
-{{- end }}
-  name: jenkins-ingress
+    kubernetes.io/ingress.class: traefik
 spec:
+{{- if .Values.Master.Ingress.TLS }}
+  tls:
+{{ toYaml .Values.Master.Ingress.TLS | indent 4 }}
+{{- end -}}
   rules:
   {{- range .Values.ingress.hosts }}
     - host: {{ . }}
       http:
         paths:
-          - backend:
-              serviceName: jenkins-test
-              servicePort: {{ .Values.Master.ServicePort }}
-{{- if .Values.Master.Ingress.Path }}
-            path: {{ .Values.Master.Ingress.Path }}
-{{- end -}}
+          - path: {{ $ingressPath }}
+            backend:
+              serviceName: {{ $fullName }}
+              servicePort: http
   {{- end }}
-{{- if .Values.Master.Ingress.TLS }}
-  tls:
-{{ toYaml .Values.Master.Ingress.TLS | indent 4 }}
-{{- end -}}
 {{- end }}

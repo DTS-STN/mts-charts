@@ -8,6 +8,9 @@
 # nameOverride:
 # fullnameOverride:
 
+ingress:
+    enabled: true
+
 Master:
   Name: jenkins-master
   Image: "jenkins/jenkins"
