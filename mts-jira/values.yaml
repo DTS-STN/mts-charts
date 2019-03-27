@@ -4,6 +4,9 @@
 
 replicaCount: 1
 
+ingress:
+    tls: false
+
 jira:
    url: jira.mobiletechnology.solutions
    azurestorageaccountname: accountname
