@@ -25,5 +25,5 @@ spec:
         paths:
           - backend:
               serviceName: mtsconfluence
-              servicePort: http
+              servicePort: 80
   {{- end }}
