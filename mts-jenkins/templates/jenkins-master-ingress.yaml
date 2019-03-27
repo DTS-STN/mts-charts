@@ -14,7 +14,7 @@ spec:
       http:
         paths:
           - backend:
-              serviceName: {{template "jenkins.fullname" . }}
+              serviceName: jenkins-test
               servicePort: {{ .Values.Master.ServicePort }}
 {{- if .Values.Master.Ingress.Path }}
             path: {{ .Values.Master.Ingress.Path }}
