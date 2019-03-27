@@ -58,10 +58,6 @@ Master:
   ServiceType: LoadBalancer
   # Master Service annotations
   ServiceAnnotations: {}
-  # Master Custom Labels
-  DeploymentLabels:
-  #   foo: bar
-  #   bar: foo
   # Master Service Labels
   ServiceLabels: {}
   #   service.beta.kubernetes.io/aws-load-balancer-backend-protocol: https
@@ -73,7 +69,6 @@ Master:
   HealthProbes: true
   HealthProbesLivenessTimeout: 90
   HealthProbesReadinessTimeout: 60
-  HealthProbeReadinessPeriodSeconds: 10
   HealthProbeLivenessFailureThreshold: 12
   SlaveListenerPort: 50000
   DisabledAgentProtocols:
@@ -125,7 +120,7 @@ Master:
   # master.key and hudson.util.Secret)
   # SecretsFilesSecret: jenkins-secrets
   # Jenkins XML job configs to provision
-  # Jobs:
+  # Jobs: |-
   #   test: |-
   #     <<xml here>>
   CustomConfigMap: false
@@ -227,9 +222,7 @@ rbac:
   serviceAccountName: default
   # Role reference
   roleRef: cluster-admin
-  # Role kind (Role or ClusterRole)
-  roleKind: ClusterRole
-  # Role binding kind (RoleBinding or ClusterRoleBinding)
+  # Role kind (RoleBinding or ClusterRoleBinding)
   roleBindingKind: ClusterRoleBinding
 
 ## Backup cronjob configuration
@@ -275,6 +268,3 @@ backup:
   # Additional support can added. Visit this repository for details
   # Ref: https://github.com/nuvo/skbn
   destination: s3://nuvo-jenkins-data/backup
-
-mtsdisk:
-    enabled: false
