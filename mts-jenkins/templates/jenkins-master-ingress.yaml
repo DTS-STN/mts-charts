@@ -6,7 +6,7 @@ metadata:
   annotations:
 {{ toYaml .Values.Master.Ingress.Annotations | indent 4 }}
 {{- end }}
-  name: {{ template "jenkins.fullname" . }}
+  name: jenkins-ingress
 spec:
   rules:
   {{- range .Values.ingress.hosts }}
@@ -14,7 +14,7 @@ spec:
       http:
         paths:
           - backend:
-              serviceName: {{ template "jenkins.fullname" . }}
+              serviceName: {{template "jenkins.fullname" . }}
               servicePort: {{ .Values.Master.ServicePort }}
 {{- if .Values.Master.Ingress.Path }}
             path: {{ .Values.Master.Ingress.Path }}
