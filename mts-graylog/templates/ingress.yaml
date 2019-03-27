@@ -26,8 +26,10 @@ spec:
       secretName: {{ .secretName }}
   {{- end }}
 {{- end }}
+
   rules:
-    - host: {{ .Values.graylog.hostname }}.{{required "A valid .Values.ingress.domain entry required!" .Values.ingress.domain }}
+  {{- range .Values.ingress.hosts }}
+    - host: {{ . }}.{{required "A valid .Values.ingress.domain entry required!" .Values.ingress.domain }}
       http:
         paths:
           - path: {{ $ingressPath }}
@@ -38,4 +40,5 @@ spec:
             backend:
               serviceName: {{ $fullName }}-gelf
               servicePort: 1514
+  {{- end }}
 {{- end }}
