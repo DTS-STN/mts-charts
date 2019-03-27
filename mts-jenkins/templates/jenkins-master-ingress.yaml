@@ -12,10 +12,6 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: traefik
 spec:
-{{- if .Values.Master.Ingress.TLS }}
-  tls:
-{{ toYaml .Values.Master.Ingress.TLS | indent 4 }}
-{{- end -}}
   rules:
   {{- range .Values.ingress.hosts }}
     - host: {{ . }}
