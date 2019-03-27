@@ -1,4 +1,4 @@
-name: jenkins
+name: mts-jenkins
 home: https://jenkins.io/
 version: 0.28.1
 appVersion: lts
