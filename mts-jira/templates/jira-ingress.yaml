@@ -1,14 +1,29 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
- name: jira-ingress
- annotations:
-   kubernetes.io/ingress.class: traefik
+  name: jira-ingress
+  labels:
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+  annotations:
+    kubernetes.io/ingress.class: traefik
 spec:
- rules:
- - host: {{ .Values.jira.jiraurl }}
-   http:
-     paths:
-     - backend:
-         serviceName: mtsjira
-         servicePort: 80
+{{- if .Values.ingress.tls }}
+  tls:
+  {{- range .Values.ingress.tls }}
+    - hosts:
+      {{- range .hosts }}
+        - {{ . }}
+      {{- end }}
+      secretName: {{ .secretName }}
+  {{- end }}
+{{- end }}
+  rules:
+  {{- range .Values.ingress.hosts }}
+    - host: {{ . }}
+      http:
+        paths:
+          - backend:
+              serviceName: mtsjira
+              servicePort: 80
+  {{- end }}
