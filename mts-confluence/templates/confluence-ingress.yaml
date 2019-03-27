@@ -5,18 +5,12 @@ metadata:
  annotations:
    kubernetes.io/ingress.class: traefik
 spec:
- rules:
- - host: {{ .Values.confluence.confluenceurl }}
-   http:
-     paths:
-     - backend:
-         serviceName: mtsconfluence
-         servicePort: 80
-  {{- if .Values.ingress.environmentIngress }}
- - host: {{ .Values.ingress.environmentIngress }}
-   http:
-     paths:
-     - backend:
-         serviceName: mtsconfluence
-         servicePort: 80
+  rules:
+  {{- range .Values.ingress.hosts }}
+    - host: {{ . }}
+      http:
+        paths:
+            backend:
+              serviceName: mtsconfluence
+              servicePort: http
   {{- end }}
