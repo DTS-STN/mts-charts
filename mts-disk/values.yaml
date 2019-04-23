@@ -1,4 +1,5 @@
 mtsdisk:
+    fullname: disk-environment
     enabled: false
     name:
     diskname: 

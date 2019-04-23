@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: {{ .Values.mtsdisk.name }}
+  name: {{ .Values.mtsdisk.fullname }}
 spec:
 {{ if .Values.mtsdisk.storageClass }}
   storageClassName: {{ .Values.mtsdisk.storageClass | quote }}
