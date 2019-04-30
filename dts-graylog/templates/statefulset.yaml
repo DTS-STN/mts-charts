@@ -174,24 +174,7 @@ spec:
           {{- end }}
           resources:
 {{ toYaml .Values.graylog.resources | indent 12 }}
-          livenessProbe:
-            httpGet:
-              path: /api/system/lbstatus
-              port: 9000
-            initialDelaySeconds: 120
-            periodSeconds: 30
-            failureThreshold: 3
-            successThreshold: 1
-            timeoutSeconds: 5
-          readinessProbe:
-            httpGet:
-              path: /api/system/lbstatus
-              port: 9000
-            initialDelaySeconds: 60
-            periodSeconds: 10
-            failureThreshold: 3
-            successThreshold: 1
-            timeoutSeconds: 5
+          
           volumeMounts:
             - name: journal
               mountPath: /usr/share/graylog/data/journal
