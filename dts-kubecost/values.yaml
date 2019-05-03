@@ -22,3 +22,10 @@ global:
 # If true, enable creation of NetworkPolicy resources.
 networkPolicy:
   enabled: false
+
+ingress:
+    enabled: true
+    hosts:
+       - kubecost-prod-green.esdc.online
+    annotations: {}
+    # kubernetes.io/ingress.class: traefik
