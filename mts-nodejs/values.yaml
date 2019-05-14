@@ -52,6 +52,9 @@ replicas: 1
 ##
 applicationPort: 3000
 
+livenessProbePath: /users
+readinessProbePath: /users
+
 # Define custom environment variables to pass to the image here
 extraEnv: {}
 
