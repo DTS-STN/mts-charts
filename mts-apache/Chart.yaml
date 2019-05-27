@@ -1,5 +1,5 @@
 name: mts-apache
-version: 0.2.1
+version: 0.2.2
 appVersion: 2.4.37
 description: Chart for Apache HTTP Server -based off of Bitnami chart
 keywords:
