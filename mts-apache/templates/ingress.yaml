@@ -11,10 +11,9 @@ metadata:
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
   annotations:
-    kubernetes.io/ingress.class: traefik
-{{- if .Values.ingress.annotations }}
-{{ toYaml .Values.ingress.annotations | indent 4 }}
-{{- end }}
+    # kubernetes.io/ingress.class: traefik
+    # kubernetes.io/tls-acme: "true"
+    # traefik.ingress.kubernetes.io/whitelist-source-range: "198.103.152.51/32"
 spec:
 {{- if .Values.ingress.tls }}
   tls:
