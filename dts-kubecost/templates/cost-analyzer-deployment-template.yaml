@@ -40,21 +40,7 @@ spec:
           volumeMounts:
             - name: nginx-conf
               mountPath: /etc/nginx/conf.d/
-          resources:
-            requests:
-              cpu: "10m"
-              memory: "55Mi"
-            limits:
-              cpu: "100m"
-              memory: "256Mi"
         - image: 'ajaytripathy/kubecost:prod-{{ $.Chart.Version }}'
-          resources:
-            requests:
-              cpu: "10m"
-              memory: "55Mi"
-            limits:
-              cpu: "100m"
-              memory: "256Mi"
           name: cost-analyzer-server
           volumeMounts:
             - name: persistent-configs
@@ -74,12 +60,6 @@ spec:
                   key: kubecost-token
         - image: 'ajaytripathy/kubecost-cost-model:prod-{{ $.Chart.Version }}'
           name: cost-model
-          requests:
-            cpu: "10m"
-            memory: "55Mi"
-          limits:
-            cpu: "800m"
-            memory: "256Mi"
           readinessProbe:
             httpGet:
               path: /healthz
