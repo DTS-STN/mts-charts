@@ -58,8 +58,6 @@ spec:
          - name: attachmentvolume
            mountPath: {{ .Values.jira.attachmentsbackupfoldermountpath }}
            subPath: {{ .Values.jira.attachmentsbackupfolderpath }}
-        securityContext:
-          fsGroup: 1000
         resources:
           requests:
             cpu: {{ .Values.jira.resources.mincpu | quote }}
