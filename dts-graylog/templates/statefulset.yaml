@@ -36,7 +36,6 @@ spec:
       {{- end }}
     spec:
       serviceAccountName: {{ template "graylog.serviceAccountName" . }}
-      updateStrategy: {{ .Values.graylog.updateStrategy }}
 {{- if .Values.graylog.nodeSelector }}
       nodeSelector:
 {{ toYaml .Values.graylog.nodeSelector | indent 8 }}
