@@ -54,8 +54,6 @@ spec:
          - name: attachmentvolume
            mountPath: {{ .Values.confluence.attachmentsbackupfoldermountpath }}
            subPath: {{ .Values.confluence.attachmentsbackupfolderpath }}
-      securityContext:
-        fsGroup: 1000
       volumes:
       - name: backupvolume
         persistentVolumeClaim:
