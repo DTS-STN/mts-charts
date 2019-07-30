@@ -1,11 +1,10 @@
 {{- if .Values.ingress.enabled -}}
-{{- $fullName := include "fullname" . -}}
 {{- $servicePort := .Values.service.port -}}
 {{- $ingressPath := .Values.ingress.path -}}
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: {{ $fullName }}
+  name: {{ .Release.Name}}
   labels:
     app.kubernetes.io/name: {{ include "name" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
@@ -31,7 +30,7 @@ spec:
         paths:
           - path: {{ $ingressPath }}
             backend:
-              serviceName: {{ $fullName }}
+              serviceName: {{ .Release.Name }}
               servicePort: http
   {{- end }}
 {{- end }}
