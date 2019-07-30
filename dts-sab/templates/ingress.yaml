@@ -6,7 +6,6 @@ kind: Ingress
 metadata:
   name: {{ .Release.Name}}
   labels:
-    app.kubernetes.io/name: {{ include "name" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
   annotations:
