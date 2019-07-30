@@ -1,10 +1,10 @@
+{{- $fullName := include "fullname" . -}}
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "dts-sab.fullname" . }}
+  name: {{ $fullName }}
   labels:
-    app.kubernetes.io/name: {{ include "dts-sab.name" . }}
-    helm.sh/chart: {{ include "dts-sab.chart" . }}
+    app.kubernetes.io/name: {{ include "name" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
 spec:
@@ -15,5 +15,5 @@ spec:
       protocol: TCP
       name: http
   selector:
-    app.kubernetes.io/name: {{ include "dts-sab.name" . }}
+    app.kubernetes.io/name: {{ include "name" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
