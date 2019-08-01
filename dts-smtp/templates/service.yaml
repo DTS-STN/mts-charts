@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "dts-smtp.fullname" . }}
+  labels:
+    app.kubernetes.io/name: {{ include "dts-smtp.name" . }}
+    helm.sh/chart: {{ include "dts-smtp.chart" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: 25
+      protocol: TCP
+      name: smtp
+  selector:
+    app.kubernetes.io/name: {{ include "dts-smtp.name" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
