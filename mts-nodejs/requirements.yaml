@@ -1,6 +1,0 @@
-dependencies:
-- name: mongodb
-  repository: https://kubernetes-charts.storage.googleapis.com/
-  version: 7.0.1
-  condition: mongodb.install
-
