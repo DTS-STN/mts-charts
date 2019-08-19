@@ -1,0 +1,4 @@
+fluentd:
+    graylogHost: localhost
+    graylogPort: 12201
+    graylogMode: tcp
