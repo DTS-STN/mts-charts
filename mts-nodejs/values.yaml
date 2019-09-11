@@ -7,6 +7,27 @@
 ## Bitnami node image version
 ## ref: https://hub.docker.com/r/bitnami/node/tags/
 ##
+
+dataseed:
+  enabled: true
+  image:
+    repository: mtscontainers.azurecr.io/dts-sab
+    tag: 0.1.1
+  mongo:
+    uri:
+    database:
+    port:
+    user:
+    password:
+  git:
+    branchname:
+    user:
+    password:
+    repo:
+  workdir:
+  startcommand:
+  backofflimit: 4
+  
 image:
   registry: docker.io
   repository: bitnami/node
