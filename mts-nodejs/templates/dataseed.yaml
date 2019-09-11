@@ -38,5 +38,5 @@ spec:
           - name: STARTCOMMAND
             value: {{ .Values.dataseed.startcommand }}                  
       restartPolicy: Never
-  backoffLimit: {{ .Values.backofflimit | quote}}
+  backoffLimit: {{ .Values.backofflimit }}
   {{ end }}
