@@ -4,6 +4,23 @@
 
 replicaCount: 1
 
+mongo:
+  uri:
+  database:
+  port:
+  user:
+  password:
+git:
+  branchname:
+  user:
+  password:
+  repo:
+workdir:
+startcommand:
+backofflimit:
+dataseed: 
+  enabled: true
+
 image:
   repository: nginx
   tag: stable

@@ -1,0 +1,41 @@
+{{- if .Values.dataseed.enabled -}}
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ include "fullname" . }}
+  labels:
+    app.kubernetes.io/name: {{ include "name" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+spec:
+  template:
+    spec:
+      containers:
+        - name: sab-db-init
+          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          env:
+          - name: MONGO_URI
+            value: {{ .Values.mongo.uri }}
+          - name: MONGO_DATABASE
+            value:  {{ .Values.mongo.database }}
+          - name: MONGO_PORT
+            value:  {{ .Values.mongo.port }}
+          - name: MONGO_USER
+            value:  {{ .Values.mongo.user }}
+          - name: MONGO_PASSWORD
+            value:  {{ .Values.mongo.password }}
+          - name: BRANCHNAME
+            value:  {{ .Values.git.branchname }}
+          - name: GITUSER
+            value:  {{ .Values.git.user }}
+          - name: GITPASSWORD
+            value: {{ .Values.git.password }}
+          - name: GITREPO
+            value: {{ .Values.git.repo }}
+          - name: WORKDIR
+            value: {{ .Values.workdir }}
+          - name: STARTCOMMAND
+            value: {{ .Values.startcommand }}                  
+      restartPolicy: Never
+  backoffLimit: {{ .Values.backofflimit }}
+  {{ end }}
