@@ -12,30 +12,30 @@ spec:
     spec:
       containers:
         - name: sab-db-init
-          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          image: {{ .Values.dataseed.image.repository }}:{{ .Values.dataseed.image.tag }}
           env:
           - name: MONGO_URI
-            value: {{ .Values.mongo.uri }}
+            value: {{ .Values.dataseed.mongo.uri }}
           - name: MONGO_DATABASE
-            value:  {{ .Values.mongo.database }}
+            value:  {{ .Values.dataseed.mongo.database }}
           - name: MONGO_PORT
-            value:  {{ .Values.mongo.port }}
+            value:  {{ .Values.dataseed.mongo.port }}
           - name: MONGO_USER
-            value:  {{ .Values.mongo.user }}
+            value:  {{ .Values.dataseed.mongo.user }}
           - name: MONGO_PASSWORD
-            value:  {{ .Values.mongo.password }}
+            value:  {{ .Values.dataseed.mongo.password }}
           - name: BRANCHNAME
-            value:  {{ .Values.git.branchname }}
+            value:  {{ .Values.dataseed.git.branchname }}
           - name: GITUSER
-            value:  {{ .Values.git.user }}
+            value:  {{ .Values.dataseed.git.user }}
           - name: GITPASSWORD
-            value: {{ .Values.git.password }}
+            value: {{ .Values.dataseed.git.password }}
           - name: GITREPO
-            value: {{ .Values.git.repo }}
+            value: {{ .Values.dataseed.git.repo }}
           - name: WORKDIR
-            value: {{ .Values.workdir }}
+            value: {{ .Values.dataseed.workdir }}
           - name: STARTCOMMAND
-            value: {{ .Values.startcommand }}                  
+            value: {{ .Values.dataseed.startcommand }}                  
       restartPolicy: Never
   backoffLimit: {{ .Values.backofflimit }}
   {{ end }}
