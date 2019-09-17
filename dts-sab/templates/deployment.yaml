@@ -23,8 +23,8 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
 {{- if .Values.extraEnv }}
-        env:
-{{ toYaml .Values.extraEnv | indent 10 }}
+          env:
+{{ toYaml .Values.extraEnv | indent 12 }}
 {{- end }}
           ports:
             - name: http
