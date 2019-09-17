@@ -37,6 +37,9 @@ spec:
             value: {{ .Values.dataseed.workdir }}
           - name: STARTCOMMAND
             value: {{ .Values.dataseed.startcommand }}                  
+{{- if .Values.dataseed.extraEnv }}
+{{ toYaml .Values.dataseed.extraEnv | indent 10 }}
+{{- end }}
       restartPolicy: Never
   backoffLimit: {{ .Values.backofflimit }}
   {{ end }}
