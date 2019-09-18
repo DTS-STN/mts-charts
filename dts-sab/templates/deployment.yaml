@@ -34,12 +34,12 @@ spec:
             httpGet:
               path: /
               port: http
-              initialDelaySeconds: {{ .Values.livenessDelay }}
+            initialDelaySeconds: {{ .Values.livenessDelay }}
           readinessProbe:
             httpGet:
               path: /
               port: http
-              initialDelaySeconds: {{ .Values.readinessDelay }}
+            initialDelaySeconds: {{ .Values.readinessDelay }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
