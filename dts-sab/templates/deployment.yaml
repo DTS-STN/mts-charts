@@ -24,7 +24,7 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
 {{- if .Values.extraEnv }}
           env:
-{{ toYaml .Values.extraEnv | indent 12 }}
+{{ toYaml .Values.extraEnv | indent 10 }}
 {{- end }}
           ports:
             - name: http
@@ -34,10 +34,12 @@ spec:
             httpGet:
               path: /
               port: http
+              initialDelaySeconds: {{ .Values.livenessDelay }}
           readinessProbe:
             httpGet:
               path: /
               port: http
+              initialDelaySeconds: {{ .Values.readinessDelay }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}

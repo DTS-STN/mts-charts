@@ -2,6 +2,9 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
+livenessDelay: 60
+readinessDelay: 60
+
 replicaCount: 1
 dataseed:
   enabled: true
