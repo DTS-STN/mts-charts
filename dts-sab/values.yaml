@@ -2,6 +2,12 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
+networkPolicy:
+  enabled: false 
+  ingressCidrBlock: 10.100.1.0/24
+  egressPodMatchLabels:
+    app: database
+
 livenessDelay: 60
 readinessDelay: 60
 
