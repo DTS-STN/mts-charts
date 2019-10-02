@@ -17,8 +17,8 @@ spec:
   {{ if .Values.networkPolicy.ingressCidrBlock }}
     - ipBlock:
       cidr: {{ .Values.networkPolicy.ingressCidrBlock }}
-      except:
       {{ if .Values.networkPolicy.ingressCidrBlockException }} 
+      except:
       - {{ .Values.networkPolicy.ingressCidrBlockException }}
       {{ end }}
   {{ end }}
