@@ -14,21 +14,8 @@ spec:
   - Egress
   ingress:
   - from:
-  {{ if .Values.networkPolicy.ingressCidrBlock }}
     - ipBlock:
       cidr: {{ .Values.networkPolicy.ingressCidrBlock }}
-      {{ if .Values.networkPolicy.ingressCidrBlockException }} 
-      except:
-      - {{ .Values.networkPolicy.ingressCidrBlockException }}
-      {{ end }}
-  {{ end }}
-  {{ if .Values.networkPolicy.ingressPodMatchLabels }}
-    - podSelector:
-        matchLabels:
-        {{- range $key, $value := .Values.networkPolicy.ingressPodMatchLabels }}
-        {{ $key }}: {{ $value | quote }}
-        {{- end }} 
-  {{ end }}
     ports:
     - protocol: TCP
       port: 3000
