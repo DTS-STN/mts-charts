@@ -8,6 +8,13 @@
 ## ref: https://hub.docker.com/r/bitnami/node/tags/
 ##
 
+networkPolicy:
+  enabled: false 
+  ingressPodMatchLabels:
+    app: gui
+  egressPodMatchLabels:
+    app: database
+
 dataseed:
   enabled: true
   image:

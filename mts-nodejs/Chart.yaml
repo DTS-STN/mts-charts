@@ -1,5 +1,5 @@
 name: mts-nodejs
-version: 1.5.3
+version: 1.6.0
 appVersion: 8.15.0
 description: Event-driven I/O server-side JavaScript environment based on V8. Forked from Bitnami NodeJS 7.0.0
 keywords:
