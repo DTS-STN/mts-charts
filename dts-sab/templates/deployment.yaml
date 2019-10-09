@@ -28,7 +28,11 @@ spec:
 {{- end }}
           ports:
             - name: http
+              {{ if .Values.port }}
+              containerPort: {{ .Values.port }}
+              {{ else }}
               containerPort: 3000
+              {{ end }}
               protocol: TCP
           livenessProbe:
             httpGet:
