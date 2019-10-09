@@ -1,0 +1,51 @@
+{{- if .Values.networkPolicy.enabled }}
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: {{ template "graylog.name" . }}
+spec:
+  podSelector:
+    matchLabels:
+      app.kubernetes.io/name: {{ template "graylog.name" . }}
+      app.kubernetes.io/instance: "{{ .Release.Name }}"
+      app.kubernetes.io/version: "{{ .Chart.AppVersion }}"
+  policyTypes:
+  - Ingress
+  - Egress
+  ingress:
+  - from:
+  {{ if .Values.networkPolicy.ingressCidrBlock }}
+    - ipBlock:
+        cidr: {{ .Values.networkPolicy.ingressCidrBlock }}
+        {{ if .Values.networkPolicy.ingressCidrBlockException }} 
+        except:
+        - {{ .Values.networkPolicy.ingressCidrBlockException }}
+        {{ end }}
+  {{ end }}
+  {{ if .Values.networkPolicy.ingressPodMatchLabels }}
+    - podSelector:
+        matchLabels:
+        {{- range $key, $value := .Values.networkPolicy.ingressPodMatchLabels }}
+        {{ $key }}: {{ $value | quote }}
+        {{- end }} 
+  {{ end }}
+    ports:
+    - protocol: TCP
+      port: 9000
+    - protocol: TCP
+      port: 12201
+    egress:
+    - to:
+      - podSelector:
+          matchLabels:
+          {{- range $key, $value := .Values.networkPolicy.egressPodMatchLabels }}
+          {{ $key }}: {{ $value | quote }}
+          {{- end }} 
+      ports:
+      - protocol: TCP
+        port: 9200
+      - protocol: TCP
+        port: 9300
+      - protocol: TCP
+        port: 27017
+{{ end }}
