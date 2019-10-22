@@ -28,7 +28,7 @@ spec:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- if .Values.extraEnv }}
           env:
-      {{ toYaml .Values.extraEnv | indent 10 }}
+      {{ toYaml .Values.extraEnv | nindent 12 }}
       {{- end }}
     {{- with .Values.affinity }}
       affinity:
@@ -40,5 +40,5 @@ spec:
     {{- end }}
       {{- if .Values.Persistence.mounts }}
       volumeMounts:
-      {{ toYaml .Values.Persistence.mounts | indent 8 }}
+      {{ toYaml .Values.Persistence.mounts | nindent 8 }}
       {{- end }}
