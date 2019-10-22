@@ -38,3 +38,7 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
     {{- end }}
+      {{- if .Values.Persistence.mounts }}
+      volumeMounts:
+      {{ toYaml .Values.Persistence.mounts | indent 12 }}
+      {{- end }}

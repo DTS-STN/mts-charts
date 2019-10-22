@@ -9,9 +9,17 @@ image:
   tag: stable
   pullPolicy: IfNotPresent
 
+
+
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
+
+Persistence:
+  mounts:
+  #  - mountPath: /var/nothing
+  #    name: nothing
+  #    readOnly: truey: true
 
 service:
   type: ClusterIP
