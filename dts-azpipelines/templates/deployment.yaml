@@ -30,10 +30,6 @@ spec:
           env:
       {{ toYaml .Values.extraEnv | indent 10 }}
       {{- end }}
-      {{- with .Values.nodeSelector }}
-      nodeSelector:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
     {{- with .Values.affinity }}
       affinity:
         {{- toYaml . | nindent 8 }}
@@ -44,5 +40,5 @@ spec:
     {{- end }}
       {{- if .Values.Persistence.mounts }}
       volumeMounts:
-      {{ toYaml .Values.Persistence.mounts | indent 12 }}
+      {{ toYaml .Values.Persistence.mounts | indent 8 }}
       {{- end }}
