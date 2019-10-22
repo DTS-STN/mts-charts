@@ -43,6 +43,7 @@ spec:
       {{ toYaml .Values.Persistence.mounts | nindent 8 }}
       {{- end }}
     volumes:
+    -
     {{- if .Values.Persistence.volumes }}
     {{ toYaml .Values.Persistence.volumes | indent 6 }}
     {{- end }}
