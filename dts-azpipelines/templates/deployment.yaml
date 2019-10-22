@@ -26,10 +26,10 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
-      {{- if .Values.extraEnv }}
+    {{- if .Values.extraEnv }}
           env:
-      {{ toYaml .Values.extraEnv | nindent 12 }}
-      {{- end }}
+    {{ toYaml .Values.extraEnv | nindent 12 }}
+    {{- end }}
     {{- with .Values.affinity }}
       affinity:
         {{- toYaml . | nindent 8 }}
