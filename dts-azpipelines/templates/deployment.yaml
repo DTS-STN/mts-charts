@@ -38,11 +38,11 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
     {{- end }}
-        {{- if .Values.Persistence.mounts }}
-        volumeMounts:
-        {{ toYaml .Values.Persistence.mounts | nindent 10 }}
-        {{- end }}
-      {{- if .Values.Persistence.volumes }}
-      volumes:
-      {{ toYaml .Values.Persistence.volumes | nindent 8 }}
+      {{- if .Values.Persistence.mounts }}
+      volumeMounts:
+      {{ toYaml .Values.Persistence.mounts | nindent 10 }}
       {{- end }}
+    {{- if .Values.Persistence.volumes }}
+    volumes:
+    {{ toYaml .Values.Persistence.volumes | nindent 8 }}
+    {{- end }}
