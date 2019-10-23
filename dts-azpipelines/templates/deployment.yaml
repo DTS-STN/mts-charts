@@ -40,9 +40,9 @@ spec:
     {{- end }}
       {{- if .Values.Persistence.mounts }}
       volumeMounts:
-      {{ toYaml .Values.Persistence.mounts | nindent 10 }}
+      {{ toYaml .Values.Persistence.mounts | nindent 14 }}
       {{- end }}
     {{- if .Values.Persistence.volumes }}
     volumes:
-    {{ toYaml .Values.Persistence.volumes | nindent 8 }}
+    {{ toYaml .Values.Persistence.volumes | nindent 10 }}
     {{- end }}
