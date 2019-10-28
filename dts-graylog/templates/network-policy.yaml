@@ -14,9 +14,8 @@ spec:
   - Egress
   ingress:
   - from:
-    -
     {{- if .Values.networkPolicy.ingressRules }}
-    {{ toYaml .Values.networkPolicy.ingressRules | indent 4 }}
+    {{ toYaml .Values.networkPolicy.ingressRules | nindent 4 }}
     {{- end }}
     ports:
     - protocol: TCP
