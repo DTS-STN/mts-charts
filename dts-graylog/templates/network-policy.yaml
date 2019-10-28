@@ -14,6 +14,7 @@ spec:
   - Egress
   ingress:
   - from:
+    -
     {{- if .Values.networkPolicy.ingressRules }}
     {{ toYaml .Values.networkPolicy.ingressRules | indent 4 }}
     {{- end }}
