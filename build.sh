@@ -3,7 +3,6 @@
 set -e
 
 export workspace=$1
-mkdir -p $workspace/helm-charts
 
 #Check if helm installed
 if ! helm init --client-only;
@@ -24,7 +23,7 @@ find . -type f -iname "Chart.yaml" -print0 | while IFS= read -r -d $'\0' line; d
     pushd $directory
         if  helm lint . ;
         then
-            if ! helm package -d $workspace/helm-charts . ;
+            if ! helm package -d $workspace/built-charts . ;
             then
                 echo "Building Failed"
                 exit 1;
@@ -35,4 +34,4 @@ find . -type f -iname "Chart.yaml" -print0 | while IFS= read -r -d $'\0' line; d
         fi
     popd
 done
-helm repo index $workspace/helm-charts
+helm repo index $workspace/built-charts

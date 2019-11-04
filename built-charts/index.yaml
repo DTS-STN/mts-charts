@@ -1,0 +1,1234 @@
+apiVersion: v1
+entries:
+  dts-azpipelines:
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2019-11-04T09:29:10.289685661-05:00"
+    description: A Helm chart for Kubernetes
+    digest: ff8017bac2f50eb4ec14481151947fd462414744623334a9348590f0af48a0e9
+    name: dts-azpipelines
+    urls:
+    - dts-azpipelines-0.1.13.tgz
+    version: 0.1.13
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2019-11-04T09:29:10.289536104-05:00"
+    description: A Helm chart for Kubernetes
+    digest: 7b37dc804cfacad156e7db2013ce1654b2f533fb5c4a218f6290d6b0b07fd617
+    name: dts-azpipelines
+    urls:
+    - dts-azpipelines-0.1.12.tgz
+    version: 0.1.12
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2019-11-04T09:29:10.289383745-05:00"
+    description: A Helm chart for Kubernetes
+    digest: a726a84661b8d67a1ce23cae62cbee207dbc194bb5ffa0d03d1cccadf8345f16
+    name: dts-azpipelines
+    urls:
+    - dts-azpipelines-0.1.11.tgz
+    version: 0.1.11
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2019-11-04T09:29:10.289238706-05:00"
+    description: A Helm chart for Kubernetes
+    digest: a52a422fa5b9308c6a17dd1c3693e574774de53f97dd6c1262d29c7607f3a348
+    name: dts-azpipelines
+    urls:
+    - dts-azpipelines-0.1.10.tgz
+    version: 0.1.10
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2019-11-04T09:29:10.291055487-05:00"
+    description: A Helm chart for Kubernetes
+    digest: 460da3c606940f4defcd36cb288bf662ef7d3445fc058bac16b7259d12b1ca73
+    name: dts-azpipelines
+    urls:
+    - dts-azpipelines-0.1.9.tgz
+    version: 0.1.9
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2019-11-04T09:29:10.290734493-05:00"
+    description: A Helm chart for Kubernetes
+    digest: ed0525d9bd58dc1111ff92a19868706a50aad83b414ef0df47f7f231ad7578b0
+    name: dts-azpipelines
+    urls:
+    - dts-azpipelines-0.1.8.tgz
+    version: 0.1.8
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2019-11-04T09:29:10.29058936-05:00"
+    description: A Helm chart for Kubernetes
+    digest: 6dc924539f4210cfe475d785e77f35790423d7638a9119aa4ca29b426a890e16
+    name: dts-azpipelines
+    urls:
+    - dts-azpipelines-0.1.7.tgz
+    version: 0.1.7
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2019-11-04T09:29:10.290456196-05:00"
+    description: A Helm chart for Kubernetes
+    digest: c840b0204cf13095e6aa6463891c81e80a644b7faa8b45357314411c3f9ebb76
+    name: dts-azpipelines
+    urls:
+    - dts-azpipelines-0.1.6.tgz
+    version: 0.1.6
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2019-11-04T09:29:10.290318532-05:00"
+    description: A Helm chart for Kubernetes
+    digest: cf3aa4288633a43bcc40f3f3554dcdb14111d9125efef63a19ba15ce7fcf730e
+    name: dts-azpipelines
+    urls:
+    - dts-azpipelines-0.1.5.tgz
+    version: 0.1.5
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2019-11-04T09:29:10.290165565-05:00"
+    description: A Helm chart for Kubernetes
+    digest: 025c74c0e023218fb1be6deee1ff569ed7ee3265435d7085c00f5064c6f3f70a
+    name: dts-azpipelines
+    urls:
+    - dts-azpipelines-0.1.4.tgz
+    version: 0.1.4
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2019-11-04T09:29:10.290022461-05:00"
+    description: A Helm chart for Kubernetes
+    digest: 1d4fd3190d2002387869a7dbf29bb7b6897f6059651b5b38e9cc6d496ce0ddd9
+    name: dts-azpipelines
+    urls:
+    - dts-azpipelines-0.1.3.tgz
+    version: 0.1.3
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2019-11-04T09:29:10.289860748-05:00"
+    description: A Helm chart for Kubernetes
+    digest: e25a324d59798cc645ff4b302c2ca5a680b2b78670039fa2b5ab83e66d16372f
+    name: dts-azpipelines
+    urls:
+    - dts-azpipelines-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2019-11-04T09:29:10.289097423-05:00"
+    description: A Helm chart for Kubernetes
+    digest: e85e7c85a70ddd7d13d13cbc4f7b7b69ced8b5489543ef93c88ef519bed426d1
+    name: dts-azpipelines
+    urls:
+    - dts-azpipelines-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2019-11-04T09:29:10.288940356-05:00"
+    description: A Helm chart for Kubernetes
+    digest: 32e0d20876dd1ee5fc02d1774447b42fc4f487df9cef077f8171e532310ab6e4
+    name: dts-azpipelines
+    urls:
+    - dts-azpipelines-0.1.0.tgz
+    version: 0.1.0
+  dts-bookstack:
+  - apiVersion: v1
+    appVersion: 0.25.2
+    created: "2019-11-04T09:29:10.29204569-05:00"
+    description: BookStack is a simple, self-hosted, easy-to-use platform for organising
+      and storing information.
+    digest: b7f4860a36a0169c6679d3adc07c82b2e43a1c3efad9d2f60fc26148f7b8a8fd
+    home: https://www.bookstackapp.com/
+    icon: https://github.com/BookStackApp/website/blob/master/static/images/logo.png
+    maintainers:
+    - email: bart@verwilst.be
+      name: verwilst
+    name: dts-bookstack
+    sources:
+    - https://github.com/BookStackApp/BookStack
+    urls:
+    - dts-bookstack-1.1.0.tgz
+    version: 1.1.0
+  dts-elasticsearch:
+  - appVersion: 6.5.3
+    created: "2019-11-04T09:29:10.292597441-05:00"
+    description: Flexible and powerful open source, distributed real-time search and
+      analytics engine.
+    digest: 57c5064a092ad02f97f3151e02d79659c816fc32f54892ebfee5011de3238a83
+    home: https://www.elastic.co/products/elasticsearch
+    icon: https://static-www.elastic.co/assets/blteb1c97719574938d/logo-elastic-elasticsearch-lt.svg
+    maintainers:
+    - email: christian@jetstack.io
+      name: simonswine
+    - email: michael.haselton@gmail.com
+      name: icereval
+    - email: pete.brown@powerhrg.com
+      name: rendhalver
+    - email: cedric@desaintmartin.fr
+      name: desaintmartin
+    name: dts-elasticsearch
+    sources:
+    - https://www.elastic.co/products/elasticsearch
+    - https://github.com/jetstack/elasticsearch-pet
+    - https://github.com/giantswarm/kubernetes-elastic-stack
+    - https://github.com/GoogleCloudPlatform/elasticsearch-docker
+    - https://github.com/clockworksoul/helm-elasticsearch
+    - https://github.com/pires/kubernetes-elasticsearch-cluster
+    urls:
+    - dts-elasticsearch-1.15.1.tgz
+    version: 1.15.1
+  dts-environment:
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2019-11-04T09:29:10.292770652-05:00"
+    description: Reads an environment variable and tells you which environment you're
+      pointing to.
+    digest: 6301b0e065a06d117f617e0903bdb097e927cd52853b862c72a7d47c00547576
+    name: dts-environment
+    urls:
+    - dts-environment-0.1.0.tgz
+    version: 0.1.0
+  dts-fluentd:
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2019-11-04T09:29:10.292931349-05:00"
+    description: Fluentd Agent for Graylog
+    digest: 3fac12a6e73f062608e38bc61e244c21a10a7303986bc330b6eacd97f6648098
+    name: dts-fluentd
+    urls:
+    - dts-fluentd-0.1.0.tgz
+    version: 0.1.0
+  dts-graylog:
+  - apiVersion: v1
+    appVersion: 3.1.2-1
+    created: "2019-11-04T09:29:10.300550761-05:00"
+    description: Graylog is the centralized log management solution built to open
+      standards for capturing, storing, and enabling real-time analysis of terabytes
+      of machine data.
+    digest: cc48ac0fa7fc70d48d815b20a2f5f492fbb96bec2a1bd06a3472de9a1fd5dc58
+    home: https://www.graylog.org
+    icon: https://global-uploads.webflow.com/5a218ef7897bf400019e2f16/5a218ef7897bf400019e2f60_logo-graylog.png
+    keywords:
+    - graylog
+    - logs
+    - syslog
+    - gelf
+    maintainers:
+    - email: goonohc@gmail.com
+      name: KongZ
+    name: dts-graylog
+    sources:
+    - https://www.graylog.org
+    urls:
+    - dts-graylog-1.3.11.tgz
+    version: 1.3.11
+  - apiVersion: v1
+    appVersion: 3.1.2-1
+    created: "2019-11-04T09:29:10.298521196-05:00"
+    description: Graylog is the centralized log management solution built to open
+      standards for capturing, storing, and enabling real-time analysis of terabytes
+      of machine data.
+    digest: f7f27de25eb6619a2c77d49e8120d6bb73a7c96e32cf353df8d487c9a1c42ff3
+    home: https://www.graylog.org
+    icon: https://global-uploads.webflow.com/5a218ef7897bf400019e2f16/5a218ef7897bf400019e2f60_logo-graylog.png
+    keywords:
+    - graylog
+    - logs
+    - syslog
+    - gelf
+    maintainers:
+    - email: goonohc@gmail.com
+      name: KongZ
+    name: dts-graylog
+    sources:
+    - https://www.graylog.org
+    urls:
+    - dts-graylog-1.3.10.tgz
+    version: 1.3.10
+  - apiVersion: v1
+    appVersion: 3.1.2-1
+    created: "2019-11-04T09:29:10.311233326-05:00"
+    description: Graylog is the centralized log management solution built to open
+      standards for capturing, storing, and enabling real-time analysis of terabytes
+      of machine data.
+    digest: 8239d1eb69d2846f3da41fc29ce784434935d0bfd107862b4b38a1cfa9355e87
+    home: https://www.graylog.org
+    icon: https://global-uploads.webflow.com/5a218ef7897bf400019e2f16/5a218ef7897bf400019e2f60_logo-graylog.png
+    keywords:
+    - graylog
+    - logs
+    - syslog
+    - gelf
+    maintainers:
+    - email: goonohc@gmail.com
+      name: KongZ
+    name: dts-graylog
+    sources:
+    - https://www.graylog.org
+    urls:
+    - dts-graylog-1.3.9.tgz
+    version: 1.3.9
+  - apiVersion: v1
+    appVersion: 3.1.2-1
+    created: "2019-11-04T09:29:10.309148617-05:00"
+    description: Graylog is the centralized log management solution built to open
+      standards for capturing, storing, and enabling real-time analysis of terabytes
+      of machine data.
+    digest: 52ac2f4bb50fa4605270a3e9345b11c9b42da49e284894666d82aadc3ebb6805
+    home: https://www.graylog.org
+    icon: https://global-uploads.webflow.com/5a218ef7897bf400019e2f16/5a218ef7897bf400019e2f60_logo-graylog.png
+    keywords:
+    - graylog
+    - logs
+    - syslog
+    - gelf
+    maintainers:
+    - email: goonohc@gmail.com
+      name: KongZ
+    name: dts-graylog
+    sources:
+    - https://www.graylog.org
+    urls:
+    - dts-graylog-1.3.8.tgz
+    version: 1.3.8
+  - apiVersion: v1
+    appVersion: 3.1.2-1
+    created: "2019-11-04T09:29:10.306524727-05:00"
+    description: Graylog is the centralized log management solution built to open
+      standards for capturing, storing, and enabling real-time analysis of terabytes
+      of machine data.
+    digest: 5e7cdac3ec401d8de1a2f780ca70e7ce30dacc14b3856df6443e903d1d3cafca
+    home: https://www.graylog.org
+    icon: https://global-uploads.webflow.com/5a218ef7897bf400019e2f16/5a218ef7897bf400019e2f60_logo-graylog.png
+    keywords:
+    - graylog
+    - logs
+    - syslog
+    - gelf
+    maintainers:
+    - email: goonohc@gmail.com
+      name: KongZ
+    name: dts-graylog
+    sources:
+    - https://www.graylog.org
+    urls:
+    - dts-graylog-1.3.7.tgz
+    version: 1.3.7
+  - apiVersion: v1
+    appVersion: 3.1.2-1
+    created: "2019-11-04T09:29:10.304465781-05:00"
+    description: Graylog is the centralized log management solution built to open
+      standards for capturing, storing, and enabling real-time analysis of terabytes
+      of machine data.
+    digest: f411713ceb2a18db2691e49f59913e0a07d2bcbeb733915e01e18929df47a8ba
+    home: https://www.graylog.org
+    icon: https://global-uploads.webflow.com/5a218ef7897bf400019e2f16/5a218ef7897bf400019e2f60_logo-graylog.png
+    keywords:
+    - graylog
+    - logs
+    - syslog
+    - gelf
+    maintainers:
+    - email: goonohc@gmail.com
+      name: KongZ
+    name: dts-graylog
+    sources:
+    - https://www.graylog.org
+    urls:
+    - dts-graylog-1.3.6.tgz
+    version: 1.3.6
+  - apiVersion: v1
+    appVersion: 3.1.2-1
+    created: "2019-11-04T09:29:10.30220328-05:00"
+    description: Graylog is the centralized log management solution built to open
+      standards for capturing, storing, and enabling real-time analysis of terabytes
+      of machine data.
+    digest: 4e27908d7b564dfe6ab07f069cd3f576084e1cc23b1f99daee2c1fc2210638c5
+    home: https://www.graylog.org
+    icon: https://global-uploads.webflow.com/5a218ef7897bf400019e2f16/5a218ef7897bf400019e2f60_logo-graylog.png
+    keywords:
+    - graylog
+    - logs
+    - syslog
+    - gelf
+    maintainers:
+    - email: goonohc@gmail.com
+      name: KongZ
+    name: dts-graylog
+    sources:
+    - https://www.graylog.org
+    urls:
+    - dts-graylog-1.3.5.tgz
+    version: 1.3.5
+  - appVersion: 2.5.1-3
+    created: "2019-11-04T09:29:10.296012895-05:00"
+    description: Graylog is the centralized log management solution built to open
+      standards for capturing, storing, and enabling real-time analysis of terabytes
+      of machine data.
+    digest: 43717dad552051f7f2c328c5b4d3e11eaa7d63e24fbd8c3e6b7286c3d759c4e8
+    home: https://www.graylog.org
+    icon: https://global-uploads.webflow.com/5a218ef7897bf400019e2f16/5a218ef7897bf400019e2f60_logo-graylog.png
+    keywords:
+    - graylog
+    - logs
+    - syslog
+    - gelf
+    maintainers:
+    - email: goonohc@gmail.com
+      name: KongZ
+    name: dts-graylog
+    sources:
+    - https://www.graylog.org
+    urls:
+    - dts-graylog-0.1.5.tgz
+    version: 0.1.5
+  - appVersion: 2.5.1-3
+    created: "2019-11-04T09:29:10.294459461-05:00"
+    description: Graylog is the centralized log management solution built to open
+      standards for capturing, storing, and enabling real-time analysis of terabytes
+      of machine data.
+    digest: df2150d27f95aebe3b71e6a6c455e35eab327fe3503ffe824321b28ab281d3c0
+    home: https://www.graylog.org
+    icon: https://global-uploads.webflow.com/5a218ef7897bf400019e2f16/5a218ef7897bf400019e2f60_logo-graylog.png
+    keywords:
+    - graylog
+    - logs
+    - syslog
+    - gelf
+    maintainers:
+    - email: goonohc@gmail.com
+      name: KongZ
+    name: dts-graylog
+    sources:
+    - https://www.graylog.org
+    urls:
+    - dts-graylog-0.1.4.tgz
+    version: 0.1.4
+  dts-kubecost:
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2019-11-04T09:29:10.314059219-05:00"
+    description: A Helm chart that sets up Kubecost, Prometheus, and Grafana to monitor
+      cloud costs.
+    digest: aa0f965848ec1f80a944cc85454bc4adda3f502ddc0100c9cd440bf23ac3692f
+    name: dts-kubecost
+    urls:
+    - dts-kubecost-1.19.2.tgz
+    version: 1.19.2
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2019-11-04T09:29:10.312649803-05:00"
+    description: A Helm chart that sets up Kubecost, Prometheus, and Grafana to monitor
+      cloud costs.
+    digest: 4400b47421bc4993c740869d765e421cb0b1d8a7519f96b5ff8f513f8cd06a03
+    name: dts-kubecost
+    urls:
+    - dts-kubecost-1.19.1.tgz
+    version: 1.19.1
+  dts-mongodb:
+  - apiVersion: v1
+    appVersion: 4.0.12
+    created: "2019-11-04T09:29:10.315226258-05:00"
+    description: FORKED FROM stable/mongodb NoSQL document-oriented database that
+      stores JSON-like documents with dynamic schemas, simplifying the integration
+      of data in content-driven applications.
+    digest: 3c1b0749c75745b6fb83d83a238be8c2bbfa0819d3b69abb6110504976d64af0
+    engine: gotpl
+    home: https://mongodb.org
+    icon: https://bitnami.com/assets/stacks/mongodb/img/mongodb-stack-220x234.png
+    keywords:
+    - mongodb
+    - database
+    - nosql
+    - cluster
+    - replicaset
+    - replication
+    maintainers:
+    - email: containers@bitnami.com
+      name: Bitnami
+    name: dts-mongodb
+    sources:
+    - https://github.com/bitnami/bitnami-docker-mongodb
+    urls:
+    - dts-mongodb-0.1.0.tgz
+    version: 0.1.0
+  dts-sab:
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2019-11-04T09:29:10.317602948-05:00"
+    description: DTS Scheduling App for Biometrics
+    digest: 8d665c76049ef9c112f7cc6292726216915b0630dc7cf901cb0d10a28b5c5d1c
+    name: dts-sab
+    urls:
+    - dts-sab-0.2.4.tgz
+    version: 0.2.4
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2019-11-04T09:29:10.317433329-05:00"
+    description: DTS Scheduling App for Biometrics
+    digest: 6d8fc66a9cfd6374856c68ed0d22e74081cbdf447a33d9f09c0e21beb2a95b1c
+    name: dts-sab
+    urls:
+    - dts-sab-0.2.3.tgz
+    version: 0.2.3
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2019-11-04T09:29:10.317277894-05:00"
+    description: DTS Scheduling App for Biometrics
+    digest: d730b5b8c4bfcfc2ab66e0e3fffe9ae4bdc9201969dcfcf99abe93ebf1eb3676
+    name: dts-sab
+    urls:
+    - dts-sab-0.2.2.tgz
+    version: 0.2.2
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2019-11-04T09:29:10.317113717-05:00"
+    description: DTS Scheduling App for Biometrics
+    digest: e80093ebee13b6544419c9c24ba178b476fe171c486c2d1ec4b322f79c0d401c
+    name: dts-sab
+    urls:
+    - dts-sab-0.2.1.tgz
+    version: 0.2.1
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2019-11-04T09:29:10.316955184-05:00"
+    description: DTS Scheduling App for Biometrics
+    digest: d999b1099e44efc63b0b381ef4b02db31119f8777b0bcce57af99d75e14225ed
+    name: dts-sab
+    urls:
+    - dts-sab-0.2.0.tgz
+    version: 0.2.0
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2019-11-04T09:29:10.315735133-05:00"
+    description: DTS Scheduling App for Biometrics
+    digest: b07d98896b9834dfeb08cda4a50ea50bd1c7af663a88897c01c1cb78ac4167e5
+    name: dts-sab
+    urls:
+    - dts-sab-0.1.10.tgz
+    version: 0.1.10
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2019-11-04T09:29:10.316791471-05:00"
+    description: DTS Scheduling App for Biometrics
+    digest: c5b820d13060153d5ce6d50789c2f8abef9ff58f4827534f23232f669278d930
+    name: dts-sab
+    urls:
+    - dts-sab-0.1.9.tgz
+    version: 0.1.9
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2019-11-04T09:29:10.316644661-05:00"
+    description: DTS Scheduling App for Biometrics
+    digest: 738fb131a3a9b37f3b3605f3d8c91a240d1033bd92bda5f4bf36ca30d1161a37
+    name: dts-sab
+    urls:
+    - dts-sab-0.1.8.tgz
+    version: 0.1.8
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2019-11-04T09:29:10.316496616-05:00"
+    description: DTS Scheduling App for Biometrics
+    digest: 9a5447a538a254ce17371cda250f938e3ac23f02b1cc155913ad542a4144887f
+    name: dts-sab
+    urls:
+    - dts-sab-0.1.7.tgz
+    version: 0.1.7
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2019-11-04T09:29:10.316351356-05:00"
+    description: DTS Scheduling App for Biometrics
+    digest: aeb7ee70e63540e3f23558cf4937830e51432a6691a3f4abf1ac1beafd02dec3
+    name: dts-sab
+    urls:
+    - dts-sab-0.1.5.tgz
+    version: 0.1.5
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2019-11-04T09:29:10.316195669-05:00"
+    description: DTS Scheduling App for Biometrics
+    digest: 3754c4484be98bb3ee1b704b1d4489f63b5524ab4fc29b50ef50cacd0e170bbe
+    name: dts-sab
+    urls:
+    - dts-sab-0.1.4.tgz
+    version: 0.1.4
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2019-11-04T09:29:10.316048438-05:00"
+    description: DTS Scheduling App for Biometrics
+    digest: 894ecd231360f6ca7c93c32504159482667a07f6a273093793314967b75eb6ca
+    name: dts-sab
+    urls:
+    - dts-sab-0.1.3.tgz
+    version: 0.1.3
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2019-11-04T09:29:10.315891801-05:00"
+    description: DTS Scheduling App for Biometrics
+    digest: 2b059ba3bcdc2676f40dfd5f613071a47407f2cbf7f677564727d09e6fbd8639
+    name: dts-sab
+    urls:
+    - dts-sab-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2019-11-04T09:29:10.315574336-05:00"
+    description: DTS Scheduling App for Biometrics
+    digest: 692fdecf2fb18d9b2a4fb8004be05c9d7732e6c4a86941ed5959a026fff1f400
+    name: dts-sab
+    urls:
+    - dts-sab-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2019-11-04T09:29:10.315388662-05:00"
+    description: DTS Scheduling App for Biometrics
+    digest: aa55f6cd79cb73bb5ef702d68221030ccbe1e5f828d11b9bcfa64540727f1316
+    name: dts-sab
+    urls:
+    - dts-sab-0.1.0.tgz
+    version: 0.1.0
+  dts-smtp:
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2019-11-04T09:29:10.317872812-05:00"
+    description: DTS SMTP Server
+    digest: 0333714623923a7d45fccfb5268a0fb2164ea845684400c428f23d07e9be0bbb
+    name: dts-smtp
+    urls:
+    - dts-smtp-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2019-11-04T09:29:10.317734019-05:00"
+    description: DTS SMTP Server
+    digest: a624fb0fa3f1e517cbe467afd2d2f658c61d87b1cb4ef32b0c6d0213c85f300d
+    name: dts-smtp
+    urls:
+    - dts-smtp-0.1.0.tgz
+    version: 0.1.0
+  mts-apache:
+  - appVersion: 2.4.37
+    created: "2019-11-04T09:29:10.320070321-05:00"
+    description: Chart for Apache HTTP Server -based off of Bitnami chart
+    digest: b625b9929f9ce9af14ad896c80b71d93d6204aed89f44f0befac764ac5492a7a
+    engine: gotpl
+    home: https://httpd.apache.org
+    keywords:
+    - apache
+    - http
+    - https
+    - www
+    - web
+    - reverse proxy
+    maintainers:
+    - email: gocmts@gmail.com
+      name: MTS
+    name: mts-apache
+    urls:
+    - mts-apache-0.2.2.tgz
+    version: 0.2.2
+  - appVersion: 2.4.37
+    created: "2019-11-04T09:29:10.318760392-05:00"
+    description: Chart for Apache HTTP Server -based off of Bitnami chart
+    digest: 17b05506ef5665e4a6be8c1fdfd6c2095f2abaa139d8f8bc7c10995e8c81163e
+    engine: gotpl
+    home: https://httpd.apache.org
+    keywords:
+    - apache
+    - http
+    - https
+    - www
+    - web
+    - reverse proxy
+    maintainers:
+    - email: gocmts@gmail.com
+      name: MTS
+    name: mts-apache
+    urls:
+    - mts-apache-0.2.1.tgz
+    version: 0.2.1
+  mts-confluence:
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2019-11-04T09:29:10.320986775-05:00"
+    description: MTS Confluence Image
+    digest: c92c3bc6e800814088244baded491a4dee2836fa64ffe36992bb73f2a9e1034d
+    name: mts-confluence
+    urls:
+    - mts-confluence-0.5.2.tgz
+    version: 0.5.2
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2019-11-04T09:29:10.320825418-05:00"
+    description: MTS Confluence Image
+    digest: 5334120e9b4b22bc00b8055a5505e763b0706db7b110fe8c1b06af7b187dedb3
+    name: mts-confluence
+    urls:
+    - mts-confluence-0.5.1.tgz
+    version: 0.5.1
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2019-11-04T09:29:10.320654332-05:00"
+    description: MTS Confluence Image
+    digest: fc0cd59b548849220bd47de1ef9eed1cc4f0c8bcbd8cbeabb04f33765117882d
+    name: mts-confluence
+    urls:
+    - mts-confluence-0.5.0.tgz
+    version: 0.5.0
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2019-11-04T09:29:10.320355251-05:00"
+    description: MTS Confluence Image
+    digest: 603f26b190cbadfd46522b3db7037e8aa878a16b3d40e11a92251760e640df05
+    name: mts-confluence
+    urls:
+    - mts-confluence-0.4.2.tgz
+    version: 0.4.2
+  mts-discourse:
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2019-11-04T09:29:10.321549001-05:00"
+    description: MTS Discourse Helm Chart
+    digest: 7bd5cd1609ae9a82ba2d917bbfb8fad1fddb8294575412f3f68424bbf0d773ac
+    name: mts-discourse
+    urls:
+    - mts-discourse-0.1.0.tgz
+    version: 0.1.0
+  mts-disk:
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2019-11-04T09:29:10.321988668-05:00"
+    description: Maps existing Azure Disk to Persistent Volume and Persistent Volume
+      Claim
+    digest: d016c7d79572b43ea061d37e1a38f75e6b7f81387c2c66919c6bed5e1f1807cc
+    name: mts-disk
+    urls:
+    - mts-disk-0.2.1.tgz
+    version: 0.2.1
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2019-11-04T09:29:10.32187681-05:00"
+    description: Maps existing Azure Disk to Persistent Volume and Persistent Volume
+      Claim
+    digest: 24b669eca6a7c4eadf45807e1d628f473cfdec7643d32b6e45118c00a20031fa
+    name: mts-disk
+    urls:
+    - mts-disk-0.2.0.tgz
+    version: 0.2.0
+  mts-environment:
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2019-11-04T09:29:10.322176126-05:00"
+    description: Reads an environment variable and tells you which environment you're
+      pointing to.
+    digest: 7bedeb33212689b9f4692349fcee93814f10fe47ecd5de230c792d97b70a6510
+    name: mts-environment
+    urls:
+    - mts-environment-0.1.0.tgz
+    version: 0.1.0
+  mts-flarum:
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2019-11-04T09:29:10.336478411-05:00"
+    description: A Helm chart for Kubernetes
+    digest: 85dceb7e96db28ec42f3e03d95f00c851cd1b9ecd4d1b515ffc6477d93f32f2f
+    name: mts-flarum
+    urls:
+    - mts-flarum-0.4.0.tgz
+    version: 0.4.0
+  mts-graylog:
+  - apiVersion: v1
+    appVersion: 2.5.1
+    created: "2019-11-04T09:29:10.339789119-05:00"
+    description: A Graylog2 Helm chart for Kubernetes
+    digest: 70aad5e42a19d3abe45080390ab659e037eb84058a790752fb774a33b3b74c3a
+    home: https://github.com/imubit/graylog-helm-chart
+    name: mts-graylog
+    sources:
+    - https://github.com/imubit/graylog-helm-chart
+    urls:
+    - mts-graylog-0.2.1.tgz
+    version: 0.2.1
+  - apiVersion: v1
+    appVersion: 2.4.4
+    created: "2019-11-04T09:29:10.338072146-05:00"
+    description: A Graylog2 Helm chart for Kubernetes
+    digest: 3a91873006e90c9a4f3bcdf3b387ace6bffe29fcf1180d1c744d6de54580eb80
+    home: https://github.com/imubit/graylog-helm-chart
+    name: mts-graylog
+    sources:
+    - https://github.com/imubit/graylog-helm-chart
+    urls:
+    - mts-graylog-0.2.0.tgz
+    version: 0.2.0
+  - apiVersion: v1
+    appVersion: 2.4.4
+    created: "2019-11-04T09:29:10.337413197-05:00"
+    description: A Graylog2 Helm chart for Kubernetes
+    digest: f7e8fd8b81e7c58362aaf0bdeb3f8178c2e94ac83594dac0f38bec97e8c1a189
+    home: https://github.com/imubit/graylog-helm-chart
+    name: mts-graylog
+    sources:
+    - https://github.com/imubit/graylog-helm-chart
+    urls:
+    - mts-graylog-0.1.0.tgz
+    version: 0.1.0
+  mts-jenkins:
+  - appVersion: lts
+    created: "2019-11-04T09:29:10.343126178-05:00"
+    description: Open source continuous integration server. It supports multiple SCM
+      tools including CVS, Subversion and Git. It can execute Apache Ant and Apache
+      Maven-based projects as well as arbitrary scripts.
+    digest: c13078a3f0c8851c52a4a024bb2dee654848eaa448afb4841cad4afdb5e806e3
+    home: https://jenkins.io/
+    icon: https://wiki.jenkins-ci.org/download/attachments/2916393/logo.png
+    maintainers:
+    - email: lachlan.evenson@microsoft.com
+      name: lachie83
+    - email: viglesias@google.com
+      name: viglesiasce
+    - email: maorfr@gmail.com
+      name: maorfr
+    name: mts-jenkins
+    sources:
+    - https://github.com/jenkinsci/jenkins
+    - https://github.com/jenkinsci/docker-jnlp-slave
+    - https://github.com/nuvo/kube-tasks
+    urls:
+    - mts-jenkins-0.28.2.tgz
+    version: 0.28.2
+  - appVersion: lts
+    created: "2019-11-04T09:29:10.342518816-05:00"
+    description: Open source continuous integration server. It supports multiple SCM
+      tools including CVS, Subversion and Git. It can execute Apache Ant and Apache
+      Maven-based projects as well as arbitrary scripts.
+    digest: 558147bdc8758497cc3aa32a1ea3b310ec2be91802b7ff10c0fd81da3bca15f4
+    home: https://jenkins.io/
+    icon: https://wiki.jenkins-ci.org/download/attachments/2916393/logo.png
+    maintainers:
+    - email: lachlan.evenson@microsoft.com
+      name: lachie83
+    - email: viglesias@google.com
+      name: viglesiasce
+    - email: maorfr@gmail.com
+      name: maorfr
+    name: mts-jenkins
+    sources:
+    - https://github.com/jenkinsci/jenkins
+    - https://github.com/jenkinsci/docker-jnlp-slave
+    - https://github.com/nuvo/kube-tasks
+    urls:
+    - mts-jenkins-0.28.1.tgz
+    version: 0.28.1
+  - appVersion: lts
+    created: "2019-11-04T09:29:10.341918622-05:00"
+    description: Fork of Stable 0.28.1. Open source continuous integration server.
+      It supports multiple SCM tools including CVS, Subversion and Git. It can execute
+      Apache Ant and Apache Maven-based projects as well as arbitrary scripts.
+    digest: c9bcd49b9c560603513dcbc617c848a53f2509d5948756166e888c0955c6c6a4
+    home: https://jenkins.io/
+    name: mts-jenkins
+    sources:
+    - https://github.com/jenkinsci/jenkins
+    - https://github.com/jenkinsci/docker-jnlp-slave
+    - https://github.com/nuvo/kube-tasks
+    urls:
+    - mts-jenkins-0.1.0.tgz
+    version: 0.1.0
+  - appVersion: lts
+    created: "2019-11-04T09:29:10.341166951-05:00"
+    description: Fork of Stable 0.28.1. Open source continuous integration server.
+      It supports multiple SCM tools including CVS, Subversion and Git. It can execute
+      Apache Ant and Apache Maven-based projects as well as arbitrary scripts.
+    digest: 188b2567b04f91a8c407decf60980561c970dc56872433b2fa07faace2bc613f
+    home: https://jenkins.io/
+    name: mts-jenkins
+    sources:
+    - https://github.com/jenkinsci/jenkins
+    - https://github.com/jenkinsci/docker-jnlp-slave
+    - https://github.com/nuvo/kube-tasks
+    urls:
+    - mts-jenkins-0.0.2.tgz
+    version: 0.0.2
+  mts-jira:
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2019-11-04T09:29:10.343664917-05:00"
+    description: A Helm chart for Kubernetes
+    digest: 38f4d45753d92b5afcc0b230978dbbaca6148bcd1e9a9437c00e95a31462b0f8
+    name: mts-jira
+    urls:
+    - mts-jira-0.5.1.tgz
+    version: 0.5.1
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2019-11-04T09:29:10.343500155-05:00"
+    description: A Helm chart for Kubernetes
+    digest: def3048fa3927dc34f45b49d66012137eadbe42b27526fb75ebc845148453c8e
+    name: mts-jira
+    urls:
+    - mts-jira-0.5.0.tgz
+    version: 0.5.0
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2019-11-04T09:29:10.343343516-05:00"
+    description: A Helm chart for Kubernetes
+    digest: 495e7e07497c321ac8bf7a3c9dda45de35eb3344763e47d76f9b0dee9a6c8a4c
+    name: mts-jira
+    urls:
+    - mts-jira-0.3.3.tgz
+    version: 0.3.3
+  mts-nodejs:
+  - appVersion: 8.15.0
+    created: "2019-11-04T09:29:10.352392368-05:00"
+    description: Event-driven I/O server-side JavaScript environment based on V8.
+      Forked from Bitnami NodeJS 7.0.0
+    digest: 1e65a2cba65f7cf202fec435d7033b750e63cae6473f728b033194a0b54c973d
+    engine: gotpl
+    home: http://nodejs.org/
+    icon: https://bitnami.com/assets/stacks/nodejs/img/nodejs-stack-110x117.png
+    keywords:
+    - node
+    - javascript
+    - nodejs
+    - git
+    maintainers:
+    - email: gocmts@gmail.com
+      name: MTS
+    name: mts-nodejs
+    urls:
+    - mts-nodejs-1.6.0.tgz
+    version: 1.6.0
+  - appVersion: 8.15.0
+    created: "2019-11-04T09:29:10.352029354-05:00"
+    description: Event-driven I/O server-side JavaScript environment based on V8.
+      Forked from Bitnami NodeJS 7.0.0
+    digest: d2299230261fd884410f5aae78be66b76d64e01e99c5b7a5d81943142f400216
+    engine: gotpl
+    home: http://nodejs.org/
+    icon: https://bitnami.com/assets/stacks/nodejs/img/nodejs-stack-110x117.png
+    keywords:
+    - node
+    - javascript
+    - nodejs
+    - git
+    maintainers:
+    - email: gocmts@gmail.com
+      name: MTS
+    name: mts-nodejs
+    urls:
+    - mts-nodejs-1.5.3.tgz
+    version: 1.5.3
+  - appVersion: 8.15.0
+    created: "2019-11-04T09:29:10.351689355-05:00"
+    description: Event-driven I/O server-side JavaScript environment based on V8.
+      Forked from Bitnami NodeJS 7.0.0
+    digest: 329a3be00574f0df3b28e77827211a72cf3d120af62d16853d8428eb85152dd3
+    engine: gotpl
+    home: http://nodejs.org/
+    icon: https://bitnami.com/assets/stacks/nodejs/img/nodejs-stack-110x117.png
+    keywords:
+    - node
+    - javascript
+    - nodejs
+    - git
+    maintainers:
+    - email: gocmts@gmail.com
+      name: MTS
+    name: mts-nodejs
+    urls:
+    - mts-nodejs-1.5.2.tgz
+    version: 1.5.2
+  - appVersion: 8.15.0
+    created: "2019-11-04T09:29:10.351351694-05:00"
+    description: Event-driven I/O server-side JavaScript environment based on V8.
+      Forked from Bitnami NodeJS 7.0.0
+    digest: 3b12b8b308ebc8492f8b63dab31d15f271bbfcc8a604df5920efcd70b651bf8e
+    engine: gotpl
+    home: http://nodejs.org/
+    icon: https://bitnami.com/assets/stacks/nodejs/img/nodejs-stack-110x117.png
+    keywords:
+    - node
+    - javascript
+    - nodejs
+    - git
+    maintainers:
+    - email: gocmts@gmail.com
+      name: MTS
+    name: mts-nodejs
+    urls:
+    - mts-nodejs-1.5.1.tgz
+    version: 1.5.1
+  - appVersion: 8.15.0
+    created: "2019-11-04T09:29:10.350991497-05:00"
+    description: Event-driven I/O server-side JavaScript environment based on V8.
+      Forked from Bitnami NodeJS 7.0.0
+    digest: efc16711dbfd04c28b4004a5b54ba4f562e5579f4899aa45372002bfdb1f5aaa
+    engine: gotpl
+    home: http://nodejs.org/
+    icon: https://bitnami.com/assets/stacks/nodejs/img/nodejs-stack-110x117.png
+    keywords:
+    - node
+    - javascript
+    - nodejs
+    - git
+    maintainers:
+    - email: gocmts@gmail.com
+      name: MTS
+    name: mts-nodejs
+    urls:
+    - mts-nodejs-1.5.0.tgz
+    version: 1.5.0
+  - appVersion: 8.15.0
+    created: "2019-11-04T09:29:10.350626325-05:00"
+    description: Event-driven I/O server-side JavaScript environment based on V8.
+      Forked from Bitnami NodeJS 7.0.0
+    digest: fdf597ff69b17d3fb392fe5eba3786f1c0edbf6a4fa0ef3c61550fa8c79a10e3
+    engine: gotpl
+    home: http://nodejs.org/
+    icon: https://bitnami.com/assets/stacks/nodejs/img/nodejs-stack-110x117.png
+    keywords:
+    - node
+    - javascript
+    - nodejs
+    - git
+    maintainers:
+    - email: gocmts@gmail.com
+      name: MTS
+    name: mts-nodejs
+    urls:
+    - mts-nodejs-1.4.2.tgz
+    version: 1.4.2
+  - appVersion: 8.15.0
+    created: "2019-11-04T09:29:10.350293793-05:00"
+    description: Event-driven I/O server-side JavaScript environment based on V8.
+      Forked from Bitnami NodeJS 7.0.0
+    digest: 74a6effe5dae8052487fe2165ea3ffe4db77b84d268522c4f2f66b24d96aee43
+    engine: gotpl
+    home: http://nodejs.org/
+    icon: https://bitnami.com/assets/stacks/nodejs/img/nodejs-stack-110x117.png
+    keywords:
+    - node
+    - javascript
+    - nodejs
+    - git
+    maintainers:
+    - email: gocmts@gmail.com
+      name: MTS
+    name: mts-nodejs
+    urls:
+    - mts-nodejs-1.4.1.tgz
+    version: 1.4.1
+  - appVersion: 8.15.0
+    created: "2019-11-04T09:29:10.349939143-05:00"
+    description: Event-driven I/O server-side JavaScript environment based on V8.
+      Forked from Bitnami NodeJS 7.0.0
+    digest: 193e1629b110161112aa0b492d97f0495b10f7e131604f5f6a4cab3be5beeb13
+    engine: gotpl
+    home: http://nodejs.org/
+    icon: https://bitnami.com/assets/stacks/nodejs/img/nodejs-stack-110x117.png
+    keywords:
+    - node
+    - javascript
+    - nodejs
+    - git
+    maintainers:
+    - email: gocmts@gmail.com
+      name: MTS
+    name: mts-nodejs
+    urls:
+    - mts-nodejs-1.4.0.tgz
+    version: 1.4.0
+  - appVersion: 8.15.0
+    created: "2019-11-04T09:29:10.348812318-05:00"
+    description: Event-driven I/O server-side JavaScript environment based on V8.
+      Forked from Bitnami NodeJS 7.0.0
+    digest: 7385a19fd6cead05f808c2ef641ccbd360d903002996c4dc6ecbf84ffc702202
+    engine: gotpl
+    home: http://nodejs.org/
+    icon: https://bitnami.com/assets/stacks/nodejs/img/nodejs-stack-110x117.png
+    keywords:
+    - node
+    - javascript
+    - nodejs
+    - git
+    maintainers:
+    - email: gocmts@gmail.com
+      name: MTS
+    name: mts-nodejs
+    urls:
+    - mts-nodejs-1.3.0.tgz
+    version: 1.3.0
+  - appVersion: 8.15.0
+    created: "2019-11-04T09:29:10.347199652-05:00"
+    description: Event-driven I/O server-side JavaScript environment based on V8.
+      Forked from Bitnami NodeJS 7.0.0
+    digest: 8eb894840a256d502ad01d2600f385de1ab0d13c970ea6dc8119d9a97e4d36ef
+    engine: gotpl
+    home: http://nodejs.org/
+    icon: https://bitnami.com/assets/stacks/nodejs/img/nodejs-stack-110x117.png
+    keywords:
+    - node
+    - javascript
+    - nodejs
+    - git
+    maintainers:
+    - email: gocmts@gmail.com
+      name: MTS
+    name: mts-nodejs
+    urls:
+    - mts-nodejs-1.2.0.tgz
+    version: 1.2.0
+  - appVersion: 8.15.0
+    created: "2019-11-04T09:29:10.346187087-05:00"
+    description: Event-driven I/O server-side JavaScript environment based on V8.
+      Forked from Bitnami NodeJS 7.0.0
+    digest: 02e240a07387fe0e87be102c1dff29f2e99d296e09dc837fece68a3342920d9d
+    engine: gotpl
+    home: http://nodejs.org/
+    icon: https://bitnami.com/assets/stacks/nodejs/img/nodejs-stack-110x117.png
+    keywords:
+    - node
+    - javascript
+    - nodejs
+    - git
+    maintainers:
+    - email: gocmts@gmail.com
+      name: MTS
+    name: mts-nodejs
+    urls:
+    - mts-nodejs-1.1.0.tgz
+    version: 1.1.0
+  - appVersion: 8.15.0
+    created: "2019-11-04T09:29:10.34517231-05:00"
+    description: Event-driven I/O server-side JavaScript environment based on V8.
+      Forked from Bitnami NodeJS 7.0.0
+    digest: 7cc2f262ff8c262b1aa8e2ce2d83c9033c374d51a37d782839a54ba365d364c2
+    engine: gotpl
+    home: http://nodejs.org/
+    icon: https://bitnami.com/assets/stacks/nodejs/img/nodejs-stack-110x117.png
+    keywords:
+    - node
+    - javascript
+    - nodejs
+    - git
+    maintainers:
+    - email: gocmts@gmail.com
+      name: MTS
+    name: mts-nodejs
+    urls:
+    - mts-nodejs-1.0.0.tgz
+    version: 1.0.0
+  mts-pgsql:
+  - appVersion: 10.6.0
+    created: "2019-11-04T09:29:10.355137865-05:00"
+    description: MTS Version of Postgres chart, based off of 3.8.0. This includes
+      the mts-disk chart in requirements.
+    digest: 576b8aba325bdf91be07d5c7a5d45ca21fb686e29236a44545dff61ba3624222
+    engine: gotpl
+    home: https://www.postgresql.org/
+    icon: https://bitnami.com/assets/stacks/postgresql/img/postgresql-stack-110x117.png
+    keywords:
+    - postgresql
+    - postgres
+    - database
+    - sql
+    - replication
+    - cluster
+    name: mts-pgsql
+    urls:
+    - mts-pgsql-0.1.2.tgz
+    version: 0.1.2
+  mts-traefik:
+  - apiVersion: v1
+    appVersion: 1.7.3
+    created: "2019-11-04T09:29:10.357634758-05:00"
+    description: A Traefik based Kubernetes ingress controller with Let's Encrypt
+      support
+    digest: f77f5f1dc18311402d2ca9bc4c542dac9b523389daa1dca2c5011737c94dcd6d
+    engine: gotpl
+    home: https://traefik.io/
+    icon: http://traefik.io/traefik.logo.png
+    keywords:
+    - traefik
+    - ingress
+    - acme
+    - letsencrypt
+    maintainers:
+    - email: kent.rancourt@microsoft.com
+      name: krancour
+    - email: emile@vauge.com
+      name: emilevauge
+    - email: daniel.tomcej@gmail.com
+      name: dtomcej
+    - email: ludovic@containo.us
+      name: ldez
+    name: mts-traefik
+    sources:
+    - https://github.com/containous/traefik
+    - https://github.com/krancour/charts/tree/master/traefik
+    urls:
+    - mts-traefik-1.52.6.tgz
+    version: 1.52.6
+  - apiVersion: v1
+    appVersion: 1.7.3
+    created: "2019-11-04T09:29:10.356542528-05:00"
+    description: A Traefik based Kubernetes ingress controller with Let's Encrypt
+      support
+    digest: 008630df610d161e95b08c924ce690c2d9a4696093795bbbe78b8282c7a9dab8
+    engine: gotpl
+    home: https://traefik.io/
+    icon: http://traefik.io/traefik.logo.png
+    keywords:
+    - traefik
+    - ingress
+    - acme
+    - letsencrypt
+    maintainers:
+    - email: kent.rancourt@microsoft.com
+      name: krancour
+    - email: emile@vauge.com
+      name: emilevauge
+    - email: daniel.tomcej@gmail.com
+      name: dtomcej
+    - email: ludovic@containo.us
+      name: ldez
+    name: mts-traefik
+    sources:
+    - https://github.com/containous/traefik
+    - https://github.com/krancour/charts/tree/master/traefik
+    urls:
+    - mts-traefik-1.52.5.tgz
+    version: 1.52.5
+  mts-vanilla:
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2019-11-04T09:29:10.357979731-05:00"
+    description: A Helm chart for Kubernetes
+    digest: 1a4878bfb4c5466921e1aef5e47296edf00ad4e6d8be1a01e14c64c32b08cdc1
+    name: mts-vanilla
+    urls:
+    - mts-vanilla-0.1.0.tgz
+    version: 0.1.0
+  prometheus:
+  - appVersion: 2.5.0
+    created: "2019-11-04T09:29:10.359098016-05:00"
+    description: Prometheus is a monitoring system and time series database.
+    digest: bb4585e591d83baa6002bba867891bae38b1657dbea2f485060ded92659e6ab5
+    engine: gotpl
+    home: https://prometheus.io/
+    icon: https://raw.githubusercontent.com/prometheus/prometheus.github.io/master/assets/prometheus_logo-cb55bb5c346.png
+    maintainers:
+    - email: mgoodness@gmail.com
+      name: mgoodness
+    - email: gianrubio@gmail.com
+      name: gianrubio
+    name: prometheus
+    sources:
+    - https://github.com/prometheus/alertmanager
+    - https://github.com/prometheus/prometheus
+    - https://github.com/prometheus/pushgateway
+    - https://github.com/prometheus/node_exporter
+    - https://github.com/kubernetes/kube-state-metrics
+    tillerVersion: '>=2.8.0'
+    urls:
+    - prometheus-7.4.1.tgz
+    version: 7.4.1
+generated: "2019-11-04T09:29:10.288715142-05:00"
