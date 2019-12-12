@@ -1,12 +1,12 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: elasticUsers
+  name: elasticusers
 spec:
   template:
     spec:
       containers:
-      - name: elasticCreateUsers
+      - name: createusers
         image: {{ .Values.elasticUtil.image }}
         env: {{ toYaml .Values.elasticUtil.extraEnvs | nindent 10 }}
       restartPolicy: Never
