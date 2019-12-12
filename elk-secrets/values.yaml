@@ -1,3 +1,6 @@
 secrets:
-    files:
-        filePattern: "*.secret"
+    elastic:
+        username: changeme
+        password: changeme
+    kibana:
+        encryptionKey: changeme

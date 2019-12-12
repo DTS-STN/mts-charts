@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Secret
 metadata:
-  name: {{ template "elk.fullname" . }}
+  name: elastic-certificates-pem
   labels:
     app.kubernetes.io/name: {{ template "elk.name" . }}
     helm.sh/chart: {{ template "elk.chart" . }}
@@ -10,4 +10,4 @@ metadata:
     app.kubernetes.io/version: "{{ .Chart.AppVersion }}"
 type: Opaque
 data:
-{{ (.Files.Glob "certs/*.p12").AsSecrets | indent 2 }}
+{{ (.Files.Glob "certs/elastic-certificate.pem").AsSecrets | indent 2 }}
