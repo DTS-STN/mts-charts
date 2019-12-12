@@ -239,3 +239,6 @@ sysctlInitContainer:
   enabled: true
 
 keystore: []
+
+elasticUtil:
+  image: mtscontainers.azurecr.io/dtselasticutil:0.1.0

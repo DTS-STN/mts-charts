@@ -1,0 +1,13 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: elasticUsers
+spec:
+  template:
+    spec:
+      containers:
+      - name: elasticCreateUsers
+        image: {{ .Values.elasticUtil.image }}
+        env: {{ toYaml .Values.elasticUtil.extraEnvs | nindent 10 }}
+      restartPolicy: Never
+  backoffLimit: 4
