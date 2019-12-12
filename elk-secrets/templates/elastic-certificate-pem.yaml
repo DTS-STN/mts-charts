@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Secret
 metadata:
-  name: elastic-certificates-pem
+  name: elastic-certificate-pem
   labels:
     app.kubernetes.io/name: {{ template "elk.name" . }}
     helm.sh/chart: {{ template "elk.chart" . }}
