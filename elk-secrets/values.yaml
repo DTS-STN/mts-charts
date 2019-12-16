@@ -4,3 +4,4 @@ secrets:
         password: changeme
     kibana:
         encryptionKey: changeme
+environment: dev
