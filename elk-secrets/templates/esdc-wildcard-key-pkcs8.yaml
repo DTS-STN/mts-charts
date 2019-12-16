@@ -11,7 +11,7 @@ metadata:
 type: Opaque
 {{- if eq .Values.environment "dev" }}
 data:
-  {{ (.Files.Glob "certs/devCerts/esdc.dev-pkcs8.key").AsSecrets | indent 2 }}
+  {{ (.Files.Glob "certs/devCerts/esdc.dev.pkcs8.key").AsSecrets | indent 2 }}
 {{ else }}
 data:
   {{ (.Files.Glob "certs/esdc.online-pkcs8.key").AsSecrets | indent 2 }}
