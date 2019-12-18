@@ -31,23 +31,13 @@ spec:
         {{ end }}
   {{ end }}
   {{ if .Values.networkPolicy.ingressPodMatchLabels }}
-        {{- range $key, $value := .Values.networkPolicy.ingressPodMatchLabels }}
-        {{ $key }}: {{ $value | quote }}
-        {{- end }} 
+        {{- range .Values.networkPolicy.ingressPodMatchLabels }}
+        - {{ . }}
+        {{- end }}
   {{ end }}
     ports:
     - protocol: TCP
       port: 9200
     - protocol: TCP
       port: 9300
-  egress:
-  - to:
-    - podSelector:
-        matchLabels:
-        {{- range $key, $value := .Values.networkPolicy.egressPodMatchLabels }}
-        {{ $key }}: {{ $value | quote }}
-        {{- end }} 
-    ports:
-    - protocol: TCP
-      port: http
 {{ end }}
