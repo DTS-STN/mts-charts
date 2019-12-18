@@ -31,9 +31,14 @@ spec:
         {{ end }}
   {{ end }}
   {{ if .Values.networkPolicy.ingressPodMatchLabels }}
-        {{- range .Values.networkPolicy.ingressPodMatchLabels }}
-        - {{ . }}
-        {{- end }}
+    - podSelector:
+        matchLabels:
+          app: {{ .Values.networkPolicy.ingressPodMatchLabels.logstashAppName }}
+          release: {{ .Values.networkPolicy.ingressPodMatchLabels.logstashReleaseName }}
+    - podSelector:
+        matchLabels:
+          app: {{ .Values.networkPolicy.ingressPodMatchLabels.kibanaAppName }}
+          release: {{ .Values.networkPolicy.ingressPodMatchLabels.kibanaReleaseName }}
   {{ end }}
     ports:
     - protocol: TCP
