@@ -1,6 +1,9 @@
 ---
 replicas: 1
 
+networkPolicy:
+  enabled: false
+
 # Allows you to add any config files in /usr/share/logstash/config/
 # such as logstash.yml and log4j2.properties
 logstashConfig: {}
