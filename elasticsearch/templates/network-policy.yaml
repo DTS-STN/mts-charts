@@ -31,8 +31,6 @@ spec:
         {{ end }}
   {{ end }}
   {{ if .Values.networkPolicy.ingressPodMatchLabels }}
-    - podSelector:
-        matchLabels:
         {{- range $key, $value := .Values.networkPolicy.ingressPodMatchLabels }}
         {{ $key }}: {{ $value | quote }}
         {{- end }} 
