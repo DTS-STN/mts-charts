@@ -1,0 +1,48 @@
+{{- if .Values.networkPolicy.enabled }}
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: {{ template "uname" . }}
+  labels:
+    heritage: {{ .Release.Service | quote }}
+    release: {{ .Release.Name | quote }}
+    chart: "{{ .Chart.Name }}"
+    app: "{{ template "uname" . }}"
+    {{- range $key, $value := .Values.labels }}
+    {{ $key }}: {{ $value | quote }}
+    {{- end }}
+  annotations:
+    esMajorVersion: "{{ include "esMajorVersion" . }}"
+spec:
+  podSelector:
+    matchLabels:
+      app: elasticsearch-master
+  policyTypes:
+  - Ingress
+  - Egress
+  ingress:
+  - from:
+  {{ if .Values.networkPolicy.ingressCidrBlock }}
+    - ipBlock:
+        cidr: {{ .Values.networkPolicy.ingressCidrBlock }}
+        {{ if .Values.networkPolicy.ingressCidrBlockException }} 
+        except:
+        - {{ .Values.networkPolicy.ingressCidrBlockException }}
+        {{ end }}
+  {{ end }}
+  {{ if .Values.networkPolicy.ingressPodMatchLabels }}
+    - podSelector:
+        matchLabels:
+          app: {{ .Values.networkPolicy.ingressPodMatchLabels.logstashAppName }}
+          release: {{ .Values.networkPolicy.ingressPodMatchLabels.logstashReleaseName }}
+    - podSelector:
+        matchLabels:
+          app: {{ .Values.networkPolicy.ingressPodMatchLabels.kibanaAppName }}
+          release: {{ .Values.networkPolicy.ingressPodMatchLabels.kibanaReleaseName }}
+  {{ end }}
+    ports:
+    - protocol: TCP
+      port: 9200
+    - protocol: TCP
+      port: 9300
+{{ end }}
