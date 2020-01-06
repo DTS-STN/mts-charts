@@ -14,6 +14,9 @@ rollingUpdate:
   maxUnavailable: 1
   maxSurge: 1
 
+kubernetes:
+  namespaces:
+    - elk-kylerd
 #
 # Configure Traefik entry points
 # Additional arguments to be passed at Traefik's binary
@@ -51,14 +54,11 @@ service:
   type: LoadBalancer
   # Additional annotations (e.g. for cloud provider specific config)
   annotations: {}
-  #kubernetes.io/ingress.class: traefik,
-  hostname: traefik2-adamrd.esdc.online
-
   # Additional entries here will be added to the service spec. Cannot contains
   # type, selector or ports entries.
   spec: {}
     # externalTrafficPolicy: Cluster
-    # loadBalancerIp: "1.2.3.4"
+    # loadBalancerIP: "1.2.3.4"
     # clusterIP: "2.3.4.5"
 
 dashboard:
@@ -80,5 +80,6 @@ resources: {}
   # limits:
   #   cpu: "300m"
   #   memory: "150Mi"
+affinity: {}
 nodeSelector: {}
 tolerations: []
