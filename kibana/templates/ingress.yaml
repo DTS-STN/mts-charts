@@ -4,13 +4,10 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
   name: {{ $fullName }}
-  #annotations:
-  #  helm.sh/hook: "post-install"
   labels:
     app: {{ .Chart.Name }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}    
-    #chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
 {{- with .Values.ingress.annotations }}
   annotations:
 {{ toYaml . | indent 4 }}
@@ -30,34 +27,3 @@ spec:
     - name: {{ $fullName }}
       port: {{ $servicePort }}
   {{- end }}
-#{{- if .Values.ingress.enabled -}}
-#{{- $ingressPath := .Values.ingress.path -}}
-# apiVersion: {{ template "kibana.ingress.apiVersion" . }}
-# kind: Ingress
-# metadata:
-#   name: {{ $fullName }}
-#   labels:
-#     app: {{ .Chart.Name }}
-#     release: {{ .Release.Name }}
-#     heritage: {{ .Release.Service }}
-# {{- with .Values.ingress.annotations }}
-#   annotations:
-# {{ toYaml . | indent 4 }}
-# {{- end }}
-# spec:
-# {{- if .Values.ingress.tls }}
-#   tls:
-# {{ toYaml .Values.ingress.tls | indent 4 }}
-# {{- end }}
-#   rules:
-  # {{- range .Values.ingress.hosts }}
-  #   - host: {{ . }}
-  #     http:
-  #       paths:
-  #         - path: {{ $ingressPath }}
-  #           backend:
-  #             serviceName: {{ $fullName }}
-  #             servicePort: {{ $servicePort }}
-  # {{- end }}
- #{{- end }}
-# ---
