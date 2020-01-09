@@ -14,9 +14,6 @@ rollingUpdate:
   maxUnavailable: 1
   maxSurge: 1
 
-kubernetes:
-  namespaces:
-    - elk-kylerd
 #
 # Configure Traefik entry points
 # Additional arguments to be passed at Traefik's binary
@@ -40,13 +37,17 @@ ports:
     # The exposed port for this service
     exposedPort: 9000
   web:
-    port: 8000
+    port: 8080
     expose: true
     exposedPort: 80
   websecure:
     port: 8443
     expose: true
     exposedPort: 443
+  kibana:
+    port: 5601
+    exposed: true
+    exposedPort: 5601
 
 # Options for the main traefik service, where the entrypoints traffic comes
 # from.

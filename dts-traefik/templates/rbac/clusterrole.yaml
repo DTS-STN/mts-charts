@@ -1,12 +1,12 @@
 kind: ClusterRole
-apiVersion: rbac.authorization.k8s.io/v1
+apiVersion: rbac.authorization.k8s.io/v1beta1
 metadata:
   name: {{ template "traefik.fullname" . }}
+
 rules:
   - apiGroups:
       - ""
     resources:
-      - pods
       - services
       - endpoints
       - secrets
@@ -31,11 +31,11 @@ rules:
   - apiGroups:
       - traefik.containo.us
     resources:
-      - ingressroutes
-      - ingressroutetcps
       - middlewares
-      - tlsoptions
+      - ingressroutes
       - traefikservices
+      - ingressroutetcps
+      - tlsoptions
     verbs:
       - get
       - list
