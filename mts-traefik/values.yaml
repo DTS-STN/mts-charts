@@ -10,7 +10,7 @@ externalTrafficPolicy: Cluster
 replicas: 1
 
 mts:
-   environment: 
+  environment:
 
 podDisruptionBudget: {}
   # maxUnavailable: 1
