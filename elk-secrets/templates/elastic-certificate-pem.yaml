@@ -10,4 +10,4 @@ metadata:
     app.kubernetes.io/version: "{{ .Chart.AppVersion }}"
 type: Opaque
 data:
-{{ (.Files.Glob "certs/elastic-certificate.pem").AsSecrets | indent 2 }}
+{{ (.Files.Glob "certs/elastic.pem").AsSecrets | indent 2 }}

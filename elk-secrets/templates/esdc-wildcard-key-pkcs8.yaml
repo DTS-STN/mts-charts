@@ -9,10 +9,5 @@ metadata:
     app.kubernetes.io/instance: "{{ .Release.Name }}"
     app.kubernetes.io/version: "{{ .Chart.AppVersion }}"
 type: Opaque
-{{- if eq .Values.environment "dev" }}
 data:
-  {{ (.Files.Glob "certs/devCerts/esdc.dev.pkcs8.key").AsSecrets | indent 2 }}
-{{ else }}
-data:
-  {{ (.Files.Glob "certs/esdc.online-pkcs8.key").AsSecrets | indent 2 }}
-{{ end }}  
+  {{ (.Files.Glob "certs/rootCA.pk8").AsSecrets | indent 2 }}
