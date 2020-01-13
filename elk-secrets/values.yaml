@@ -1,0 +1,7 @@
+secrets:
+    elastic:
+        username: changeme
+        password: changeme
+    kibana:
+        encryptionKey: changeme
+environment: dev

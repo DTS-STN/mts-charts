@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: esdc-wildcard-cert
+  labels:
+    app.kubernetes.io/name: {{ template "elk.name" . }}
+    helm.sh/chart: {{ template "elk.chart" . }}
+    app.kubernetes.io/managed-by: "{{ .Release.Service }}"
+    app.kubernetes.io/instance: "{{ .Release.Name }}"
+    app.kubernetes.io/version: "{{ .Chart.AppVersion }}"
+type: Opaque
+{{- if eq .Values.environment "dev" }}
+data:
+{{ (.Files.Glob "certs/devCerts/esdc.dev.crt").AsSecrets | indent 2 }}
+{{ else }}
+data:
+  {{ (.Files.Glob "certs/esdc.online.crt").AsSecrets | indent 2 }}
+{{ end }}
