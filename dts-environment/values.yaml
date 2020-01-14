@@ -66,7 +66,10 @@ service:
   ##
   externalTrafficPolicy: Cluster
 ingress:
+  enabled: false
+ingressRoute:
   enabled: true
+  tls: false
 apache:
     mountHTDocs: false
     htdocsSecretName:
@@ -74,5 +77,5 @@ apache:
     htdocsSubPath:
     azureStorageAccountName:
     azureStorageAccountKey:
-environment: benrd
+environment: adamrd
     
