@@ -10,4 +10,4 @@ metadata:
     app.kubernetes.io/version: "{{ .Chart.AppVersion }}"
 type: Opaque
 data:
-  {{ (.Files.Glob "certs/rootCA.pk8").AsSecrets | indent 2 }}
+  {{ (.Files.Glob "certs/dts-stn.com.key").AsSecrets | indent 2 }}
