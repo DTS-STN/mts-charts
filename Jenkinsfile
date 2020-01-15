@@ -17,7 +17,7 @@ pipeline {
                 }
             steps {
                 echo 'Uploading to Azure...'
-                sh "./pushRepo.sh ${JENKINS_SP_USER} ${JENKINS_SP_PASS} ${AZ_TENANT $HELM_SHARE_KEY} ${env.WORKSPACE}"
+                sh "./pushRepo.sh ${JENKINS_SP_USER} ${JENKINS_SP_PASS} ${AZ_TENANT} ${HELM_SHARE_KEY} ${env.WORKSPACE}"
                 }
         }
     }
