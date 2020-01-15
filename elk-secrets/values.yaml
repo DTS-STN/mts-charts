@@ -5,3 +5,4 @@ secrets:
     kibana:
         encryptionKey: changeme
 environment: dev
+domain: dev.dts-stn.com
