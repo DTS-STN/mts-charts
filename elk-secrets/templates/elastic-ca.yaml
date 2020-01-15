@@ -10,4 +10,5 @@ metadata:
     app.kubernetes.io/version: "{{ .Chart.AppVersion }}"
 type: Opaque
 data:
-{{ (.Files.Glob "certs/{{ .Values.domain }}/rootCA.crt").AsSecrets | indent 2 }}
+{{- $path := printf "certs/%s/*" .Values.domain }}
+{{ (.Files.Glob $path).AsSecrets | indent 2 }}
