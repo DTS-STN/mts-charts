@@ -17,3 +17,4 @@ openssl x509 -in rootCA.crt -out rootCA.pem
 openssl x509 -in elastic.crt -out elastic.pem
 openssl pkcs12 -export -out elastic.pfx -inkey elastic.key -in elastic.crt
 openssl pkcs8 -in rootCA.key -topk8 -nocrypt -out rootCA.pk8
+openssl pkcs8 -in elastic.key -topk8 -nocrypt -out elastic.pk8
