@@ -13,7 +13,8 @@ openssl genrsa -out rootCA.key 4096
 openssl req -x509 -new -nodes -key rootCA.key -sha256 -days 1024 -out rootCA.crt
 #Generate Domain Cert
 openssl genrsa -out $1.key 2048
-openssl req -new -sha256 -key $1.key -subj "/C=CA/OU=ESDC/O=DTS/CN=$1" -out $1.csr
+openssl req -new -sha256 -key $1.key -subj $(echo /C=CA/OU=ESDC/O=DTS/CN=*.$1) -out $1.csr
+#openssl req -new -sha256 -key $1.key -subj "/C=CA/OU=ESDC/O=DTS/CN="*."$1" -out $1.csr
 openssl req -in $1.csr -noout -text
 openssl x509 -req -in $1.csr -CA rootCA.crt -CAkey rootCA.key -CAcreateserial -out $1.crt -days 500 -sha256
 #Generate Elastic Cert
