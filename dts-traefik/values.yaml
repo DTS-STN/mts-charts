@@ -18,7 +18,9 @@ rollingUpdate:
 # Configure Traefik entry points
 # Additional arguments to be passed at Traefik's binary
 ## Use curly braces to pass values: `helm install --set="{--providers.kubernetesingress,--global.checknewversion=true}" ."
-additionalArguments: []
+additionalArguments:
+  - "--api.insecure=true"
+  - "--accesslog"
 #  - "--providers.kubernetesingress"
 
 #
@@ -37,17 +39,13 @@ ports:
     # The exposed port for this service
     exposedPort: 9000
   web:
-    port: 8080
+    port: 8000
     expose: true
     exposedPort: 80
   websecure:
     port: 8443
     expose: true
     exposedPort: 443
-  kibana:
-    port: 5601
-    exposed: true
-    exposedPort: 5601
 
 # Options for the main traefik service, where the entrypoints traffic comes
 # from.
@@ -72,7 +70,7 @@ dashboard:
   ingressRoute: true
 
 logs:
-  loglevel: WARN
+  loglevel: DEBUG
 #
 resources: {}
   # requests:
