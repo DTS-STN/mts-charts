@@ -1,0 +1,20 @@
+{{- if .Values.ingressRoute.enabled -}}
+{{- $fullName := include "fullname" . -}}
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: {{ $fullName }}
+spec:
+  entryPoints:
+    - web
+  routes:
+  - match: Host(`environment.adamrd.dts-stn.com`)
+    kind: Rule
+    services:
+    - name: {{ $fullName }}
+      port: {{ .Values.service.port }}
+  {{- if .Values.ingress.tls }}
+  tls:
+    certResolver: default
+  {{- end }}
+{{- end }}
