@@ -19,7 +19,6 @@ rollingUpdate:
 # Additional arguments to be passed at Traefik's binary
 ## Use curly braces to pass values: `helm install --set="{--providers.kubernetesingress,--global.checknewversion=true}" ."
 additionalArguments:
-  - "--api.insecure=true"
   - "--accesslog"
 #  - "--providers.kubernetesingress"
 
@@ -82,3 +81,4 @@ resources: {}
 affinity: {}
 nodeSelector: {}
 tolerations: []
+crd: false
