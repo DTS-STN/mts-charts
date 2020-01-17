@@ -13,10 +13,16 @@ metadata:
 spec:
   entryPoints:
     - web
+    - websecure
   routes:
   - match: PathPrefix(`/dashboard`) || PathPrefix(`/api`)
     kind: Rule
     services:
     - name: api@internal
       kind: TraefikService
+  {{- if .Values.dashboard.tls }}
+  tls:
+    certResolver: default
+  {{- end }}
+
 {{- end -}}
