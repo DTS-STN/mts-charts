@@ -66,10 +66,10 @@ service:
   ##
   externalTrafficPolicy: Cluster
 ingress:
-  enabled: true
+  enabled: false
 ingressRoute:
   enabled: true
-  tls: false
+  tls: true
 apache:
     mountHTDocs: false
     htdocsSecretName:
