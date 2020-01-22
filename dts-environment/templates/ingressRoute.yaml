@@ -6,15 +6,14 @@ metadata:
   name: {{ $fullName }}
 spec:
   entryPoints:
-    - web
+    - websecure
   routes:
   - match: Host(`environment.adamrd.dts-stn.com`)
     kind: Rule
     services:
     - name: {{ $fullName }}
       port: {{ .Values.service.port }}
-  {{- if .Values.ingress.tls }}
-  tls:
-    certResolver: default
+  {{- if .Values.ingressRoute.tls }}
+  tls: {}
   {{- end }}
 {{- end }}
