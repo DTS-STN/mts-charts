@@ -6,6 +6,7 @@ metadata:
   name: {{ $fullName }}
 spec:
   entryPoints:
+    - web
     - websecure
   routes:
   - match: Host(`environment.adamrd.dts-stn.com`)
@@ -13,6 +14,8 @@ spec:
     services:
     - name: {{ $fullName }}
       port: {{ .Values.service.port }}
+    middlewares:
+      - name: test-redirectscheme
   {{- if .Values.ingressRoute.tls }}
   tls: {}
   {{- end }}
