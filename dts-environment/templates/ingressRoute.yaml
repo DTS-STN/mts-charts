@@ -9,9 +9,9 @@ spec:
     - web
     - websecure
   routes:
-  - match: Host(`environment.adamrd.dts-stn.com`)
+  - match: {{ .Values.ingressRoute.host }}
     kind: Rule
-    services:
+    services: 
     - name: {{ $fullName }}
       port: {{ .Values.service.port }}
     middlewares:
