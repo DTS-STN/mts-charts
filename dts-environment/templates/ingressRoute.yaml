@@ -9,13 +9,13 @@ spec:
     - web
     - websecure
   routes:
-  - match: {{ .Values.ingressRoute.host }}
+  - match: {{ .Values.ingressRoute.host }}  
     kind: Rule
     services: 
     - name: {{ $fullName }}
       port: {{ .Values.service.port }}
     middlewares:
-      - name: test-redirectscheme
+      - name: https-redirectscheme
   {{- if .Values.ingressRoute.tls }}
   tls: {}
   {{- end }}
