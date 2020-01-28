@@ -1,5 +1,4 @@
-{{- if .Values.ingress.enabled -}}
-{{- $ingressPath := .Values.ingress.path -}}
+
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
@@ -12,13 +11,10 @@ metadata:
     kubernetes.io/ingress.class: traefik
 spec:
   rules:
-  {{- range .Values.ingress.hosts }}
-    - host: {{ . }}
+    - host: consul.marcusrd.dts-stn.com
       http:
         paths:
-          - path: {{ $ingressPath }}
+          - path: /
             backend:
-              serviceName: {{ $fullName }}
+              serviceName: {{ template "consul.fullname" . }}-ui
               servicePort: http
-  {{- end }}
-{{- end }}
