@@ -1,20 +1,25 @@
-
+{{- if .Values.ingress.enabled -}}
+{{- $fullName := include "consul.fullname" . -}}
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: my-cool-ingress
+  name: {{ $fullName }}
   labels:
-    app.kubernetes.io/name: someName
-    app.kubernetes.io/instance: {{ .Release.Name }}
-    app.kubernetes.io/managed-by: {{ .Release.Service }}
+    app: 
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
+    release: "{{ .Release.Name }}"
+    heritage: "{{ .Release.Service }}"
   annotations:
     kubernetes.io/ingress.class: traefik
 spec:
   rules:
-    - host: consul.marcusrd.dts-stn.com
+    {{- range $host := .Values.ingress.hosts }}
+    - host: {{ $host }}
       http:
         paths:
           - path: /
             backend:
               serviceName: {{ template "consul.fullname" . }}-ui
               servicePort: http
+    {{- end -}}
+{{- end -}} }}
