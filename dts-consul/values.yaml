@@ -346,6 +346,10 @@ client:
       secretKey: null
 ingress:
   enabled: true
+  annotations: {}
+    # kubernetes.io/ingress.class: traefik
+  hosts:
+  - consul.marcusrd.dts-stn.com
 ingressRoute:
   enabled: true
 # Configuration for DNS configuration within the Kubernetes cluster.
