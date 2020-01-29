@@ -30,7 +30,7 @@ spec:
         paths:
           - path: /
             backend:
-              serviceName: {{ $fullName }}-ui
+              serviceName: {{ template "consul.fullname" $ }}-ui
               servicePort: http
   {{- end }}
 {{- end }}
