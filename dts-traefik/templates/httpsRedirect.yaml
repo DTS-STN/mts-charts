@@ -1,0 +1,31 @@
+{{- if .Values.sslEnforced }}
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: redirect-to-https
+spec:
+  redirectScheme:
+    scheme: https
+    permanent: true
+    port: {{ .Values.ports.websecure.exposedPort }}
+
+---
+
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: redirect-to-https
+spec:
+  entryPoints:
+    - web
+  routes:
+  - match: HostRegexp(`{any:.*}`) 
+    kind: Rule
+    services: 
+    - name: Dummy
+      port: 80
+    middlewares:
+    - name: redirect-to-https
+
+# 
+{{- end -}}
