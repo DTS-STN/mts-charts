@@ -93,3 +93,4 @@ tolerations: []
 # to check, run `kubectl get crd`. custom resource definitions are required to get this installation of
 # traefik to work
 crd: true
+sslEnforced: true
