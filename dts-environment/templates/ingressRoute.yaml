@@ -3,28 +3,10 @@
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
-  name: {{ $fullName }}-notls
+  name: {{ $fullName }}
 spec:
   entryPoints:
     - web
-  routes:
-  - match: {{ .Values.ingressRoute.host }}  
-    kind: Rule
-    services: 
-    - name: {{ $fullName }}
-      port: {{ .Values.service.port }}
-    # middlewares:
-    # - name: redirect-to-https
-
----
-
-{{- $fullName := include "fullname" . -}}
-apiVersion: traefik.containo.us/v1alpha1
-kind: IngressRoute
-metadata:
-  name: {{ $fullName }}-tls
-spec:
-  entryPoints:
     - websecure
   routes:
   - match: {{ .Values.ingressRoute.host }}  
@@ -32,6 +14,8 @@ spec:
     services: 
     - name: {{ $fullName }}
       port: {{ .Values.service.port }}
+    middlewares:
+      - name: https-redirectscheme
   {{- if .Values.ingressRoute.tls }}
   tls: {}
   {{- end }}

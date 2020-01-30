@@ -1,8 +1,6 @@
 # Available parameters and their default values for the Consul chart.
 
 # global holds values that affect multiple components of the chart.
-ingress:
-  enabled: true
 global:
   # enabled is the master enabled/disabled setting.
   # If true, servers, clients, Consul DNS and the Consul UI will be enabled.
