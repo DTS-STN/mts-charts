@@ -92,5 +92,5 @@ tolerations: []
 # Toggle this to 'TRUE' if you have not yet deployed the custom resource definitions to your cluster.
 # to check, run `kubectl get crd`. custom resource definitions are required to get this installation of
 # traefik to work
-crd: true
+crd: false
 sslEnforced: true
