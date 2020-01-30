@@ -45,6 +45,10 @@ Add a special case for replicas=1, where it should default to 0 as well.
 {{- div (sub (div (mul (int .Values.server.ha.replicas) 10) 2) 1) 10 -}}
 {{- end -}}
 {{- end -}}
+{{- define "fullname" -}}
+{{- $name := default .Chart.Name .Values.nameOverride -}}
+{{- printf "%s-%s" .Release.Name $name | trunc 24 -}}
+{{- end -}}
 
 {{/*
 Set the variable 'mode' to the server mode requested by the user to simplify
