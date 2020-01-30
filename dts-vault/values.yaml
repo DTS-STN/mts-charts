@@ -11,6 +11,17 @@ global:
   # TLS for end-to-end encrypted transport
   tlsDisable: true
 
+  name: dts-vault
+
+ingress:
+  enabled: true
+  annotations: {}
+    # kubernetes.io/ingress.class: traefik
+  hosts:
+  - vault.marcusrd.dts-stn.com
+ingressRoute:
+  enabled: true
+
 injector:
   # True if you want to enable vault agent injection.
   enabled: true
@@ -214,7 +225,7 @@ server:
   # storage when using the file backend.
   # See https://www.vaultproject.io/docs/configuration/storage/index.html to know more
   dataStorage:
-    enabled: true
+    enabled: false
     # Size of the PVC created
     size: 10Gi
     # Name of the storage class to use.  If null it will use the
@@ -245,6 +256,7 @@ server:
   # See https://www.vaultproject.io/docs/concepts/dev-server.html to know more
   dev:
     enabled: false
+
 
   # Run Vault in "standalone" mode. This is the default mode that will deploy if
   # no arguments are given to helm. This requires a PVC for data storage to use
@@ -285,7 +297,7 @@ server:
   # Helm project by default.  It is possible to manually configure Vault to use a
   # different HA backend.
   ha:
-    enabled: true
+    enabled: false
     replicas: 3
 
     # config is a raw string of default configuration when using a Stateful
