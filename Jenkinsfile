@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    // Test comment 1
+    // Test comment 2
 
     stages {
         stage('Build') {
