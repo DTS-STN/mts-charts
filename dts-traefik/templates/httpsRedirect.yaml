@@ -21,11 +21,9 @@ spec:
   routes:
   - match: HostRegexp(`{any:.*}`) 
     kind: Rule
-    services: 
-    - name: Dummy
-      port: 80
+    services:
+    - name: api@internal
+      kind: TraefikService
     middlewares:
     - name: redirect-to-https
-
-# 
 {{- end -}}

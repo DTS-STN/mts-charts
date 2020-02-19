@@ -2,4 +2,4 @@ apiVersion: v1
 appVersion: "1.0"
 description: Reads an environment variable and tells you which environment you're pointing to.
 name: dts-environment
-version: 0.2.0
+version: 0.3.0
