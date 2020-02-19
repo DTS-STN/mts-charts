@@ -6,7 +6,6 @@ metadata:
   name: {{ $fullName }}
 spec:
   entryPoints:
-    - web
     - websecure
   routes:
   - match: {{ .Values.ingressRoute.host }}  
@@ -14,8 +13,6 @@ spec:
     services: 
     - name: {{ $fullName }}
       port: {{ .Values.service.port }}
-    middlewares:
-      - name: https-redirectscheme
   {{- if .Values.ingressRoute.tls }}
   tls: {}
   {{- end }}
