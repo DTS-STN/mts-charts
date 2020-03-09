@@ -52,7 +52,10 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
-# initcontainer to download OneAgent
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+    # initcontainer to download OneAgent
       initContainers:
       - name: install-oneagent
         image: alpine:3.8
@@ -75,10 +78,7 @@ spec:
     # Make OneAgent available as a volume
       volumes:
       - name: oneagent
-        emptyDir: {}      
-      nodeSelector:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
+        emptyDir: {}        
     {{- with .Values.affinity }}
       affinity:
         {{- toYaml . | nindent 8 }}
