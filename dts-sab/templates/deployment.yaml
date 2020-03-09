@@ -70,7 +70,7 @@ spec:
         - name: DT_PAAS_TOKEN
           value: {{ .Values.dynatrace.paasToken }}
         - name: DT_ONEAGENT_OPTIONS
-          value: flavor=all&include=default
+          value: {{ .Values.dynatrace.options }}
         volumeMounts:
         - mountPath: /opt/dynatrace/oneagent
           name: oneagent

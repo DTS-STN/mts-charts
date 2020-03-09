@@ -5,6 +5,7 @@
 dynatrace:
   environmentId: changeme
   paasToken: changeme
+  options: flavor=all&include=default
 
 networkPolicy:
   enabled: false 
