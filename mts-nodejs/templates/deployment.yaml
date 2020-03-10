@@ -78,6 +78,7 @@ spec:
         - name: data
           mountPath: {{ .Values.persistence.path }}
       # initcontainer to download OneAgent
+{{- if .Values.dynatrace.enabled }}            
       initContainers:
         - name: install-oneagent
           image: alpine:3.8
@@ -96,6 +97,7 @@ spec:
           volumeMounts:
           - mountPath: /opt/dynatrace/oneagent
             name: oneagent
+{{- end }}
       volumes:
       - name: app
         emptyDir: {}
@@ -106,5 +108,7 @@ spec:
       {{- else }}
         emptyDir: {}
       {{- end }}
+      {{- if .Values.dynatrace.enabled }}        
       - name: oneagent
         emptyDir: {}  
+      {{- end }}
