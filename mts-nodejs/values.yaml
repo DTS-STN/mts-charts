@@ -8,6 +8,11 @@
 ## ref: https://hub.docker.com/r/bitnami/node/tags/
 ##
 
+dynatrace:
+  environmentId: changeme
+  paasToken: changeme
+  options: flavor=all&include=default
+
 networkPolicy:
   enabled: false 
   ingressPodMatchLabels:
