@@ -18,7 +18,7 @@ description: Forked From dynatrace repo v 0.6.0 -- The Dynatrace OneAgent Operat
 icon: file://../logo.png
 home: https://www.dynatrace.com/
 type: application
-version: 0.6.0
+version: 0.6.1
 appVersion: 0.6.0
 maintainers:
   - name: DTMad

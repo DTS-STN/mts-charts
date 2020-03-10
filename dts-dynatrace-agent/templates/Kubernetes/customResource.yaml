@@ -4,7 +4,7 @@ metadata:
   # a descriptive name for this object.
   # all created child objects will be based on it.
   name: oneagent
-  namespace: dynatrace
+  namespace: {{ .Release.Namespace }}
 spec:
   # dynatrace api url including `/api` path at the end
   # either set ENVIRONMENTID to the proper tenant id or change the apiUrl as a whole, e.q. for Managed
