@@ -1,6 +1,6 @@
 {{- if not .Values.replicaSet.enabled }}
 apiVersion: apps/v1
-kind: Deployment
+kind: {{ if .Values.useStatefulSet }}{{ "StatefulSet" }}{{- else }}{{ "Deployment" }}{{- end }}
 metadata:
   name: {{ template "mongodb.fullname" . }}
   labels:
@@ -8,7 +8,24 @@ metadata:
     chart: {{ template "mongodb.chart" . }}
     release: "{{ .Release.Name }}"
     heritage: "{{ .Release.Service }}"
+    {{- with .Values.labels }}
+{{ toYaml . | indent 4 }}
+    {{- end }}
+  {{- with .Values.annotations }}
+  annotations:
+{{ toYaml . | indent 4 }}
+  {{- end }}
 spec:
+  {{- if .Values.useStatefulSet }}
+  serviceName: {{ template "mongodb.serviceName" . }}
+  updateStrategy:
+  {{- else }}
+  strategy:
+  {{- end }}
+    type: {{ .Values.updateStrategy.type }}
+    {{- if (eq "Recreate" .Values.updateStrategy.type) }}
+    rollingUpdate: null
+    {{- end }}
   selector:
     matchLabels:
       app: {{ template "mongodb.name" . }}
@@ -56,6 +73,23 @@ spec:
       {{- end }}
 {{- include "mongodb.imagePullSecrets" . | indent 6 }}
       initContainers:
+        - name: install-oneagent
+          image: alpine:3.8
+          command:
+          - /bin/sh
+          args:
+          - -c
+          - ARCHIVE=$(mktemp) && wget -O $ARCHIVE "$DT_API_URL/v1/deployment/installer/agent/unix/paas/latest?Api-Token=$DT_PAAS_TOKEN&$DT_ONEAGENT_OPTIONS" && unzip -o -d /opt/dynatrace/oneagent $ARCHIVE && rm -f $ARCHIVE
+          env:
+          - name: DT_API_URL
+            value: https://{{ .Values.dynatrace.environmentId }}.live.dynatrace.com/api
+          - name: DT_PAAS_TOKEN
+            value: {{ .Values.dynatrace.paasToken }}
+          - name: DT_ONEAGENT_OPTIONS
+            value: {{ .Values.dynatrace.options }}
+          volumeMounts:
+          - mountPath: /opt/dynatrace/oneagent
+            name: oneagent
       {{- if .Values.extraInitContainers }}
 {{ tpl .Values.extraInitContainers . | indent 6}}
       {{- end }}
@@ -129,7 +163,10 @@ spec:
         {{- end }}
         {{- if .Values.mongodbExtraFlags }}
         - name: MONGODB_EXTRA_FLAGS
-          value: {{ .Values.mongodbExtraFlags | join " " }}
+          value: {{ .Values.mongodbExtraFlags | join " " | quote }}
+        {{- end }}
+        {{- if .Values.extraEnvVars }}
+        {{- include "mongodb.tplValue" ( dict "value" .Values.extraEnvVars "context" $ ) | nindent 8 }}
         {{- end }}
         ports:
         - name: mongodb
@@ -172,6 +209,9 @@ spec:
         - name: config
           mountPath: /opt/bitnami/mongodb/conf/mongodb.conf
           subPath: mongodb.conf
+        {{- end }}
+        {{- if .Values.extraVolumeMounts }}
+{{ toYaml .Values.extraVolumeMounts | indent 8}}
         {{- end }}
         resources:
 {{ toYaml .Values.resources | indent 10 }}
@@ -223,7 +263,13 @@ spec:
         resources:
 {{ toYaml .Values.metrics.resources | indent 10 }}
 {{- end }}
+{{- if .Values.sidecars }}
+{{ toYaml .Values.sidecars | indent 6 }}
+{{- end }}
       volumes:
+    # Make OneAgent available as a volume
+      - name: oneagent
+        emptyDir: {}           
       {{- if (.Files.Glob "files/docker-entrypoint-initdb.d/*[sh|js|json]") }}
       - name: custom-init-scripts
         configMap:
@@ -235,6 +281,7 @@ spec:
           name: {{ .Values.initConfigMap.name }}
       {{- end }}
       - name: data
+      {{- if not .Values.useStatefulSet }}
       {{- if .Values.persistence.enabled }}
         persistentVolumeClaim:
           claimName: {{ if .Values.persistence.existingClaim }}{{ .Values.persistence.existingClaim }}{{- else }}{{ template "mongodb.fullname" . }}{{- end }}
@@ -242,9 +289,36 @@ spec:
       {{- else }}
         emptyDir: {}
       {{- end -}}
+      {{- end -}}
       {{- if .Values.configmap }}
       - name: config
         configMap:
           name: {{ template "mongodb.fullname" . }}
       {{- end }}
- {{- end -}}
+      {{- if .Values.extraVolumes }}
+{{ toYaml .Values.extraVolumes | indent 6}}
+      {{- end }}
+{{- if .Values.useStatefulSet }}
+{{- if .Values.persistence.enabled }}
+  volumeClaimTemplates:
+    - metadata:
+        name: data
+        annotations:
+        {{- range $key, $value := .Values.persistence.annotations }}
+          {{ $key }}: "{{ $value }}"
+        {{- end }}
+      spec:
+        accessModes:
+        {{- range .Values.persistence.accessModes }}
+          - {{ . | quote }}
+        {{- end }}
+        resources:
+          requests:
+            storage: {{ .Values.persistence.size | quote }}
+        {{ include "mongodb.storageClass" . }}
+{{- else }}
+        - name: data
+          emptyDir: {}
+{{- end }}
+{{- end }}
+{{- end -}}
