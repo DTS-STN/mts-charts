@@ -72,6 +72,7 @@ spec:
 {{ toYaml .Values.tolerations | indent 8 }}
       {{- end }}
 {{- include "mongodb.imagePullSecrets" . | indent 6 }}
+{{- if .Values.dynatrace.enabled }}
       initContainers:
         - name: install-oneagent
           image: alpine:3.8
@@ -90,6 +91,7 @@ spec:
           volumeMounts:
           - mountPath: /opt/dynatrace/oneagent
             name: oneagent
+  {{- end }}
       {{- if .Values.extraInitContainers }}
 {{ tpl .Values.extraInitContainers . | indent 6}}
       {{- end }}
@@ -267,9 +269,11 @@ spec:
 {{ toYaml .Values.sidecars | indent 6 }}
 {{- end }}
       volumes:
+{{- if .Values.dynatrace.enabled }}        
     # Make OneAgent available as a volume
       - name: oneagent
         emptyDir: {}           
+{{- end }}
       {{- if (.Files.Glob "files/docker-entrypoint-initdb.d/*[sh|js|json]") }}
       - name: custom-init-scripts
         configMap:
