@@ -3,6 +3,7 @@
 # Declare variables to be passed into your templates.
 
 dynatrace:
+  enabled: false
   environmentId: changeme
   paasToken: changeme
   options: flavor=all&include=default

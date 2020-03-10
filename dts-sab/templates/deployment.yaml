@@ -55,6 +55,7 @@ spec:
       nodeSelector:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+      {{- if .Values.dynatrace.enabled }}            
     # initcontainer to download OneAgent
       initContainers:
       - name: install-oneagent
@@ -79,6 +80,7 @@ spec:
       volumes:
       - name: oneagent
         emptyDir: {}        
+    {{- end }}
     {{- with .Values.affinity }}
       affinity:
         {{- toYaml . | nindent 8 }}
