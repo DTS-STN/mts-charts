@@ -41,13 +41,29 @@ spec:
               protocol: TCP
           livenessProbe:
             httpGet:
+              {{ if .Values.livenessProbeURL }}
+              path: {{ .Values.livenessProbeURL }}
+              {{ else }}
               path: /
+              {{ end }}
+              {{ if .Values.livenessProbePort }}
+              port: .Values.livenessProbePort
+              {{ else }}
               port: http
+              {{ end }}
             initialDelaySeconds: {{ .Values.livenessDelay }}
           readinessProbe:
             httpGet:
+              {{ if .Values.readinessProbeURL }}
+              path: {{ .Values.readinessProbeURL }}
+              {{ else }}
               path: /
+              {{ end }}
+              {{ if .Values.readinessProbePort }}
+              port: .Values.readinessProbePort
+              {{ else }}
               port: http
+              {{ end }}
             initialDelaySeconds: {{ .Values.readinessDelay }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
