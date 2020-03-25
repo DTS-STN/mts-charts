@@ -25,7 +25,7 @@ spec:
         image: {{ template "odoo.image" . }}
         imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
         {{- if .Values.proxymode.enabled }}
-        args: ["--proxy-mode"]
+        command: ["--proxy-mode"]
         {{- end }}
         env:
         - name: POSTGRESQL_HOST
