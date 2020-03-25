@@ -49,7 +49,7 @@ odooEmail: admin@dts.com
 ## Defaults to a random 10-character alphanumeric string if not set
 ## ref: https://github.com/bitnami/bitnami-docker-odoo#configuration
 ##
-odooPassword: DTSPassword1
+odooPassword: 
 
 ## SMTP mail delivery configuration
 ## ref: https://github.com/bitnami/bitnami-docker-odoo/#smtp-configuration
@@ -199,6 +199,9 @@ resources:
     memory: 2Gi
     cpu: 600m
 
+proxymode:
+  enabled: false
+  
 ## Configure extra options for liveness and readiness probes
 ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/#configure-probes)
 livenessProbe:

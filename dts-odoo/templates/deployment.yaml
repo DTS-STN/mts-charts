@@ -24,6 +24,9 @@ spec:
       - name: {{ template "odoo.fullname" . }}
         image: {{ template "odoo.image" . }}
         imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
+        {{- if .Values.proxymode.enabled }}
+        args: ["--proxy-mode"]
+        {{- end }}
         env:
         - name: POSTGRESQL_HOST
           value: {{ ternary (include "odoo.postgresql.fullname" .) .Values.externalDatabase.host .Values.postgresql.enabled | quote }}
