@@ -1,7 +1,7 @@
 apiVersion: v1
 name: dts-odoo
 version: 13.0.7
-appVersion: 12.0.20200315
+appVersion: 13.0.7
 description: A suite of web based open source business apps.
 home: https://www.odoo.com/
 icon: https://bitnami.com/assets/stacks/odoo/img/odoo-stack-110x117.png
@@ -12,8 +12,8 @@ keywords:
 - http
 - web
 sources:
-- https://github.com/bitnami/bitnami-docker-odoo
+- https://github.com/odoo/docker
 maintainers:
-- name: Bitnami
-  email: containers@bitnami.com
+- name: Eric Dube
+  email: eric.dube@hrsdc-rhdcc.gc.ca
 engine: gotpl
