@@ -19,7 +19,7 @@ spec:
         chart: {{ template "odoo.chart" . }}
         release: {{ .Release.Name | quote }}
         {{- if not .Values.postgresql.enabled }}
-        {{ ternary .Values.externalDatabase.name .Values.externalDatabase.host .Values.externalDatabase.name }}-client: "true"
+        {{ .Values.externalDatabase.name }}-client: "true"
         {{- end }}
     spec:
 {{- include "odoo.imagePullSecrets" . | indent 6 }}
