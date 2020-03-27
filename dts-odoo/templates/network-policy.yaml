@@ -19,9 +19,7 @@ spec:
     {{- end }}
     ports:
     - protocol: TCP
-      port: 9000
-    - protocol: TCP
-      port: 12201
+      port: 80
     egress:
     - to:
       - podSelector:
@@ -29,11 +27,10 @@ spec:
           {{- range $key, $value := .Values.networkPolicy.egressPodMatchLabels }}
           {{ $key }}: {{ $value | quote }}
           {{- end }} 
+        namespaceSelector:
+          matchLabels:
+            name: {{ .Environment.Name }}
       ports:
       - protocol: TCP
-        port: 9200
-      - protocol: TCP
-        port: 9300
-      - protocol: TCP
-        port: 27017
+        port: 5432
 {{ end }}

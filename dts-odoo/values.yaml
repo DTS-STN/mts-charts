@@ -59,6 +59,11 @@ odooPassword:
 # smtpPassword:
 # smtpProtocol:
 
+networkPolicy:
+  enabled: false 
+  egressPodMatchLabels:
+    app: postgresql
+
 externalDatabase:
 ## All of these values are only used when postgresql.enabled is set to false
   ## Database host
