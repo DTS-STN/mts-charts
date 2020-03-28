@@ -25,8 +25,7 @@ spec:
 {{- include "odoo.imagePullSecrets" . | indent 6 }}
       containers:
       - name: {{ template "odoo.fullname" . }}
-        image: {{ .Values.image.repository }}
-        tag: {{ .Values.image.tag }}
+        image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
         imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
         {{- if .Values.proxymode.enabled }}
         args: ["odoo", "--proxy-mode"]
