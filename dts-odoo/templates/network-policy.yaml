@@ -23,10 +23,9 @@ spec:
     egress:
     - to:
       - podSelector:
-          matchLabels:
-          {{- range $key, $value := .Values.networkPolicy.egressPodMatchLabels }}
-          {{ $key }}: {{ $value | quote }}
-          {{- end }} 
+        {{- if .Values.networkPolicy.egressPodMatchLabels }}
+        {{ toYaml .Values.networkPolicy.egressPodMatchLabels | nindent 4 }}
+        {{- end }} 
         namespaceSelector:
           matchLabels:
             name: {{ .Values.externalDatabase.namespace }}
