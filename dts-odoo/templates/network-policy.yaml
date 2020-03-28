@@ -29,7 +29,7 @@ spec:
           {{- end }} 
         namespaceSelector:
           matchLabels:
-            name: {{ .Environment.Name }}
+            name: {{ .Values.externalDatabase.namespace }}
       ports:
       - protocol: TCP
         port: 5432
