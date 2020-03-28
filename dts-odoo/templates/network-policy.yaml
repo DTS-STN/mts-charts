@@ -20,16 +20,4 @@ spec:
     ports:
     - protocol: TCP
       port: 80
-    egress:
-    - to:
-      - podSelector:
-        {{- if .Values.networkPolicy.egressPodMatchLabels }}
-        {{ toYaml .Values.networkPolicy.egressPodMatchLabels | nindent 4 }}
-        {{- end }} 
-        namespaceSelector:
-          matchLabels:
-            name: {{ .Values.externalDatabase.namespace }}
-      ports:
-      - protocol: TCP
-        port: 5432
 {{ end }}
