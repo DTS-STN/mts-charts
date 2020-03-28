@@ -64,6 +64,12 @@ networkPolicy:
   egressPodMatchLabels:
     app: postgresql
 
+database:
+  host: changeme
+  user: changeme
+  port: changeme
+  password: changeme
+
 externalDatabase:
 ## All of these values are only used when postgresql.enabled is set to false
   ## Database host
