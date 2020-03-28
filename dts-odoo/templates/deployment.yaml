@@ -26,19 +26,23 @@ spec:
       containers:
       - name: {{ template "odoo.fullname" . }}
         image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+        tag: 
         imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
         {{- if .Values.proxymode.enabled }}
         args: ["odoo", "--proxy-mode"]
         {{- end }}
         env:
-        - name: ODOO_DATABASE_HOST
-          value: {{ .Values.database.host }}
-        - name: ODOO_DATABASE_USER
-          value: {{ .Values.database.user }}
-        - name: ODOO_DATABASE_PORT
-          value: {{ .Values.database.port }}
-        - name: ODOO_DATABASE_PASSWORD
-          value: {{ .Values.database.password }}
+        - name: HOST
+          value: {{ ternary (include "odoo.postgresql.fullname" .) .Values.externalDatabase.host .Values.postgresql.enabled | quote }}
+        - name: USER
+          value: {{ ternary "postgres" .Values.externalDatabase.user .Values.postgresql.enabled | quote }}
+        - name: PORT
+          value: {{ ternary "5432" .Values.externalDatabase.port .Values.postgresql.enabled | quote }}
+        - name: PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: {{ ternary (include "odoo.postgresql.fullname" .) (printf "%s-%s" .Release.Name "externaldb") .Values.postgresql.enabled | quote }}
+              key: {{ ternary "postgresql-password" "db-password" .Values.postgresql.enabled | quote }}
         - name: ODOO_EMAIL
           value: {{ .Values.odooEmail | quote }}
         - name: ODOO_PASSWORD
