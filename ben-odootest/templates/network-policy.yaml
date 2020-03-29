@@ -27,8 +27,6 @@ spec:
   {{- if .Values.networkPolicy.egressRules }}
   egress:
   - to:
-    - podSelector:
-        matchLabels:
-          {{ toYaml .Values.networkPolicy.egressRules | nindent 4 }}
+      {{ toYaml .Values.networkPolicy.egressRules | nindent 4 }}
   {{ end }}
 {{ end }}
