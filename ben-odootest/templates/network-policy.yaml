@@ -1,0 +1,34 @@
+{{- if .Values.networkPolicy.enabled }}
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: {{ template "odoo.name" . }}
+spec:
+  podSelector:
+    matchLabels:
+      app.kubernetes.io/name: {{ template "odoo.name" . }}
+      app.kubernetes.io/instance: "{{ .Release.Name }}"
+      app.kubernetes.io/version: "{{ .Chart.AppVersion }}"
+  policyTypes:
+  {{- if .Values.networkPolicy.ingressRules }}
+  - Ingress
+  {{ end }}
+  {{- if .Values.networkPolicy.egressRules }}
+  - Egress
+  {{ end }}
+  {{- if .Values.networkPolicy.ingressRules }}
+  ingress:
+  - from:
+    {{ toYaml .Values.networkPolicy.ingressRules | nindent 4 }}
+    ports:
+    - protocol: TCP
+      port: 80
+  {{ end }}
+  {{- if .Values.networkPolicy.egressRules }}
+  egress:
+  - to:
+    - podSelector:
+        matchLabels:
+          {{ toYaml .Values.networkPolicy.egressRules | nindent 4 }}
+  {{ end }}
+{{ end }}
