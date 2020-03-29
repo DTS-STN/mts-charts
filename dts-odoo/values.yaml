@@ -65,6 +65,10 @@ odooEmail: user@example.com
 # smtpPassword:
 # smtpProtocol:
 
+init: 
+  enabled: false
+  initRepository:
+
 externalDatabase:
 ## All of these values are only used when postgresql.enabled is set to false
   ## Database host

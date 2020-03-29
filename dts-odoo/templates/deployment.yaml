@@ -24,6 +24,15 @@ spec:
         release: {{ .Release.Name | quote }}
     spec:
 {{- include "odoo.imagePullSecrets" . | indent 6 }}
+      {{- if .Values.init.enabled }}
+    # initcontainer to download OneAgent
+      initContainers:
+        - name: copy-addons-themes
+          image: {{ .Values.init.initRepository }}
+          volumeMounts:
+          - mountPath: /bitnami/odoo
+            name: odoo-data
+      {{ end }}
       containers:
       - name: {{ template "odoo.fullname" . }}
         image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
