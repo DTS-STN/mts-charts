@@ -6,18 +6,26 @@ metadata:
 spec:
   podSelector:
     matchLabels:
-      app.kubernetes.io/name: {{ template "odoo.name" . }}
-      app.kubernetes.io/instance: "{{ .Release.Name }}"
-      app.kubernetes.io/version: "{{ .Chart.AppVersion }}"
+      app: {{ template "odoo.name" . }}
+      release: "{{ .Release.Name }}"
   policyTypes:
+  {{- if .Values.networkPolicy.ingressRules }}
   - Ingress
+  {{ end }}
+  {{- if .Values.networkPolicy.egressRules }}
   - Egress
+  {{ end }}
+  {{- if .Values.networkPolicy.ingressRules }}
   ingress:
   - from:
-    {{- if .Values.networkPolicy.ingressRules }}
     {{ toYaml .Values.networkPolicy.ingressRules | nindent 4 }}
-    {{- end }}
     ports:
     - protocol: TCP
       port: 80
+  {{ end }}
+  {{- if .Values.networkPolicy.egressRules }}
+  egress:
+  - to:
+      {{ toYaml .Values.networkPolicy.egressRules | nindent 4 }}
+  {{ end }}
 {{ end }}

@@ -22,27 +22,20 @@ spec:
         app: {{ template "odoo.name" . }}
         chart: {{ template "odoo.chart" . }}
         release: {{ .Release.Name | quote }}
-        {{- if not .Values.postgresql.enabled }}
-        {{ .Values.externalDatabase.name }}-client: "true"
-        {{- end }}
     spec:
 {{- include "odoo.imagePullSecrets" . | indent 6 }}
       containers:
       - name: {{ template "odoo.fullname" . }}
         image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
-        tag: 
         imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
-        {{- if .Values.proxymode.enabled }}
-        args: ["odoo", "--proxy-mode"]
-        {{- end }}
         env:
-        - name: HOST
+        - name: POSTGRESQL_HOST
           value: {{ ternary (include "odoo.postgresql.fullname" .) .Values.externalDatabase.host .Values.postgresql.enabled | quote }}
-        - name: USER
+        - name: POSTGRESQL_USER
           value: {{ ternary "postgres" .Values.externalDatabase.user .Values.postgresql.enabled | quote }}
-        - name: PORT
+        - name: POSTGRESQL_PORT_NUMBER
           value: {{ ternary "5432" .Values.externalDatabase.port .Values.postgresql.enabled | quote }}
-        - name: PASSWORD
+        - name: POSTGRESQL_PASSWORD
           valueFrom:
             secretKeyRef:
               name: {{ ternary (include "odoo.postgresql.fullname" .) (printf "%s-%s" .Release.Name "externaldb") .Values.postgresql.enabled | quote }}
@@ -106,7 +99,7 @@ spec:
 {{ toYaml .Values.resources | indent 10 }}
         volumeMounts:
         - name: odoo-data
-          mountPath: /var/lib/odoo
+          mountPath: /bitnami/odoo
       volumes:
       - name: odoo-data
       {{- if .Values.persistence.enabled }}
