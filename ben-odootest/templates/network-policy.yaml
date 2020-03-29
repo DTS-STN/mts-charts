@@ -6,9 +6,8 @@ metadata:
 spec:
   podSelector:
     matchLabels:
-      app.kubernetes.io/name: {{ template "odoo.name" . }}
-      app.kubernetes.io/instance: "{{ .Release.Name }}"
-      app.kubernetes.io/version: "{{ .Chart.AppVersion }}"
+      app: {{ template "odoo.name" . }}
+      release: "{{ .Release.Name }}"
   policyTypes:
   {{- if .Values.networkPolicy.ingressRules }}
   - Ingress
