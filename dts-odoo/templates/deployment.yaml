@@ -25,13 +25,13 @@ spec:
     spec:
 {{- include "odoo.imagePullSecrets" . | indent 6 }}
       {{- if .Values.init.enabled }}
-    # initcontainer to download OneAgent
+    # initcontainer to copy themese and addons
       initContainers:
         - name: copy-addons-themes
           image: {{ .Values.init.initRepository }}
           volumeMounts:
           - mountPath: /bitnami/odoo
-            name: odoo-data
+            name: odoo-addons
       {{ end }}
       containers:
       - name: {{ template "odoo.fullname" . }}
@@ -109,6 +109,8 @@ spec:
         volumeMounts:
         - name: odoo-data
           mountPath: /bitnami/odoo
+        - name: odoo-addons
+          mountPath: /opt/bitnami/odoo/odoo/addons     
       volumes:
       - name: odoo-data
       {{- if .Values.persistence.enabled }}
@@ -117,6 +119,8 @@ spec:
       {{- else }}
         emptyDir: {}
       {{- end }}
+      - name: odoo-addons
+        emptyDir: {}
       {{- with .Values.affinity }}
       affinity:
 {{ toYaml . | indent 8 }}
