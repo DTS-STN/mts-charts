@@ -30,8 +30,12 @@ spec:
         - name: copy-addons-themes
           image: {{ .Values.init.initRepository }}
           volumeMounts:
+          {{- if .Values.persistence.mountPath }}
+          - mountPath: {{ .Values.persistence.mountPath }}
+          {{- else }}
           - mountPath: /bitnami/odoo
-            name: odoo-addons
+          {{- end }}
+            name: odoo-data
       {{ end }}
       containers:
       - name: {{ template "odoo.fullname" . }}
@@ -108,9 +112,11 @@ spec:
 {{ toYaml .Values.resources | indent 10 }}
         volumeMounts:
         - name: odoo-data
+        {{- if .Values.persistence.mountPath }}
+          mountPath: {{ .Values.persistence.mountPath }}
+        {{- else }}
           mountPath: /bitnami/odoo
-        - name: odoo-addons
-          mountPath: /opt/bitnami/odoo/odoo/addons     
+        {{- end }}
       volumes:
       - name: odoo-data
       {{- if .Values.persistence.enabled }}
@@ -119,8 +125,6 @@ spec:
       {{- else }}
         emptyDir: {}
       {{- end }}
-      - name: odoo-addons
-        emptyDir: {}
       {{- with .Values.affinity }}
       affinity:
 {{ toYaml . | indent 8 }}
