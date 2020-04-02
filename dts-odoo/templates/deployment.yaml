@@ -36,6 +36,10 @@ spec:
           - mountPath: /bitnami/odoo
           {{- end }}
             name: odoo-data
+          {{- if .Values.init.extraEnv }}
+          env:
+          {{ toYaml .Values.init.extraEnv | indent 10 }}
+          {{- end }}
       {{ end }}
       containers:
       - name: {{ template "odoo.fullname" . }}
