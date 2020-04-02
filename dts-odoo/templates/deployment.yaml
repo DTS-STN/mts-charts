@@ -42,13 +42,13 @@ spec:
         image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
         imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
         env:
-        - name: POSTGRESQL_HOST
+        - name: HOST
           value: {{ ternary (include "odoo.postgresql.fullname" .) .Values.externalDatabase.host .Values.postgresql.enabled | quote }}
-        - name: POSTGRESQL_USER
+        - name: USER
           value: {{ ternary "postgres" .Values.externalDatabase.user .Values.postgresql.enabled | quote }}
-        - name: POSTGRESQL_PORT_NUMBER
+        - name: PORT
           value: {{ ternary "5432" .Values.externalDatabase.port .Values.postgresql.enabled | quote }}
-        - name: POSTGRESQL_PASSWORD
+        - name: PASSWORD
           valueFrom:
             secretKeyRef:
               name: {{ ternary (include "odoo.postgresql.fullname" .) (printf "%s-%s" .Release.Name "externaldb") .Values.postgresql.enabled | quote }}
