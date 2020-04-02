@@ -66,8 +66,11 @@ odooEmail: user@example.com
 # smtpProtocol:
 
 init: 
-  enabled: false
-  initRepository:
+  enabled: true
+  initRepository: mtscontainers.azurecr.io/dtsgit:0.0.3
+  extraEnv:
+    - name: DESTINATION
+      value: /var/lib/odoo
 
 externalDatabase:
 ## All of these values are only used when postgresql.enabled is set to false
