@@ -2,4 +2,4 @@ apiVersion: v1
 appVersion: "1.0"
 description: ESDC application for project intake and requesting proof of concept
 name: dts-poc-intake
-version: 0.0.1
+version: 0.0.2

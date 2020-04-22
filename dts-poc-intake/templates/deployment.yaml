@@ -36,12 +36,12 @@ spec:
               protocol: TCP
           livenessProbe:
             httpGet:
-              path: /
+              path: {{ .Values.livenessPath }}
               port: http
             initialDelaySeconds: {{ .Values.livenessDelay }}
           readinessProbe:
             httpGet:
-              path: /
+              path: {{ .Values.readinessPath }}
               port: http
             initialDelaySeconds: {{ .Values.readinessDelay }}
           resources:

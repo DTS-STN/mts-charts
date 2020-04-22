@@ -5,6 +5,8 @@
 
 livenessDelay: 60
 readinessDelay: 60
+livenessPath: /
+readinessPath: /
 
 replicaCount: 1
 
