@@ -9,7 +9,7 @@ metadata:
 spec:
   {{- if .Values.deploymentStrategy }}
   strategy:
-  {{ toYaml .Values.deploymentStrategy | indent 4 }}
+{{ toYaml .Values.deploymentStrategy | indent 4 }}
   {{- end }}    
   replicas: {{ .Values.replicaCount }}
   selector:
