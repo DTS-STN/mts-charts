@@ -1,11 +1,11 @@
 dependencies:
-- name: dts-elasticsearch
-  version: 1.15.1
-  repository: https://helm.esdc.online
+- name: elasticsearch
+  version: 1.32.2
+  repository: https://kubernetes-charts.storage.googleapis.com/
   tags:
     - install-elasticsearch
 - name: mongodb-replicaset
-  version: 3.8.4
+  version: 3.11.2
   repository: https://kubernetes-charts.storage.googleapis.com/
   tags:
     - install-mongodb

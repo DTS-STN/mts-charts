@@ -1,9 +1,0 @@
-dependencies:
-- name: dts-elasticsearch
-  repository: https://helm.esdc.online
-  version: 1.15.1
-- name: mongodb-replicaset
-  repository: https://kubernetes-charts.storage.googleapis.com/
-  version: 3.8.4
-digest: sha256:da7f3527f443f6467cef4f96adb85039a9094d37cd2d9eac1b7b35ebe05aaac2
-generated: "2019-10-09T14:54:00.613515427-04:00"
