@@ -4,6 +4,9 @@
 
 replicaCount: 1
 
+persistence:
+  enabled: true
+
 confluence:
    image: mtscontainers.azurecr.io/mtsconfluence:0.3.1
    url: confluence.mobiletechnology.solutions

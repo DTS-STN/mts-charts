@@ -1,32 +1,24 @@
-kind: PersistentVolumeClaim
+{{- if and .Values.persistence.enabled (not .Values.persistence.existingClaim) -}}
 apiVersion: v1
+kind: PersistentVolumeClaim
 metadata:
-  name: pvc-confluence-attachments
+  name: {{ template "fullname" . }}
+  labels:
+    app: {{ template "fullname" . }}
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
+    heritage: "{{ .Release.Service }}"
+{{- if .Values.persistence.annotations }}
+  annotations:
+{{ toYaml .Values.persistence.annotations | indent 4 }}
+{{- end }}
 spec:
   accessModes:
-    - ReadWriteMany
+  - {{ .Values.persistence.accessMode | quote }}
   resources:
     requests:
-      storage: 5Gi
-  storageClassName: "default"
-  volumeName: pv-confluence-attachments-{{ .Values.confluence.environment }}
----
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: pv-confluence-attachments-{{ .Values.confluence.environment }}
-spec:
-  storageClassName: "default"
-  capacity:
-    storage: 5Gi
-  accessModes:
-    - ReadWriteMany
-  azureFile:
-    secretName: mtsbackupsecret-confluence
-    shareName: {{ .Values.confluence.attachmentsharename }}
-    readOnly: false
-  mountOptions:
-    - dir_mode=0777
-    - file_mode=0777
-    - uid=1000
-    - gid=1000
+      storage: {{ .Values.persistence.size | quote }}
+{{- if .Values.persistence.storageClass }}
+  storageClassName: "{{ .Values.persistence.storageClass }}"
+{{- end }}
+{{- end -}}
