@@ -1,0 +1,22 @@
+{{- if and .Values.persistence.enabled (not .Values.persistence.existingClaim) -}}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pvc-heartbeat-monitors
+  labels:
+    app.kubernetes.io/name: {{ include "name" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+{{- if .Values.persistence.annotations }}
+  annotations:
+{{ toYaml .Values.persistence.annotations | indent 4 }}
+{{- end }}
+spec:
+  accessModes:
+  - {{ .Values.persistence.accessMode | quote }}
+  resources:
+    requests:
+      storage: {{ .Values.persistence.size | quote }}
+{{- if .Values.persistence.storageClass }}
+  storageClassName: "{{ .Values.persistence.storageClass }}"
+{{- end }}
+{{- end -}}
