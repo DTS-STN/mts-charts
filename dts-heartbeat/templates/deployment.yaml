@@ -6,9 +6,10 @@ metadata:
     app.kubernetes.io/name: {{ include "name" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
 spec:
-  {{- if .Values.updateStrategy }}
-  updateStrategy: {{ toYaml .Values.updateStrategy }}
-  {{- end }}    
+  {{- if .Values.deploymentStrategy }}
+  strategy:
+{{ toYaml .Values.deploymentStrategy | indent 4 }}
+  {{- end }}   
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
