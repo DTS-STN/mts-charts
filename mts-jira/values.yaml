@@ -25,6 +25,7 @@ jira:
      minmemory: 4Gi
      jvmminmemory: 2048m
      jvmmaxmemory: 4096m
-
+persistence:
+  storageClassName: default
 
 

@@ -8,7 +8,7 @@ spec:
   resources:
     requests:
       storage: 5Gi
-  storageClassName: "default"
+  storageClassName: {{ .Values.persistence.storageClassName }}
   volumeName: pv-mtsbackup-jira-{{ .Values.jira.environment }}
 ---
 apiVersion: v1
@@ -16,7 +16,7 @@ kind: PersistentVolume
 metadata:
   name: pv-mtsbackup-jira-{{ .Values.jira.environment }}
 spec:
-  storageClassName: "default"
+  storageClassName: {{ .Values.persistence.storageClassName }}
   capacity:
     storage: 5Gi
   accessModes:
