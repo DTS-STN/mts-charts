@@ -27,5 +27,7 @@ jira:
      jvmmaxmemory: 4096m
 persistence:
   storageClassName: default
+securityContext:
+  fsGroup: 1000
 
 
