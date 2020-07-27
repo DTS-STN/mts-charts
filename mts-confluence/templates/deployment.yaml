@@ -24,6 +24,8 @@ spec:
         service: mtsconfluence
     spec:
       restartPolicy: Always
+      securityContext:
+        fsGroup: {{ .Values.securityContext.fsGroup }}
       containers:
       - name: mtsconfluence
         image: {{ .Values.confluence.image }} 
